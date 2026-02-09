@@ -446,13 +446,12 @@ class TrackingService {
     const cdpData = {
       "cookieId": this.cookieId,
       "cdcUid": this.cdcUid,
-      "timestamp": new Date().toISOString(),
-      "pageUrl": window.location.href,
-      "organizationId": "sap-cx-retail",
       "ticketId": ticketData.ticketId,
       "category": ticketData.category,
       "priority": ticketData.priority,
-      "bike_id": ticketData.bike_id || "",
+      "subject": ticketData.subject || "",
+      "description": ticketData.description || "",
+      "bikeId": ticketData.bike_id || "",
       "bikeName": ticketData.bikeName || "",
       "ticketStatus": ticketData.status || "open"
     };
@@ -465,7 +464,7 @@ class TrackingService {
       cdpData.phone = ticketData.phone || "";
     }
 
-    this.sendToCDP('ServiceTicketSubmitted', cdpData);
+    this.sendToCDP('Service Ticket', cdpData);
     this.sendToGTM('service_ticket_submitted', {
       ticket_id: ticketData.ticketId,
       category: ticketData.category,
