@@ -1,0 +1,61 @@
+{
+    "title": "bike360",
+    "type": "object",
+    "properties": {
+        "bike_id": {
+            "title": "Bike ID",
+            "type": "string",
+            "description": "Rahmennummer als eindeutige Fahrrad-ID (group key)"
+        },
+        "model_name": {
+            "title": "Model Name",
+            "type": "string",
+            "description": "Name/model of the bike"
+        },
+        "brand": {
+            "title": "Brand",
+            "type": "string",
+            "description": "Manufacturer brand"
+        },
+        "category": {
+            "title": "Category",
+            "type": "string",
+            "description": "Bike category (e.g., Mountain Bike, Road Bike, E-Bike)"
+        },
+        "color": {
+            "title": "Color",
+            "type": "string",
+            "description": "Primary color of the bike"
+        },
+        "year_of_manufacture": {
+            "title": "Year of Manufacture",
+            "type": "integer",
+            "description": "Manufacturing year"
+        },
+        "purchase_price": {
+            "title": "Purchase Price",
+            "type": "number",
+            "description": "Original purchase price"
+        },
+        "warranty_status": {
+            "title": "Warranty Status",
+            "type": "string",
+            "description": "Current warranty status (active, expired, extended)"
+        },
+        "warranty_end_date": {
+            "title": "Warranty End Date",
+            "type": "string",
+            "description": "Date when warranty expires (YYYY-MM-DD format)"
+        },
+        "last_service_date": {
+            "title": "Last Service Date",
+            "type": "string",
+            "description": "Timestamp of most recent service (ISO 8601 format)"
+        },
+        "bike_status": {
+            "title": "Bike Status",
+            "type": "string",
+            "description": "Current status of the bike (active, stolen, sold, scrapped)"
+        }
+    }
+}

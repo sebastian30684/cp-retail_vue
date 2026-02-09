@@ -1,0 +1,47 @@
+{
+    "title": "bike_ownership",
+    "type": "object",
+    "description": "Relationship linking customer profiles to owned bikes",
+    "properties": {
+        "email": {
+            "title": "Customer Email",
+            "type": "string",
+            "description": "Email identifier from customer_profile (primaryEmail)"
+        },
+        "bike_id": {
+            "title": "Bike ID",
+            "type": "string",
+            "description": "Reference to bike360 group_key"
+        },
+        "ownership_type": {
+            "title": "Ownership Type",
+            "type": "string",
+            "description": "Type of ownership relationship (owner, shared, rental, test)"
+        },
+        "purchase_date": {
+            "title": "Purchase Date",
+            "type": "string",
+            "description": "Date bike was purchased (YYYY-MM-DD format)"
+        },
+        "purchase_channel": {
+            "title": "Purchase Channel",
+            "type": "string",
+            "description": "Channel through which bike was acquired (online, retail_store, dealer, second_hand, gift)"
+        },
+        "registration_date": {
+            "title": "Registration Date",
+            "type": "string",
+            "description": "Timestamp when relationship was registered in system (ISO 8601 format)"
+        },
+        "dealer_id": {
+            "title": "Dealer ID",
+            "type": "string",
+            "description": "Identifier of dealer who sold the bike (if applicable)"
+        },
+        "is_primary_rider": {
+            "title": "Is Primary Rider",
+            "type": "boolean",
+            "description": "Whether this person is the primary rider of this bike"
+        }
+    }
+}

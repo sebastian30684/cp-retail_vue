@@ -1,0 +1,30 @@
+{
+  "name": "cp-retail",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "vite build && cf push"
+  },
+  "description": "",
+  "main": "vite.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "papaparse": "^5.5.3",
+    "pinia": "^3.0.3",
+    "vue": "^3.5.18",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "eslint": "^9.32.0",
+    "prettier": "^3.6.2",
+    "terser": "^5.44.1",
+    "vite": "^7.0.6"
+  }
+}

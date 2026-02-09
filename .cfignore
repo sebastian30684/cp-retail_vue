@@ -1,0 +1,6 @@
+node_modules/
+src/
+.cert/
+.env
+.git/
+.DS_Store

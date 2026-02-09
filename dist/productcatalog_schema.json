@@ -1,0 +1,73 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "productName": {
+            "type": "string"
+        },
+        "productDescription": {
+            "type": "string"
+        },
+        "category": {
+            "type": "string"
+        },
+        "subcategory": {
+            "type": "string"
+        },
+        "price": {
+            "type": "number"
+        },
+        "currency": {
+            "type": "string"
+        },
+        "imageUrl": {
+            "type": "string"
+        },
+        "inStock": {
+            "type": "boolean"
+        },
+        "sizes": {
+            "type": "string"
+        },
+        "colors": {
+            "type": "string"
+        },
+        "brand": {
+            "type": "string"
+        },
+        "productType": {
+            "type": "string"
+        },
+        "region": {
+            "type": "string"
+        },
+        "lastUpdated": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "groupset": {
+            "type": "string"
+        },
+        "brakes": {
+            "type": "string"
+        },
+        "frameMaterial": {
+            "type": "string"
+        },
+        "wheelSize": {
+            "type": "string"
+        },
+        "suspension": {
+            "type": "string"
+        },
+        "weight": {
+            "type": "number"
+        },
+        "hasWarranty": {
+            "type": "boolean"
+        }
+    }
+}

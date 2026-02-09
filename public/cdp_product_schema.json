@@ -1,0 +1,116 @@
+{
+    "title": "Product",
+    "type": "object",
+    "properties": {
+        "productExternalId": {
+            "title": "Product External Id",
+            "type": "string"
+        },
+        "productName": {
+            "title": "Product Name",
+            "type": "string"
+        },
+        "productDescription": {
+            "title": "Product Description",
+            "type": "string"
+        },
+        "category": {
+            "title": "Category",
+            "type": "string"
+        },
+        "subcategory": {
+            "title": "Subcategory",
+            "type": "string"
+        },
+        "businessModel": {
+            "title": "Business Model",
+            "type": "object",
+            "properties": {
+                "type": {
+                    "title": "Type",
+                    "type": "string"
+                },
+                "price": {
+                    "title": "Price",
+                    "type": "number"
+                },
+                "payment": {
+                    "title": "Payment",
+                    "type": "number"
+                },
+                "subscriptionType": {
+                    "title": "Subscription Type",
+                    "type": "string"
+                },
+                "currency": {
+                    "title": "Currency",
+                    "type": "string"
+                }
+            }
+        },
+        "imageUrl": {
+            "title": "Image URL",
+            "type": "string"
+        },
+        "inStock": {
+            "title": "In Stock",
+            "type": "boolean"
+        },
+        "sizes": {
+            "title": "Available Sizes",
+            "type": "string"
+        },
+        "colors": {
+            "title": "Available Colors",
+            "type": "string"
+        },
+        "brand": {
+            "title": "Brand",
+            "type": "string"
+        },
+        "region": {
+            "title": "Region",
+            "type": "string"
+        },
+        "hasWarranty": {
+            "title": "Has Warranty",
+            "type": "boolean"
+        },
+        "groupset": {
+            "title": "Groupset",
+            "type": "string"
+        },
+        "brakes": {
+            "title": "Brakes",
+            "type": "string"
+        },
+        "frameMaterial": {
+            "title": "Frame Material",
+            "type": "string"
+        },
+        "wheelSize": {
+            "title": "Wheel Size",
+            "type": "string"
+        },
+        "suspension": {
+            "title": "Suspension",
+            "type": "string"
+        },
+        "weight": {
+            "title": "Weight (kg)",
+            "type": "number"
+        },
+        "category1": {
+            "title": "Category1",
+            "type": "string"
+        },
+        "category2": {
+            "title": "Category2",
+            "type": "string"
+        },
+        "category3": {
+            "title": "Category3",
+            "type": "string"
+        }
+    }
+}

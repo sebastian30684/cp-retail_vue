@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP CX Retail Store - Premium Bikes & Accessories</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- External CSS File -->
+    <link rel="stylesheet" href="/sap-styles.css">
+    
+    <!-- SAP Customer Data Cloud (Gigya) -->
+    <script src="https://cdns.eu1.gigya.com/js/gigya.js?apikey=4_e4HCkwemTAq9W_zLl4EZZw"></script>
+
+    <!-- SAP CDP Web-SDK -->
+    <script src="https://cdns.cdp.gigya.com/websdk.js"></script>
+    <script>
+        window.CDP = null;
+        gigya.cdp.init({
+            apiDomain: 'EU5',
+            bUnitId: '4_GJZtcJvXbmKrbEyYcnj4DQ',
+            appId: 'HKWXOd7mUFGlSqEKU-kWVw'
+        })
+        .then(function(sdk) { window.CDP = sdk; console.log('✅ SAP CDP SDK initialized'); })
+        .catch(function(err) { console.error('❌ SAP CDP SDK failed:', err); });
+    </script>
+    <!-- End SAP CDP Web-SDK -->
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KLF9JSGG');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Emarsys Web Extend (Scarab) -->
+    <script type="text/javascript">
+      var ScarabQueue = ScarabQueue || [];
+      (function(id) {
+        if (document.getElementById(id)) return;
+        var js = document.createElement('script'); js.id = id;
+        js.src = '//cdn.scarabresearch.com/js/19DAA9D2B302671B/scarab-v2.js';
+        var fs = document.getElementsByTagName('script')[0];
+        fs.parentNode.insertBefore(js, fs);
+      })('scarab-js-api');
+    </script>
+    <!-- End Emarsys Web Extend -->
+  <script type="module" crossorigin src="/assets/index-B6sjK_8K.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BdQ5Rh8P.css">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KLF9JSGG');</script>
+    <!-- End Google Tag Manager -->
+</head>
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLF9JSGG"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLF9JSGG"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <div id="app"></div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{
+  "id": "athlete-001",
+  "firstName": "John",
+  "lastName": "Cyclist",
+  "profileImage": "/images/strava-avatar.png",
+  "city": "Freiburg",
+  "country": "Germany",
+  "bio": "Passionate cyclist exploring the Black Forest region",
+  "premium": true,
+  "stats": {
+    "totalRides": 156,
+    "totalDistance": 4523,
+    "totalElevation": 52400,
+    "totalTime": 180000,
+    "ytdRides": 28,
+    "ytdDistance": 890,
+    "ytdElevation": 12500,
+    "ytdTime": 36000,
+    "thisMonthRides": 12,
+    "thisMonthDistance": 535.5,
+    "thisMonthElevation": 6465,
+    "thisMonthTime": 68100
+  },
+  "gear": [
+    {
+      "id": "bike-001",
+      "name": "Canyon Aeroad CFR",
+      "type": "Road Bike",
+      "distance": 2850
+    },
+    {
+      "id": "bike-002",
+      "name": "Canyon Spectral 29",
+      "type": "Mountain Bike",
+      "distance": 1200
+    },
+    {
+      "id": "bike-003",
+      "name": "Canyon Grail CF",
+      "type": "Gravel Bike",
+      "distance": 473
+    }
+  ],
+  "achievements": [
+    { "id": 1, "name": "Century Rider", "description": "Complete a 100km ride", "earnedAt": "2024-01-14" },
+    { "id": 2, "name": "King of the Mountain", "description": "Climb 1000m in a single ride", "earnedAt": "2024-01-07" },
+    { "id": 3, "name": "Early Bird", "description": "Start a ride before 6am", "earnedAt": "2024-01-25" }
+  ]
+}
