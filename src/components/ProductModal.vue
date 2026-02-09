@@ -243,7 +243,7 @@ export default {
 
     const loadRecommendations = () => {
       if (!props.product?.id) return
-      emarsysTracker.recommend('ALSO_BOUGHT', 'productViewRecoId')
+      emarsysTracker.recommend('RELATED', 'productViewRecoId')
       emarsysTracker.go()
     }
 
