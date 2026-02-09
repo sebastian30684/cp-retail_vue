@@ -24,19 +24,19 @@
   "gear": [
     {
       "id": "bike-001",
-      "name": "Canyon Aeroad CFR",
+      "name": "Canyon Aeroad CF SLX 8 AXS",
       "type": "Road Bike",
       "distance": 2850
     },
     {
       "id": "bike-002",
-      "name": "Canyon Spectral 29",
+      "name": "Canyon Neuron CF 8",
       "type": "Mountain Bike",
       "distance": 1200
     },
     {
       "id": "bike-003",
-      "name": "Canyon Grail CF",
+      "name": "Canyon Grail CF 7",
       "type": "Gravel Bike",
       "distance": 473
     }

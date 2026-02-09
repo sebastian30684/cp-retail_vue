@@ -8,7 +8,7 @@
             "description": "Rahmennummer als eindeutige Fahrrad-ID (group key)"
         },
         "model_name": {
-            "title": "Model Name",
+            "title": "Model whatever",
             "type": "string",
             "description": "Name/model of the bike"
         },

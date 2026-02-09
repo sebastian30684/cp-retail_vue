@@ -41,32 +41,27 @@
         "firstName": {
             "title": "First Name",
             "type": "string",
-            "description": "Customer first name"
+            "description": "Customer first name (guest users only)"
         },
         "lastName": {
             "title": "Last Name",
             "type": "string",
-            "description": "Customer last name"
+            "description": "Customer last name (guest users only)"
         },
         "primaryEmail": {
             "title": "Primary Email",
             "type": "string",
-            "description": "Customer email address (matches customer_profile field)"
+            "description": "Customer email address (guest users only)"
         },
         "phone": {
             "title": "Phone",
             "type": "string",
-            "description": "Customer phone number (optional)"
-        },
-        "orderNumber": {
-            "title": "Order Number",
-            "type": "string",
-            "description": "Related order number if applicable"
+            "description": "Customer phone number (optional, guest users only)"
         },
         "category": {
             "title": "Category",
             "type": "string",
-            "description": "Service ticket category (defective, missing, wrong-item, damaged, warranty, return, exchange, technical, billing, other)"
+            "description": "Service category (buying-fitting-advice, repairs-servicing, test-bikes, bike-rental, collect-ride, new-bike-day, new-bike-pickup, suspension-servicing, wheel-building, mobile-repairs, bike-fitting, velofix, bike-boxing-shipping, ebike-battery-disposal)"
         },
         "priority": {
             "title": "Priority",
@@ -86,7 +81,12 @@
         "bike_id": {
             "title": "Bike ID",
             "type": "string",
-            "description": "Optional: Related bike ID if ticket involves a specific bike"
+            "description": "Optional: accountID of the selected bike from CDP Bike Garage"
+        },
+        "bikeName": {
+            "title": "Bike Name",
+            "type": "string",
+            "description": "Optional: accountName of the selected bike from CDP Bike Garage"
         },
         "ticketStatus": {
             "title": "Ticket Status",
