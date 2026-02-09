@@ -3280,6 +3280,76 @@ body {
 }
 
 /* ============================
+   EMARSYS RECOMMENDATIONS
+   ============================*/
+
+.emarsys-reco-container {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 1.5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.emarsys-reco-container h4 {
+    width: 100%;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--sap-gray-8);
+    margin: 0 0 1rem 0;
+}
+
+.emarsys-reco-container .rec-item {
+    flex: 1 1 0;
+    min-width: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    margin-right: 0.75rem;
+}
+
+.emarsys-reco-container .rec-item:last-child {
+    margin-right: 0;
+}
+
+.emarsys-reco-container .rec-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.emarsys-reco-container .rec-item a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.emarsys-reco-container .rec-image {
+    max-width: 80px;
+    max-height: 80px;
+    object-fit: cover;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.emarsys-reco-container .rec-title {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--sap-gray-8);
+    padding: 0.5rem;
+    line-height: 1.3;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ============================
    CART SIDEBAR STYLES
    ============================*/
 

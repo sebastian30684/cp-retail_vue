@@ -171,7 +171,6 @@
 
 <script>
 import { ref, computed, watch, onMounted } from 'vue'
-import emarsysTracker from '../utils/emarsys-tracking.js'
 
 export default {
   name: 'ProductModal',
@@ -241,10 +240,49 @@ export default {
       })
     }
 
+    const ensureRecoTemplate = () => {
+      const existing = document.getElementById('productViewRecoTmpl')
+      if (existing) existing.remove()
+      const tmpl = document.createElement('script')
+      tmpl.type = 'text/html'
+      tmpl.id = 'productViewRecoTmpl'
+      tmpl.text = [
+        '<![CDATA[',
+        '<h4>{{=SC.title}}</h4>',
+        '{{ for (var i=0; i < SC.page.products.length; i++) { }}',
+        '  {{ var p = SC.page.products[i]; }}',
+        '  <span data-scarabitem="{{= p.id }}" class="rec-item">',
+        '    <a href="{{=p.link}}" target="_blank">',
+        '      <img src="{{=p.image}}" class="rec-image" title="{{=p.title}}">',
+        '      <span class="rec-title">{{=p.title}}</span>',
+        '    </a>',
+        '  </span>',
+        '{{ } }}',
+        ']]>'
+      ].join('\n')
+      document.body.appendChild(tmpl)
+    }
+
     const loadRecommendations = () => {
       if (!props.product?.id) return
-      emarsysTracker.recommend('RELATED', 'productViewRecoId')
-      emarsysTracker.go()
+      ensureRecoTemplate()
+
+      window.ScarabQueue = window.ScarabQueue || []
+      // Send view command so RELATED logic knows which product to base on
+      window.ScarabQueue.push(['view', String(props.product.id)])
+      window.ScarabQueue.push(['recommend', {
+        logic: 'RELATED',
+        containerId: 'productViewRecoId',
+        templateId: 'productViewRecoTmpl',
+        limit: 4,
+        success: function (SC, render) {
+          if (SC.page.products.length > 0) {
+            SC.title = 'Related Products'
+            render(SC)
+          }
+        }
+      }])
+      window.ScarabQueue.push(['go'])
     }
 
     onMounted(() => {
