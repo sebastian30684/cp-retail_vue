@@ -160,14 +160,8 @@
               </div>
             </div>
 
-            <!-- Emarsys Related Products Recommendations -->
-            <EmarsysRecommendations
-              logic="ALSO_BOUGHT"
-              title="Customers also bought"
-              :product-id="product?.id"
-              :max-items="3"
-              @product-click="handleRecommendationClick"
-            />
+            <!-- Emarsys Product View Recommendations -->
+            <div id="productViewRecoId" class="emarsys-reco-container"></div>
           </div>
         </div>
       </div>
@@ -176,14 +170,11 @@
 </template>
 
 <script>
-import { ref, computed, watch } from 'vue'
-import EmarsysRecommendations from './EmarsysRecommendations.vue'
+import { ref, computed, watch, onMounted } from 'vue'
+import emarsysTracker from '../utils/emarsys-tracking.js'
 
 export default {
   name: 'ProductModal',
-  components: {
-    EmarsysRecommendations
-  },
   props: {
     product: {
       type: Object,
@@ -250,11 +241,23 @@ export default {
       })
     }
 
-    const handleRecommendationClick = (recommendedProduct) => {
-      console.log('Recommendation clicked:', recommendedProduct)
-      // For now just log - the product catalog may not have matching IDs
-      // In a real implementation, you would fetch the full product and display it
+    const loadRecommendations = () => {
+      if (!props.product?.id) return
+      emarsysTracker.recommend('ALSO_BOUGHT', 'productViewRecoId')
+      emarsysTracker.go()
     }
+
+    onMounted(() => {
+      if (props.product) {
+        loadRecommendations()
+      }
+    })
+
+    watch(() => props.product, (newProduct) => {
+      if (newProduct) {
+        loadRecommendations()
+      }
+    })
 
     return {
       quantity,
@@ -267,8 +270,7 @@ export default {
       decreaseQuantity,
       addToCart,
       addToWishlist,
-      formatDate,
-      handleRecommendationClick
+      formatDate
     }
   }
 }
