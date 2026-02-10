@@ -446,6 +446,7 @@ class TrackingService {
     const cdpData = {
       "cookieId": this.cookieId,
       "cdcUid": this.cdcUid,
+      "primaryEmail": ticketData.email || this.userEmail || "",
       "ticketId": ticketData.ticketId,
       "category": ticketData.category,
       "priority": ticketData.priority,
@@ -456,11 +457,10 @@ class TrackingService {
       "ticketStatus": ticketData.status || "open"
     };
 
-    // Add PII fields only for non-logged-in users (no cdcUid)
+    // Add additional PII fields only for non-logged-in users (no cdcUid)
     if (!this.cdcUid) {
       cdpData.firstName = ticketData.firstName || "";
       cdpData.lastName = ticketData.lastName || "";
-      cdpData.primaryEmail = ticketData.email || "";
       cdpData.phone = ticketData.phone || "";
     }
 

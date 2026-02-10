@@ -48,15 +48,15 @@
 
           <div class="profile-stats">
             <div class="stat-box">
-              <span class="stat-number">{{ athlete.stats.totalRides }}</span>
+              <span class="stat-number">{{ activities.length }}</span>
               <span class="stat-label">Total Rides</span>
             </div>
             <div class="stat-box">
-              <span class="stat-number">{{ formatDistance(athlete.stats.totalDistance) }}</span>
+              <span class="stat-number">{{ formatDistance(totalDistance) }}</span>
               <span class="stat-label">Total Distance</span>
             </div>
             <div class="stat-box">
-              <span class="stat-number">{{ formatElevation(athlete.stats.totalElevation) }}</span>
+              <span class="stat-number">{{ formatElevation(totalElevation) }}</span>
               <span class="stat-label">Total Elevation</span>
             </div>
             <div class="stat-box highlight">
@@ -151,7 +151,7 @@
               <div class="gear-info">
                 <h4>{{ gear.name }}</h4>
                 <p>{{ gear.type }}</p>
-                <span class="gear-distance">{{ formatDistance(gear.distance) }} ridden</span>
+                <span class="gear-distance">{{ formatDistance(distancePerGear[gear.id] || 0) }} ridden</span>
               </div>
             </div>
           </div>
@@ -184,7 +184,10 @@ const {
   athlete,
   activities,
   isLoading,
+  totalDistance,
+  totalElevation,
   thisMonthStats,
+  distancePerGear,
   initializeStrava,
   syncActivities,
   disconnectStrava,

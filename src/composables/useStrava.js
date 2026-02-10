@@ -49,12 +49,19 @@ export function useStrava() {
   })
 
   const thisMonthStats = computed(() => {
-    if (!state.athlete?.stats) return null
+    const now = new Date()
+    const thisMonth = now.getMonth()
+    const thisYear = now.getFullYear()
+    const monthActivities = state.activities.filter(a => {
+      const d = new Date(a.date)
+      return d.getMonth() === thisMonth && d.getFullYear() === thisYear
+    })
+    if (monthActivities.length === 0 && !state.athlete?.stats) return null
     return {
-      rides: state.athlete.stats.thisMonthRides,
-      distance: state.athlete.stats.thisMonthDistance,
-      elevation: state.athlete.stats.thisMonthElevation,
-      time: state.athlete.stats.thisMonthTime
+      rides: monthActivities.length,
+      distance: monthActivities.reduce((sum, a) => sum + a.distance, 0),
+      elevation: monthActivities.reduce((sum, a) => sum + a.elevation, 0),
+      time: monthActivities.reduce((sum, a) => sum + a.movingTime, 0)
     }
   })
 
@@ -135,6 +142,56 @@ export function useStrava() {
   }
 
   // ============================================
+  // RANDOM ACTIVITY GENERATION
+  // ============================================
+
+  const rideNames = [
+    'Morning Coffee Ride', 'Sunset Loop', 'Hill Repeat Session', 'Interval Training',
+    'Recovery Spin', 'Long Weekend Ride', 'Black Forest Explorer', 'Rhine Valley Tour',
+    'Tempo Ride', 'Endurance Builder', 'Sprint Session', 'Climbing Day',
+    'Group Ride', 'Solo Adventure', 'After Work Spin', 'Early Bird Ride',
+    'Gravel Detour', 'MTB Trail Blast', 'Base Miles', 'Threshold Effort',
+    'Freiburg City Loop', 'Kaiserstuhl Vineyards', 'Dreisamtal Out & Back',
+    'Schauinsland Repeats', 'Titisee Round Trip', 'Feldberg Challenge'
+  ]
+
+  function generateRandomActivity() {
+    const gearIds = ['bike-001', 'bike-002', 'bike-003']
+    const gearId = gearIds[Math.floor(Math.random() * gearIds.length)]
+
+    const distance = +(10 + Math.random() * 100).toFixed(1)
+    const avgSpeed = +(18 + Math.random() * 18).toFixed(1)
+    const movingTime = Math.round((distance / avgSpeed) * 3600)
+    const elevation = Math.round(50 + Math.random() * 1200)
+    const maxSpeed = +(avgSpeed + 10 + Math.random() * 20).toFixed(1)
+    const calories = Math.round(distance * 25 + Math.random() * 200)
+    const kudos = Math.floor(Math.random() * 50)
+    const achievementCount = Math.floor(Math.random() * 5)
+
+    const maxId = state.activities.length > 0
+      ? Math.max(...state.activities.map(a => a.id))
+      : 0
+
+    const name = rideNames[Math.floor(Math.random() * rideNames.length)]
+
+    return {
+      id: maxId + 1,
+      name,
+      type: 'Ride',
+      gearId,
+      date: new Date().toISOString(),
+      distance,
+      movingTime,
+      elevation,
+      avgSpeed,
+      maxSpeed,
+      calories,
+      kudos,
+      achievementCount
+    }
+  }
+
+  // ============================================
   // CONNECTION MANAGEMENT
   // ============================================
 
@@ -188,11 +245,14 @@ export function useStrava() {
     // Simulate sync delay
     await new Promise(resolve => setTimeout(resolve, 1000))
 
-    const { activities } = await loadMockData()
-    state.activities = activities
+    // Generate a new random ride activity and append it
+    const newActivity = generateRandomActivity()
+    state.activities.push(newActivity)
     state.lastSyncDate = new Date().toISOString()
 
-    localStorage.setItem(STRAVA_ACTIVITIES_KEY, JSON.stringify(activities))
+    console.log(`[Strava] New activity synced: "${newActivity.name}" - ${newActivity.distance} km on gear ${newActivity.gearId}`)
+
+    localStorage.setItem(STRAVA_ACTIVITIES_KEY, JSON.stringify(state.activities))
     localStorage.setItem(STRAVA_STORAGE_KEY, JSON.stringify({
       isConnected: true,
       athlete: state.athlete,
@@ -202,9 +262,9 @@ export function useStrava() {
     state.isLoading = false
 
     // Track CDP event
-    trackStravaActivitySync(activities)
+    trackStravaActivitySync(state.activities)
 
-    return { success: true, activitiesCount: activities.length }
+    return { success: true, activitiesCount: state.activities.length }
   }
 
   // ============================================
