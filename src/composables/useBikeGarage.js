@@ -8,21 +8,8 @@ import trackingService from '../utils/tracking-service.js'
 const BIKE_GARAGE_STORAGE_KEY = 'bike_garage_data'
 const BIKE_GARAGE_EMAIL_KEY = 'bike_garage_email'
 
-// CDP API configuration
-const CDP_BASE_URL = 'https://cdp.EU5-prod.gigya.com/api/businessunits/4_GJZtcJvXbmKrbEyYcnj4DQ'
-
-const CUSTOMER_API = {
-  url: `${CDP_BASE_URL}/views/HJolf9MBIvH7oEBmM3UpOw/customers`,
-  purposeIds: 'HG0_WQzkdjLlPJbxrktHzw',
-  userKey: 'AJVGIcoKduTt',
-  secret: 'GXcc75wJV/hpPraNJ/ymkaySGYTqAWuO'
-}
-
-const BIKE_API = {
-  url: `${CDP_BASE_URL}/schemas/HKpZLWYkvpRykUOwL4YiCw/groups`,
-  userKey: 'AOZa92f657HN',
-  secret: '+0lRIgq+CFC9nJD4Ne5To3vdtNLk1OPF'
-}
+// CDP API proxy endpoint (Netlify Function)
+const CDP_PROXY_URL = '/.netlify/functions/cdp-proxy'
 
 const BIKE_RELATIONSHIP_KEY = 'HJT34xIowhM9jcOzv8dBcQ'
 
@@ -49,15 +36,11 @@ export function useBikeGarage() {
   // ============================================
 
   async function fetchCustomerByEmail(email) {
-    const query = `select * from profile WHERE attributes.primaryEmail = '${email}' LIMIT 10`
-    const params = new URLSearchParams({
-      purposeIds: CUSTOMER_API.purposeIds,
-      userKey: CUSTOMER_API.userKey,
-      secret: CUSTOMER_API.secret,
-      query: query
+    const response = await fetch(CDP_PROXY_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'customer', email })
     })
-
-    const response = await fetch(`${CUSTOMER_API.url}?${params}`)
     if (!response.ok) throw new Error(`Customer API error: ${response.status}`)
     return await response.json()
   }
@@ -81,14 +64,11 @@ export function useBikeGarage() {
   }
 
   async function fetchBikeDetails(bikeId) {
-    const query = `select * from groups WHERE attributes.accountID = "${bikeId}"`
-    const params = new URLSearchParams({
-      query: query,
-      userKey: BIKE_API.userKey,
-      secret: BIKE_API.secret
+    const response = await fetch(CDP_PROXY_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'bike', bikeId })
     })
-
-    const response = await fetch(`${BIKE_API.url}?${params}`)
     if (!response.ok) throw new Error(`Bike API error: ${response.status} for ${bikeId}`)
     const data = await response.json()
 

@@ -230,8 +230,8 @@ class TrackingService {
       "pageUrl": window.location.href,
       "pageType": this.getPageType(),
       "pageTitle": document.title,
-      "referrer": document.referrer || '',
-      "organizationId": "sap-cx-retail"
+      "referrer": document.referrer || ''
+      // "organizationId": "sap-cx-retail"
     };
 
     this.sendToCDP('PageView', cdpData);
@@ -259,7 +259,7 @@ class TrackingService {
       "cdcUid": this.cdcUid,
       "timestamp": new Date().toISOString(),
       "pageUrl": window.location.href,
-      "organizationId": "sap-cx-retail",
+      // "organizationId": "sap-cx-retail",
       "products": [{
         "productId": product.id,
         "productName": product.productName,
@@ -289,7 +289,7 @@ class TrackingService {
       "cdcUid": this.cdcUid,
       "timestamp": new Date().toISOString(),
       "pageUrl": window.location.href,
-      "organizationId": "sap-cx-retail",
+      // "organizationId": "sap-cx-retail",
       "products": [{
         "productId": product.id,
         "productName": product.productName,
@@ -321,7 +321,7 @@ class TrackingService {
       "cdcUid": this.cdcUid,
       "timestamp": new Date().toISOString(),
       "pageUrl": window.location.href,
-      "organizationId": "sap-cx-retail",
+      // "organizationId": "sap-cx-retail",
       "products": [{
         "productId": product.id,
         "productName": product.productName,
@@ -362,7 +362,7 @@ class TrackingService {
       "cdcUid": this.cdcUid,
       "timestamp": new Date().toISOString(),
       "pageUrl": window.location.href,
-      "organizationId": "sap-cx-retail",
+      // "organizationId": "sap-cx-retail",
       "products": products,
       "cartTotal": cartTotal,
       "cartItemCount": cartItemCount
@@ -405,7 +405,7 @@ class TrackingService {
       "cartTotal": cartTotal,
       "cartItemCount": cartItemCount,
       "timeSinceCreation": timeSinceCreation,
-      "organizationId": "sap-cx-retail",
+      // "organizationId": "sap-cx-retail",
       "products": products
     };
 
@@ -428,7 +428,7 @@ class TrackingService {
       "cdcUid": this.cdcUid,
       "timestamp": new Date().toISOString(),
       "pageUrl": window.location.href,
-      "organizationId": "sap-cx-retail",
+      // "organizationId": "sap-cx-retail",
       "formType": formData.formType || 'contact'
     };
 
@@ -481,7 +481,7 @@ class TrackingService {
       "cdcUid": this.cdcUid,
       "timestamp": new Date().toISOString(),
       "pageUrl": window.location.href,
-      "organizationId": "sap-cx-retail",
+      // "organizationId": "sap-cx-retail",
       "searchQuery": query,
       "searchResultsCount": resultsCount
     };
@@ -511,7 +511,7 @@ class TrackingService {
       "cdcUid": this.cdcUid,
       "timestamp": new Date().toISOString(),
       "pageUrl": window.location.href,
-      "organizationId": "sap-cx-retail",
+      // "organizationId": "sap-cx-retail",
       "checkoutStep": step,
       "checkoutOption": option,
       "products": products,
@@ -542,7 +542,7 @@ class TrackingService {
       "cdcUid": this.cdcUid,
       "timestamp": new Date().toISOString(),
       "pageUrl": window.location.href,
-      "organizationId": "sap-cx-retail",
+      // "organizationId": "sap-cx-retail",
       "products": [{
         "productId": product.id,
         "productName": product.productName,
@@ -573,7 +573,7 @@ class TrackingService {
       "cookieId": this.cookieId,
       "cdcUid": this.cdcUid,
       "timestamp": new Date().toISOString(),
-      "organizationId": "sap-cx-retail",
+      // "organizationId": "sap-cx-retail",
       "loyaltyActivity": {
         "activityType": activityType,
         "pointsAmount": pointsAmount,
@@ -637,7 +637,7 @@ class TrackingService {
       "cdcUid": this.cdcUid,
       "timestamp": new Date().toISOString(),
       "pageUrl": window.location.href,
-      "organizationId": "sap-cx-retail",
+      // "organizationId": "sap-cx-retail",
       "orderId": orderData.orderId || `ORD-${Date.now()}`,
       "amount": orderData.totalValue,
       "currency": orderData.currency || 'EUR',

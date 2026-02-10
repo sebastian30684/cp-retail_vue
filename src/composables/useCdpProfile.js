@@ -4,15 +4,8 @@
 
 import { reactive, computed } from 'vue'
 
-// CDP API configuration (same as useBikeGarage.js)
-const CDP_BASE_URL = 'https://cdp.EU5-prod.gigya.com/api/businessunits/4_GJZtcJvXbmKrbEyYcnj4DQ'
-
-const CUSTOMER_API = {
-  url: `${CDP_BASE_URL}/views/HJolf9MBIvH7oEBmM3UpOw/customers`,
-  purposeIds: 'HG0_WQzkdjLlPJbxrktHzw',
-  userKey: 'AJVGIcoKduTt',
-  secret: 'GXcc75wJV/hpPraNJ/ymkaySGYTqAWuO'
-}
+// CDP API proxy endpoint (Netlify Function)
+const CDP_PROXY_URL = '/.netlify/functions/cdp-proxy'
 
 const BIKE_RELATIONSHIP_KEY = 'HJT34xIowhM9jcOzv8dBcQ'
 const LOYALTY_RELATIONSHIP_KEY = 'HMkENeXIoBmTpDrYArMBiA'
@@ -45,15 +38,11 @@ export function useCdpProfile() {
     state.error = null
 
     try {
-      const query = `select * from profile WHERE attributes.primaryEmail = '${email}' LIMIT 10`
-      const params = new URLSearchParams({
-        purposeIds: CUSTOMER_API.purposeIds,
-        userKey: CUSTOMER_API.userKey,
-        secret: CUSTOMER_API.secret,
-        query: query
+      const response = await fetch(CDP_PROXY_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'customer', email })
       })
-
-      const response = await fetch(`${CUSTOMER_API.url}?${params}`)
 
       if (!response.ok) {
         throw new Error(`CDP API error: ${response.status} ${response.statusText}`)
