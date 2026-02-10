@@ -52,10 +52,6 @@
           </div>
           <div class="info-grid">
             <div class="info-item">
-              <label>Form of Address</label>
-              <span>{{ profile.formOfAddress?.name || '–' }}</span>
-            </div>
-            <div class="info-item">
               <label>First Name</label>
               <span>{{ profile.firstName || '–' }}</span>
             </div>
@@ -68,101 +64,107 @@
               <span class="email-value">{{ profile.primaryEmail || '–' }}</span>
             </div>
             <div class="info-item">
-              <label>Phone</label>
-              <span>{{ profile.primaryPhone || '–' }}</span>
+              <label>Language</label>
+              <span>{{ profile.correspondenceLanguage || '–' }}</span>
             </div>
             <div class="info-item">
-              <label>Gender</label>
-              <span>{{ profile.gender?.name || '–' }}</span>
+              <label>Account Type</label>
+              <span>{{ profile.accountType || '–' }}</span>
             </div>
             <div class="info-item">
-              <label>Birth Date</label>
-              <span>{{ formatDate(profile.birthDate) || '–' }}</span>
+              <label>Registered</label>
+              <span>{{ formatDate(profile.registeredDate) || '–' }}</span>
             </div>
             <div class="info-item">
-              <label>Marital Status</label>
-              <span>{{ profile.maritalStatus?.name || '–' }}</span>
+              <label>Last Login</label>
+              <span>{{ formatDateTime(profile.lastLoginDate) || '–' }}</span>
             </div>
           </div>
         </div>
         
-        <!-- Address Information -->
-        <div class="profile-section">
+        <!-- Loyalty Status -->
+        <div class="profile-section" v-if="profile.loyaltyTier || profile.loyaltyId">
           <div class="section-header">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <h3>Address</h3>
+            <h3>Loyalty Status</h3>
           </div>
           <div class="info-grid">
-            <div class="info-item">
-              <label>Department</label>
-              <span>{{ profile.address?.department || '–' }}</span>
+            <div class="info-item" v-if="profile.loyaltyTier">
+              <label>Tier</label>
+              <span class="tier-badge" :class="'tier-' + profile.loyaltyTier.toLowerCase()">
+                {{ profile.loyaltyTier }}
+              </span>
             </div>
-            <div class="info-item">
-              <label>Town</label>
-              <span>{{ profile.address?.town || '–' }}</span>
+            <div class="info-item" v-if="profile.loyaltyId">
+              <label>Loyalty ID</label>
+              <span class="mono">{{ profile.loyaltyId }}</span>
             </div>
-            <div class="info-item">
-              <label>Region</label>
-              <span>{{ profile.address?.region || '–' }}</span>
+            <div class="info-item" v-if="totalOrders">
+              <label>Total Orders</label>
+              <span>{{ totalOrders }}</span>
             </div>
-            <div class="info-item">
-              <label>Postal Code</label>
-              <span>{{ profile.address?.postalCode || '–' }}</span>
+            <div class="info-item" v-if="totalSpend">
+              <label>Total Spend</label>
+              <span>{{ new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(totalSpend) }}</span>
             </div>
           </div>
         </div>
-        
-        <!-- Business Information -->
-        <div class="profile-section">
+
+        <!-- Customer Activity -->
+        <div class="profile-section" v-if="Object.keys(keyActivities).length">
           <div class="section-header">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 12H18L15 21L9 3L6 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <h3>Business Information</h3>
+            <h3>Activity</h3>
           </div>
-          <div class="info-grid">
-            <div class="info-item full-width">
-              <label>Business Areas</label>
-              <div class="business-areas">
-                <span 
-                  v-for="area in profile.businessAreaIds" 
-                  :key="area" 
-                  class="business-area-badge"
-                >
-                  {{ area }}
-                </span>
-                <span v-if="!profile.businessAreaIds?.length" class="no-data">–</span>
-              </div>
-            </div>
-            <div class="info-item">
-              <label>Correspondence Language</label>
-              <span>{{ profile.correspondenceLanguage?.name || '–' }}</span>
-            </div>
-            <div class="info-item">
-              <label>Academic Title</label>
-              <span>{{ profile.academicTitle?.name || '–' }}</span>
+          <div class="activity-grid">
+            <div class="activity-card" v-for="(indicator, name) in keyActivities" :key="name">
+              <span class="activity-value">{{ formatActivityValue(name, indicator) }}</span>
+              <span class="activity-label">{{ name.replace('Total ', '') }}</span>
             </div>
           </div>
         </div>
+
+        <!-- Registered Bikes -->
+        <div class="profile-section" v-if="profile.bikes && profile.bikes.length">
+          <div class="section-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="5.5" cy="17.5" r="3.5" stroke="currentColor" stroke-width="2"/>
+              <circle cx="18.5" cy="17.5" r="3.5" stroke="currentColor" stroke-width="2"/>
+              <path d="M15 6L18.5 17.5M5.5 17.5L8 9H12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3>Registered Bikes ({{ profile.bikes.length }})</h3>
+          </div>
+          <div class="bikes-list">
+            <span class="bike-badge" v-for="bike in profile.bikes" :key="bike.bikeId">
+              {{ bike.bikeId }}
+            </span>
+          </div>
+        </div>
         
-        <!-- Marketing Preferences -->
+        <!-- Consents & Subscriptions -->
         <div class="profile-section">
           <div class="section-header">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <h3>Marketing Preferences</h3>
+            <h3>Consents & Subscriptions</h3>
           </div>
           <div class="info-grid">
             <div class="info-item">
-              <label>Newsletter Opt-in</label>
+              <label>Newsletter</label>
               <span :class="['opt-status', getOptinStatus(profile.additionalSystemFields?.optin)]">
                 {{ getOptinLabel(profile.additionalSystemFields?.optin) }}
+              </span>
+            </div>
+            <div class="info-item" v-for="purpose in (profile.privacy?.purposes || [])" :key="purpose.purposeId">
+              <label>{{ purpose.externalId || purpose.purposeId }}</label>
+              <span :class="['opt-status', purpose.status === 'Granted' ? 'opted-in' : 'opted-out']">
+                {{ purpose.status }}
               </span>
             </div>
           </div>
@@ -211,6 +213,7 @@
 
 <script>
 import { ref, computed, onMounted } from 'vue'
+import { useCdpProfile } from '../composables/useCdpProfile.js'
 
 export default {
   name: 'ProfileModal',
@@ -229,8 +232,13 @@ export default {
     const loading = ref(true)
     const error = ref(null)
     const profile = ref({})
-    
+
+    const { loadProfile, totalOrders, totalSpend, loyaltyTierName } = useCdpProfile()
+
     const userInitial = computed(() => {
+      if (profile.value.firstName) {
+        return profile.value.firstName.charAt(0).toUpperCase()
+      }
       if (props.userName) {
         return props.userName.charAt(0).toUpperCase()
       }
@@ -239,20 +247,17 @@ export default {
       }
       return 'U'
     })
-    
+
     const fetchProfile = async () => {
       loading.value = true
       error.value = null
 
       try {
-        // Mock profile data
-        profile.value = {
-          email: props.userEmail,
-          firstName: props.userName?.split(' ')[0] || 'User',
-          lastName: props.userName?.split(' ').slice(1).join(' ') || '',
-          additionalSystemFields: {
-            optin: '1'
-          }
+        const result = await loadProfile(props.userEmail, { forceRefresh: true })
+        if (result) {
+          profile.value = result
+        } else {
+          error.value = 'No profile data found in CDP'
         }
       } catch (err) {
         console.error('[ProfileModal] Error fetching profile:', err)
@@ -261,7 +266,7 @@ export default {
         loading.value = false
       }
     }
-    
+
     const formatDate = (dateString) => {
       if (!dateString) return null
       try {
@@ -274,23 +279,60 @@ export default {
         return dateString
       }
     }
-    
+
+    const formatDateTime = (dateString) => {
+      if (!dateString) return null
+      try {
+        return new Date(dateString).toLocaleDateString('de-DE', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        })
+      } catch {
+        return dateString
+      }
+    }
+
+    const formatActivityValue = (name, indicator) => {
+      if (name.toLowerCase().includes('spend')) {
+        return new Intl.NumberFormat('de-DE', {
+          style: 'currency', currency: 'EUR'
+        }).format(indicator.sum || 0)
+      }
+      return (indicator.count || indicator.sum || 0).toLocaleString()
+    }
+
     const getOptinStatus = (optin) => {
       if (optin === '1' || optin === 1) return 'opted-in'
       if (optin === '2' || optin === 2) return 'opted-out'
       return 'unknown'
     }
-    
+
     const getOptinLabel = (optin) => {
       if (optin === '1' || optin === 1) return 'Subscribed'
       if (optin === '2' || optin === 2) return 'Not subscribed'
       return 'Not set'
     }
-    
+
+    // Key activity indicators to display
+    const keyActivities = computed(() => {
+      const indicators = profile.value.activityIndicators || {}
+      const keys = ['Total Orders', 'Total Spend', 'Total PageView', 'Total ProductView', 'Total Account Login', 'Total Search']
+      const result = {}
+      for (const key of keys) {
+        if (indicators[key]) {
+          result[key] = indicators[key]
+        }
+      }
+      return result
+    })
+
     onMounted(() => {
       fetchProfile()
     })
-    
+
     return {
       loading,
       error,
@@ -298,8 +340,14 @@ export default {
       userInitial,
       fetchProfile,
       formatDate,
+      formatDateTime,
+      formatActivityValue,
       getOptinStatus,
-      getOptinLabel
+      getOptinLabel,
+      keyActivities,
+      totalOrders,
+      totalSpend,
+      loyaltyTierName
     }
   }
 }
@@ -613,19 +661,85 @@ export default {
   color: var(--sap-blue-6);
 }
 
+/* Activity Grid */
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.activity-card {
+  background: var(--sap-gray-1);
+  border-radius: 8px;
+  padding: 0.75rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.activity-value {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--sap-blue-7);
+}
+
+.activity-label {
+  font-size: 0.6875rem;
+  color: var(--sap-gray-5);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+/* Bikes List */
+.bikes-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.bike-badge {
+  background: var(--sap-gray-1);
+  border: 1px solid var(--sap-gray-3);
+  color: var(--sap-gray-7);
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+  font-size: 0.8125rem;
+}
+
+/* Loyalty Tier Badge */
+.tier-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.tier-bronze { background: #FFF3E0; color: #CD7F32; }
+.tier-silver { background: #F5F5F5; color: #757575; }
+.tier-gold { background: #FFF8E1; color: #F9A825; }
+.tier-platinum { background: #F3E5F5; color: #7B1FA2; }
+
 /* Responsive */
 @media (max-width: 480px) {
   .profile-modal {
     max-height: 100vh;
     border-radius: 0;
   }
-  
+
   .info-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .info-item.full-width {
     grid-column: 1;
+  }
+
+  .activity-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 </style>

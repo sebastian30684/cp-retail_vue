@@ -18,6 +18,7 @@
         </div>
         <h2>Settings</h2>
         <p class="subtitle">Manage your preferences</p>
+        <span v-if="cdpLoaded" class="cdp-sync-badge" title="Pre-populated from SAP CDP">CDP synced</span>
       </div>
       
       <!-- Settings Content -->
@@ -196,6 +197,7 @@
 
 <script>
 import { ref, reactive, onMounted } from 'vue'
+import { useCdpProfile } from '../composables/useCdpProfile.js'
 
 export default {
   name: 'SettingsModal',
@@ -208,7 +210,10 @@ export default {
   emits: ['close', 'settings-saved'],
   setup(props, { emit }) {
     const saving = ref(false)
-    
+    const cdpLoaded = ref(false)
+
+    const { loadProfile, profile: cdpProfile, newsletterStatus, emailMarketingConsent } = useCdpProfile()
+
     const defaultSettings = {
       emailNotifications: true,
       newsletter: true,
@@ -220,40 +225,59 @@ export default {
       personalization: true,
       businessArea: 'DEFAULT'
     }
-    
+
     const settings = reactive({ ...defaultSettings })
-    
-    const loadSettings = () => {
+
+    const loadSettings = async () => {
       try {
+        // 1. Load from localStorage first (user's local overrides)
         const stored = localStorage.getItem('userSettings')
         if (stored) {
           const parsed = JSON.parse(stored)
           Object.assign(settings, parsed)
         }
-        
+
         // Also sync business area
         const businessArea = localStorage.getItem('businessArea')
         if (businessArea) {
           settings.businessArea = businessArea
         }
+
+        // 2. Load CDP profile for initial values (if no local override)
+        if (props.userEmail) {
+          await loadProfile(props.userEmail)
+          if (cdpProfile.value) {
+            cdpLoaded.value = true
+
+            // Pre-populate from CDP only if no local override exists
+            if (!stored) {
+              const cdpLang = cdpProfile.value.correspondenceLanguage
+              if (cdpLang && ['en', 'de', 'fr', 'es'].includes(cdpLang)) {
+                settings.language = cdpLang
+              }
+              settings.newsletter = newsletterStatus.value
+              settings.emailNotifications = emailMarketingConsent.value
+            }
+          }
+        }
       } catch (err) {
         console.error('[SettingsModal] Error loading settings:', err)
       }
     }
-    
+
     const saveSettings = async () => {
       saving.value = true
-      
+
       try {
         // Save to localStorage
         localStorage.setItem('userSettings', JSON.stringify(settings))
         localStorage.setItem('businessArea', settings.businessArea)
-        
+
         // Simulate API call delay
         await new Promise(resolve => setTimeout(resolve, 500))
-        
+
         console.log('[SettingsModal] Settings saved:', settings)
-        
+
         emit('settings-saved', { ...settings })
         emit('close')
       } catch (err) {
@@ -262,20 +286,21 @@ export default {
         saving.value = false
       }
     }
-    
+
     const resetSettings = () => {
       if (confirm('Reset all settings to default values?')) {
         Object.assign(settings, defaultSettings)
       }
     }
-    
+
     onMounted(() => {
       loadSettings()
     })
-    
+
     return {
       settings,
       saving,
+      cdpLoaded,
       saveSettings,
       resetSettings
     }
@@ -574,6 +599,19 @@ export default {
 .save-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+/* CDP Sync Badge */
+.cdp-sync-badge {
+  display: inline-block;
+  font-size: 0.6875rem;
+  background: var(--sap-blue-6);
+  color: white;
+  padding: 0.1875rem 0.625rem;
+  border-radius: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-top: 0.5rem;
 }
 
 /* Responsive */

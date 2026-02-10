@@ -662,6 +662,27 @@ class TrackingService {
     });
   }
 
+  trackBikeMileage(bikeId, bikeName, totalKm) {
+    if (!this.shouldTrack()) return;
+
+    const cdpData = {
+      "bikeId": bikeId,
+      "bikeName": bikeName,
+      "source": "strava",
+      "total_mileage": Math.round(totalKm * 10) / 10,
+      "cdcUid": this.cdcUid,
+      "timestamp": new Date().toISOString()
+    };
+
+    this.sendToCDP('BikeMileageUpdate', cdpData);
+    this.sendToGTM('bike_mileage_update', {
+      bike_id: bikeId,
+      bike_name: bikeName,
+      total_mileage: Math.round(totalKm * 10) / 10,
+      source: 'strava'
+    });
+  }
+
   calculateWarrantyEnd(years) {
     const date = new Date();
     date.setFullYear(date.getFullYear() + years);

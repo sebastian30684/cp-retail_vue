@@ -3,6 +3,7 @@
 
 import { reactive, computed } from 'vue'
 import { useStrava } from './useStrava'
+import trackingService from '../utils/tracking-service.js'
 
 const BIKE_GARAGE_STORAGE_KEY = 'bike_garage_data'
 const BIKE_GARAGE_EMAIL_KEY = 'bike_garage_email'
@@ -211,53 +212,59 @@ export function useBikeGarage() {
    * Get Strava mileage for a bike by matching accountName with Strava gear name
    */
   function getStravaMileage(accountName) {
-    const { getDistanceByGearName, isConnected } = useStrava()
-    if (!isConnected.value) return 0
-    return getDistanceByGearName(accountName)
+    const { getDistanceByGearName, isConnected, state: stravaState } = useStrava()
+    if (!isConnected.value) {
+      console.log('[BikeGarage] Strava not connected')
+      return 0
+    }
+    // Check if activities have gearId
+    const activitiesWithGear = stravaState.activities.filter(a => a.gearId)
+    if (activitiesWithGear.length === 0 && stravaState.activities.length > 0) {
+      console.warn('[BikeGarage] ⚠️ Activities have no gearId! Click "Sync Activities" in Strava to reload mock data.')
+    }
+    const km = getDistanceByGearName(accountName)
+    return km
   }
 
   /**
-   * Update total_mileage attribute for a bike in CDP
+   * Send bike mileage to CDP via tracking service (same pattern as Orders, LoyaltyActivity)
    */
-  async function updateBikeMileageCDP(bikeId, totalKm) {
-    try {
-      const response = await fetch(BIKE_API.url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          userKey: BIKE_API.userKey,
-          secret: BIKE_API.secret,
-          groups: [{
-            matchRules: { accountID: bikeId },
-            attributes: { total_mileage: Math.round(totalKm * 10) / 10 }
-          }]
-        })
-      })
-      if (!response.ok) throw new Error(`CDP Write error: ${response.status}`)
-      const data = await response.json()
-      console.log('[BikeGarage] Mileage updated in CDP for', bikeId, ':', totalKm, 'km', data)
-      return true
-    } catch (err) {
-      console.error('[BikeGarage] Failed to update mileage in CDP:', err)
-      return false
-    }
+  function sendBikeMileageToCDP(bikeId, bikeName, totalKm) {
+    trackingService.trackBikeMileage(bikeId, bikeName, totalKm)
+    return true
   }
 
   /**
    * Sync all bike mileages to CDP
    */
   async function syncMileageToCDP() {
-    const { isConnected } = useStrava()
+    const { isConnected, syncActivities, state: stravaState, distancePerGear } = useStrava()
     console.log('[BikeGarage] Sync started. Strava connected:', isConnected.value, 'Bikes:', state.bikes.length)
+
+    if (!isConnected.value) {
+      console.warn('[BikeGarage] Strava not connected - cannot sync mileage')
+      return []
+    }
+
+    // Auto-refresh Strava activities to ensure gearId data is present
+    const activitiesWithGear = stravaState.activities.filter(a => a.gearId)
+    if (activitiesWithGear.length === 0) {
+      console.log('[BikeGarage] Activities missing gearId - reloading Strava data...')
+      await syncActivities()
+    }
+
+    console.log('[BikeGarage] Strava distancePerGear:', JSON.parse(JSON.stringify(distancePerGear.value)))
+
     const results = []
     for (const bike of state.bikes) {
       const km = getStravaMileage(bike.accountName)
       console.log('[BikeGarage] Bike:', bike.accountName, '| accountID:', bike.accountID, '| Strava km:', km)
       if (km > 0 && bike.accountID) {
-        const success = await updateBikeMileageCDP(bike.accountID, km)
-        results.push({ bikeId: bike.accountID, km, success })
+        sendBikeMileageToCDP(bike.accountID, bike.accountName, km)
+        results.push({ bikeId: bike.accountID, name: bike.accountName, km, success: true })
       }
     }
+    console.log('[BikeGarage] Sync complete. Results:', results)
     return results
   }
 
@@ -310,7 +317,7 @@ export function useBikeGarage() {
 
     // Strava Mileage
     getStravaMileage,
-    updateBikeMileageCDP,
+    sendBikeMileageToCDP,
     syncMileageToCDP
   }
 }

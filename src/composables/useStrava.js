@@ -339,17 +339,34 @@ export function useStrava() {
     const totalKm = activities.reduce((sum, a) => sum + a.distance, 0)
     const totalElevation = activities.reduce((sum, a) => sum + a.elevation, 0)
 
+    // Per-bike breakdown
+    const perBike = {}
+    for (const activity of activities) {
+      if (activity.gearId) {
+        const gearName = getGearName(activity.gearId)
+        if (!perBike[gearName]) {
+          perBike[gearName] = { gearId: activity.gearId, km: 0, rides: 0 }
+        }
+        perBike[gearName].km += activity.distance
+        perBike[gearName].rides++
+      }
+    }
+
     const event = {
       event_type: 'strava_activity_sync',
       timestamp: new Date().toISOString(),
       activities_synced: activities.length,
       total_distance_km: totalKm.toFixed(1),
       total_elevation_m: totalElevation,
-      points_earned: Math.floor(totalKm), // 1 point per km
-      rider_profile: getRiderProfile(activities)
+      points_earned: Math.floor(totalKm),
+      rider_profile: getRiderProfile(activities),
+      bikes: perBike
     }
 
     console.log('[CDP] Strava Activity Sync Event:', event)
+    Object.entries(perBike).forEach(([name, data]) => {
+      console.log(`[CDP]   🚲 ${name}: ${data.km.toFixed(1)} km (${data.rides} rides)`)
+    })
 
     // In production, this would call the engagement API:
     // sendEngagementEvent('stravaActivitySync', event)
