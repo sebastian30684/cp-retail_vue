@@ -34,6 +34,10 @@
             @product-click="showProductModal"
           />
         </div>
+        <!-- Emarsys Web Channel: Loyalty -->
+        <div class="sap-container">
+          <div id="emarsys_webchannel_loyalty" class="emarsys-webchannel-slot"></div>
+        </div>
       </div>
 
       <!-- Shop Page -->

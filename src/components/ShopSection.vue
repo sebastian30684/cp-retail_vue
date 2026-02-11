@@ -117,6 +117,9 @@
           />
         </div>
 
+        <!-- Emarsys Web Channel: Loyalty -->
+        <div id="emarsys_webchannel_loyalty" class="emarsys-webchannel-slot"></div>
+
         <!-- Products Grid -->
         <div class="products-section">
           <div class="products-header">
