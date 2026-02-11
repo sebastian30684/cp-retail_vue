@@ -490,6 +490,22 @@ export function useStrava() {
     return distancePerGear.value[gear.id] || 0
   }
 
+  /**
+   * Get the most recent ride for a gear by its name
+   * Returns { date, km } or null if not found
+   */
+  function getLastRideByGearName(gearName) {
+    if (!state.athlete?.gear || !gearName) return null
+    const gear = state.athlete.gear.find(g => g.name === gearName)
+    if (!gear) return null
+    const gearActivities = state.activities.filter(a => a.gearId === gear.id)
+    if (gearActivities.length === 0) return null
+    const lastActivity = gearActivities.reduce((latest, a) =>
+      new Date(a.date) > new Date(latest.date) ? a : latest
+    )
+    return { date: lastActivity.date, km: lastActivity.distance }
+  }
+
   // ============================================
   // RETURN PUBLIC API
   // ============================================
@@ -535,6 +551,7 @@ export function useStrava() {
     getGearName,
     distancePerGear,
     getDistanceByGearName,
+    getLastRideByGearName,
 
     // CDP Tracking
     trackStravaConnection,

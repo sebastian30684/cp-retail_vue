@@ -49,7 +49,10 @@ class EmarsysTracker {
     const checkScarab = () => {
       attempts++;
 
-      if (window.ScarabQueue && Array.isArray(window.ScarabQueue)) {
+      // Check if ScarabQueue exists and has a push method.
+      // The SDK replaces the initial array with a custom object that still has push(),
+      // so Array.isArray() would fail after SDK loads.
+      if (window.ScarabQueue && typeof window.ScarabQueue.push === 'function') {
         this.scarabReady = true;
         console.log('✅ [Emarsys] Scarab SDK ready after', attempts, 'attempts');
         this.processEventQueue();

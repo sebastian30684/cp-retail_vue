@@ -662,7 +662,7 @@ class TrackingService {
     });
   }
 
-  trackBikeMileage(bikeId, bikeName, totalKm) {
+  trackBikeMileage(bikeId, bikeName, totalKm, lastRideDate, lastRideKm) {
     if (!this.shouldTrack()) return;
 
     const cdpData = {
@@ -670,6 +670,8 @@ class TrackingService {
       "bikeName": bikeName,
       "source": "strava",
       "total_mileage": Math.round(totalKm * 10) / 10,
+      "last_ride_date": lastRideDate || null,
+      "last_ride_km": lastRideKm ? Math.round(lastRideKm * 10) / 10 : null,
       "cdcUid": this.cdcUid,
       "timestamp": new Date().toISOString()
     };
@@ -679,6 +681,8 @@ class TrackingService {
       bike_id: bikeId,
       bike_name: bikeName,
       total_mileage: Math.round(totalKm * 10) / 10,
+      last_ride_date: lastRideDate || null,
+      last_ride_km: lastRideKm ? Math.round(lastRideKm * 10) / 10 : null,
       source: 'strava'
     });
   }

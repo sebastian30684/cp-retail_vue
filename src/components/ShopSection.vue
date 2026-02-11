@@ -98,6 +98,25 @@
           </div>
         </div>
 
+        <!-- Emarsys Personalized Recommendations -->
+        <div class="emarsys-shop-reco-section">
+          <EmarsysRecommendations
+            logic="PERSONAL"
+            title="Recommended for you"
+            @product-click="handleRecoProductClick"
+          />
+        </div>
+
+        <!-- Emarsys Related Products (only for Road & Apparel) -->
+        <div v-if="showRelatedRecos" class="emarsys-shop-reco-section">
+          <EmarsysRecommendations
+            :key="selectedCategory"
+            logic="RELATED"
+            title="Related Products"
+            @product-click="handleRecoProductClick"
+          />
+        </div>
+
         <!-- Products Grid -->
         <div class="products-section">
           <div class="products-header">
@@ -203,9 +222,13 @@ import trackingService from '../utils/tracking-service.js'
 import emarsysTracker from '../utils/emarsys-tracking.js'
 import { useConsumerLoyalty, loyaltyStorage } from '../composables/useConsumerLoyalty.js'
 import { useConsumerTracking } from '../composables/useConsumerLoyaltyTracking.js'
+import EmarsysRecommendations from './EmarsysRecommendations.vue'
 
 export default {
   name: 'ConsumerShopSection',
+  components: {
+    EmarsysRecommendations
+  },
   props: {
     isLoggedIn: {
       type: Boolean,
@@ -455,6 +478,15 @@ export default {
       sortBy.value = 'name'
     }
 
+    // Show related recommendations only for Road & Apparel categories
+    const showRelatedRecos = computed(() => {
+      return selectedCategory.value === 'Road' || selectedCategory.value === 'Apparel'
+    })
+
+    const handleRecoProductClick = (product) => {
+      emit('show-product', product)
+    }
+
     // EMARSYS: Track category changes
     watch(selectedCategory, (newCategory) => {
       if (newCategory) {
@@ -495,7 +527,9 @@ export default {
       getCategoryClass,
       handleProductClick,
       handleAddToCart,
-      handleSearchSubmit
+      handleSearchSubmit,
+      showRelatedRecos,
+      handleRecoProductClick
     }
   }
 }
@@ -891,6 +925,15 @@ export default {
 .empty-state p {
   color: var(--sap-gray-5);
   margin-bottom: 1.5rem;
+}
+
+/* Emarsys Shop Recommendations */
+.emarsys-shop-reco-section {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--sap-shadow-sm);
 }
 
 /* Responsive */

@@ -206,11 +206,17 @@ export function useBikeGarage() {
     return km
   }
 
+  function getStravaLastRide(accountName) {
+    const { getLastRideByGearName, isConnected } = useStrava()
+    if (!isConnected.value) return null
+    return getLastRideByGearName(accountName)
+  }
+
   /**
    * Send bike mileage to CDP via tracking service (same pattern as Orders, LoyaltyActivity)
    */
-  function sendBikeMileageToCDP(bikeId, bikeName, totalKm) {
-    trackingService.trackBikeMileage(bikeId, bikeName, totalKm)
+  function sendBikeMileageToCDP(bikeId, bikeName, totalKm, lastRideDate, lastRideKm) {
+    trackingService.trackBikeMileage(bikeId, bikeName, totalKm, lastRideDate, lastRideKm)
     return true
   }
 
@@ -238,10 +244,11 @@ export function useBikeGarage() {
     const results = []
     for (const bike of state.bikes) {
       const km = getStravaMileage(bike.accountName)
-      console.log('[BikeGarage] Bike:', bike.accountName, '| accountID:', bike.accountID, '| Strava km:', km)
+      const lastRide = getStravaLastRide(bike.accountName)
+      console.log('[BikeGarage] Bike:', bike.accountName, '| accountID:', bike.accountID, '| Strava km:', km, '| lastRide:', lastRide)
       if (km > 0 && bike.accountID) {
-        sendBikeMileageToCDP(bike.accountID, bike.accountName, km)
-        results.push({ bikeId: bike.accountID, name: bike.accountName, km, success: true })
+        sendBikeMileageToCDP(bike.accountID, bike.accountName, km, lastRide?.date, lastRide?.km)
+        results.push({ bikeId: bike.accountID, name: bike.accountName, km, lastRide, success: true })
       }
     }
     console.log('[BikeGarage] Sync complete. Results:', results)

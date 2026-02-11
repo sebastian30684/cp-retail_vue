@@ -11,6 +11,18 @@
           <a href="#" @click.prevent="navigate('contact')">Cookie Policy</a>
           <a href="#" @click.prevent="navigate('contact')">Sitemap</a>
 
+          <!-- Newsletter Sign-Up Button -->
+          <button
+            @click="openNewsletterSignUp"
+            class="footer-action-btn newsletter-btn"
+            title="Subscribe to our newsletter"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Newsletter Sign-Up
+          </button>
+
           <!-- Demo Access Button (Development/Testing) -->
           <button
             v-if="showDemoAccess"
@@ -49,9 +61,19 @@ export default {
       emit('navigate', page)
     }
 
+    const openNewsletterSignUp = () => {
+      if (window.gigya) {
+        window.gigya.accounts.showScreenSet({
+          screenSet: 'Default-LiteRegistration',
+          startScreen: 'gigya-subscribe-with-email-screen'
+        })
+      }
+    }
+
     return {
       currentYear,
-      navigate
+      navigate,
+      openNewsletterSignUp
     }
   }
 }

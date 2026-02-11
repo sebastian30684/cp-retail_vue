@@ -268,16 +268,16 @@ export default {
       ensureRecoTemplate()
 
       window.ScarabQueue = window.ScarabQueue || []
-      // Send view command so RELATED logic knows which product to base on
+      // Send view command so ALSO_BOUGHT logic knows which product to base on
       window.ScarabQueue.push(['view', String(props.product.id)])
       window.ScarabQueue.push(['recommend', {
-        logic: 'RELATED',
+        logic: 'ALSO_BOUGHT',
         containerId: 'productViewRecoId',
         templateId: 'productViewRecoTmpl',
         limit: 4,
         success: function (SC, render) {
           if (SC.page.products.length > 0) {
-            SC.title = 'Related Products'
+            SC.title = 'Customers Also Bought'
             render(SC)
           }
         }

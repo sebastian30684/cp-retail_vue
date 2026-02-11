@@ -1,0 +1,1055 @@
+
+<!-- AMPSCRIPT for MLT SOLUTION
+
+--> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--[if gte mso 9]><html xmlns="http://www.w3.org/1999/xhtml"  xmlns:v="urn:schemas-microsoft-com:vml"  xmlns:o="urn:schemas-microsoft-com:office:office"><![endif]-->
+<!--[if !mso]><!-->
+<html>
+<!--<![endif]-->
+<head><meta name="robots" content="noindex, nofollow"/><meta name="referrer" content="no-referrer"/>
+<!--[if gte mso 9]><xml>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+  <o:PixelsPerInch>96</o:PixelsPerInch>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="width=device-width" name="viewport">
+<meta name="format-detection" content="date=no">
+<meta name="format-detection" content="address=no">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
+<base target="_blank">
+<title>Canyon</title>
+<!--[if gte mso 9]>
+<style>
+html, body { font-family: Arial, sans-serif !important; } 
+table, td, th, a, span, font, p, div { font-family: Arial, sans-serif !important; }
+h1, h2, h3, h4, h5, h6 { font-family: Arial, Helvetica, sans-serif !important; padding: 0 !important; margin: 0 !important; }
+.title { font-family: Arial, Helvetica, sans-serif !important; }
+.btn td { padding: 0 20px !important; }
+.mso-pad-btn { mso-padding-alt: 0 16px; }
+.fallback{ display: block !important; }
+</style>
+<![endif]-->
+<style type="text/css" media="screen">
+html {
+ height: 100%;
+ width: 100%;
+ margin: 0;
+ padding: 0;
+}
+body {
+ -webkit-text-size-adjust: none;
+ -ms-text-size-adjust: none;
+ -webkit-font-smoothing: antialiased;
+ margin: 0 !important;
+ padding: 0 !important;
+ width: 100% !important;
+ min-width: 100% !important;
+ font-family: Arial, Helvetica, sans-serif;
+}
+.ReadMsgBody {
+ width: 100%;
+}
+.ExternalClass {
+ width: 100%;
+ min-width: 640px;
+}
+.ExternalClass * {
+ line-height: 100%;
+}
+table {
+ border-collapse: collapse;
+ mso-table-lspace: 0pt;
+ mso-table-rspace: 0pt;
+}
+table td {
+ border-collapse: collapse;
+ border: 0;
+}
+th {
+ padding: 0;
+ font-weight: normal;
+}
+p {
+ margin: 0;
+ padding: 0;
+ margin-bottom: 0;
+}
+img {
+ display: block;
+ line-height: 100%;
+ outline: none;
+ text-decoration: none;
+ border: none;
+}
+h1, h2, h3, h3 {
+ font-family: Arial, Helvetica, sans-serif;
+ padding: 0px;
+ margin: 0px;
+}
+a {
+ color: #000001;
+ text-decoration: none;
+}
+a[x-apple-data-detectors] {
+ color: inherit !important;
+ text-decoration: none !important;
+ font-size: inherit !important;
+ font-family: inherit !important;
+ font-weight: inherit !important;
+ line-height: inherit !important;
+}
+.gmailfix {
+ display: none;
+ display: none!important;
+}
+.show {
+ display: none;
+}
+.content-wrapper, .content-wrapper-small {
+ margin: 0 auto;
+}
+.black a, .content-wrapper a {
+ color: #222222;
+ text-decoration: none;
+}
+.white a {
+ color: #fffffe;
+ text-decoration: none;
+}
+.grey a {
+ color: #888888;
+ text-decoration: none;
+}
+.radius img {
+ border-radius: 8px;
+}
+.b-radius {
+ border-radius: 12px;
+}
+.b-radius-tl-tl img {
+ border-top-left-radius: 12px;
+ border-top-right-radius: 12px;
+}  
+.b-radius-tl-bl img {
+ border-top-left-radius: 12px;
+ border-bottom-left-radius: 12px;
+}
+.b-radius-tr-br img {
+ border-top-right-radius: 12px;
+ border-bottom-right-radius: 12px;
+}
+
+@media only screen and (max-width: 480px) {
+*, *::before, *::after {
+ box-sizing: border-box;
+}
+body {
+ width: auto !important;
+}
+.content-wrapper {
+ width: 100% !important;
+ margin: 0 auto;
+}
+.full-width {
+ width: 100% !important;
+ max-width: 100% !important;
+ min-width: 100% !important;
+}
+.full-width-img img {
+ width: 100% !important;
+ height: auto !important;
+ display: block !important;
+}
+.column, .column-spacer, .column-spacer-small {
+ display: block !important;
+ width: 100% !important;
+ height: auto !important;
+}
+.column-spacer {
+ height: 24px !important;
+}
+.column-spacer-small {
+ height: 16px !important;
+}
+.column-50 {
+ width: 48.5% !important;
+ min-width: 48.5% !important;
+}
+.b-radius-top{
+ border-radius: 0px !important;
+ border-top-left-radius: 11px !important;
+ border-top-right-radius: 11px !important;
+}  
+.b-radius-tl-bl img, .b-radius-tr-br img {
+ border-radius: 0px !important;
+ border-top-left-radius: 11px !important;
+ border-top-right-radius: 11px !important;
+}
+.logo {
+ padding: 20px 20px 40px 20px !important;
+}
+.logo img, .logo_footer img {
+ width: 174px !important;
+ height: auto !important;
+}
+.title-special {
+ font-size: 26px !important;
+ line-height: 30px !important;
+}
+.title-regular {
+ font-size: 18px !important;
+ line-height: 22px !important;
+}
+.font {
+ font-size: 14px !important;
+ line-height: 18px !important;
+}
+.font-small {
+ font-size: 12px !important;
+ line-height: 16px !important;
+}
+.footer-font {
+ font-size: 11px !important;
+ line-height: 15px !important;
+}
+.pad-10 {
+ padding: 10px !important;
+}  
+.pad-15 {
+ padding: 15px !important;
+}
+.pad-20 {
+ padding: 20px !important;
+}
+.pad-30-20 {
+ padding: 30px 20px !important;
+}
+.pad-lr-0 {
+ padding-left: 0 !important;
+ padding-right: 0 !important;
+}
+.pad-lr-16 {
+ padding-left: 16px !important;
+ padding-right: 16px !important;
+}
+.pad-lr-20 {
+ padding-left: 20px !important;
+ padding-right: 20px !important;
+}
+.pad-t-20 {
+ padding-top: 20px !important;
+}
+.pad-t-25 {
+ padding-top: 25px !important;
+}
+.pad-t-30 {
+ padding-top: 30px !important;
+}
+.pad-t-35 {
+ padding-top: 35px !important;
+}
+.pad-b-15 {
+ padding-bottom: 15px !important;
+}
+.pad-b-25 {
+ padding-bottom: 25px !important;
+}
+.pad-button a {
+ padding: 7px 13px !important;
+}
+.margin-t-24 {
+ margin-top: 24px !important;
+}
+.height-20 {
+ height: 20px !important;
+}
+.height-30 {
+ height: 30px !important;
+}
+.height-50 {
+ height: 50px !important;
+}
+.width-auto {
+ width: auto !important;
+}
+.mso-pad-btn, .mso-pad-btn-small {
+ height: auto !important;
+ font-size: 14px !important;
+}
+.mso-pad-btn a {
+ padding: 14px 16px 15px 16px !important;
+}
+.mso-pad-btn-small a {
+ padding: 7px 16px 8px 16px !important;
+}
+.mobile-hide, .yahoo-none, .mobile-hidden {
+ display: none !important;
+ visibility: hidden !important;
+ overflow: hidden !important;
+}
+.yahoo-none, .mobile-hidden {
+ width: 0px !important;
+ height: 0px !important;
+}
+.show {
+ display: block!important;
+ margin: 0!important;
+ padding: 0!important;
+ overflow: visible!important;
+ width: auto!important;
+ max-height: inherit!important;
+ line-height: inherit!important;
+}
+}
+
+.fallback{
+  display: none;
+}
+.carousel{
+  display: block !important;
+}  
+  
+body[data-outlook-cycle] .fallback, u ~ .body .fallback, [class~="x_fallback"], #MessageViewBody .fallback,  body.MsgBody .fallback {
+    display: block !important;
+}
+body[data-outlook-cycle] .carousel, u ~ .body .carousel, [class~="x_carousel"], #MessageViewBody .carousel, body.MsgBody .carousel {
+    display: none !important;
+}
+</style>
+<style type="text/css" media="screen">
+  .& .fallback {
+  display: block !important;
+  }
+  .& .carousel {
+  display: none !important;
+  }
+  </style>
+<style type="text/css" media="screen">
+.black a\0, .content-wrapper a\0 {
+ color: #222222;
+ text-decoration: none;
+}
+.white a\0 {
+ color: #fffffe;
+ text-decoration: none;
+}
+.grey a\0 {
+ color: #888888;
+ text-decoration: none;
+}
+.fallback\0 {
+    display: block !important;
+}
+.carousel\0 {
+    display: none !important;
+}
+</style>
+<style type="text/css">
+:root {
+ color-scheme: light dark;
+ supported-color-schemes: light dark;
+}
+
+/* START IOS Dark Mode settings, must be within media query */
+@media (prefers-color-scheme: dark ) {
+/* Show Dark Mode content */
+.dark-img {
+ display: block !important;
+ width: auto !important;
+ overflow: visible !important;
+ float: none !important;
+ max-height: inherit !important;
+ max-width: inherit !important;
+ line-height: auto !important;
+ margin-top: 0px !important;
+ visibility: inherit !important;
+}
+.display-inline {
+ display: inline !important;
+}
+/* Hide Light Mode Content */
+.light-img {
+ display: none;
+ display: none !important;
+}
+/* DM background colors with font colors */
+.content-wrapper {
+ background-color: #474948 !important;
+}
+.wrapper {
+ background-color: #3E3E3E !important;
+}
+.content-wrapper td, .content-wrapper p, .content-wrapper h1, .content-wrapper h2, .content-wrapper h3, tr.dm-black td {
+ color: #fffffe !important;
+}
+tr.grey td {
+ color: #cccccc !important;
+}
+
+/* DM text link colors */
+.content-wrapper td a, .content-wrapper p a, a {
+ color: #fffffe !important;
+ text-decoration: none !important;
+}
+
+/*DM buttons*/
+    
+.dm-btn-black td {background-color: #222222 !important;}  
+.dm-btn-black a {color: #fffffe !important;}  
+.black td, tr.black a {color: #000001!important;}    
+.dm-btn-grey td {background-color: #868686 !important;}  
+.dm-btn-grey tr a {color: #fffffe !important;}  
+}
+/* END normal media query Dark Mode IOS must have 2x }} to close*/
+/* START Outlook.com DM settings */
+/* Show Dark Mode content */
+[data-ogsc] .dark-img {
+ display: block !important;
+ width: auto !important;
+ overflow: visible !important;
+ float: none !important;
+ max-height: inherit !important;
+ max-width: inherit !important;
+ line-height: auto !important;
+ margin-top: 0px !important;
+ visibility: inherit !important;
+}
+[data-ogsc] .display-inline {
+ display: inline !important;
+}
+
+/* Hide Light Mode-Only content */
+[data-ogsc] .light-img {
+ display: none;
+ display: none !important;
+}
+
+/* DM background colors with font colors */
+[data-ogsc] .content-wrapper {
+ background-color: #474948 !important;
+}
+[data-ogsc] .wrapper {
+ background-color: #3E3E3E !important;
+}
+[data-ogsc] .content-wrapper td, [data-ogsc] .content-wrapper h1, [data-ogsc] .content-wrapper h2, [data-ogsc] .content-wrapper h3, [data-ogsc] tr.dm-black td {
+ color: #fffffe !important;
+}
+[data-ogsc] tr.grey td {
+ color: #cccccc !important;
+}
+
+/* DM text link colors */
+[data-ogsc] .content-wrapper td a, [data-ogsc] a {
+ color: #fffffe !important;
+ text-decoration: none !important;
+}
+
+/*DM buttons*/
+[data-ogsc] .dm-btn-black td {background-color: #222222 !important;}  
+[data-ogsc] .dm-btn-black a {color: #fffffe !important;}  
+[data-ogsc] .black td, [data-ogsc] tr.black a {color: #000001!important;}
+[data-ogsc] .dm-btn-grey td {background-color: #868686 !important;}  
+[data-ogsc] .dm-btn-grey tr a {color: #fffffe !important;}  
+/* END Outlook.com Dark Mode settings */
+</style>
+  
+  <!-- carousel -->
+  <style type="text/css">
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+  /* bugfix for Android 4.4 to support e ~ y */
+  body {
+      -webkit-animation: bugfix infinite 1s;
+  }
+  @-webkit-keyframes bugfix {
+    from {
+    padding: 0;
+    }
+    to {
+    padding: 0;
+    }
+  }
+  input {
+      display: none;
+  }
+  .carousel.slide a:nth-child(1) {
+      position: relative;
+      -webkit-animation-delay: -31s;
+  }
+  .carousel.slide a:nth-child(2) {
+      -webkit-animation-delay: -26s;
+  }
+  .carousel.slide a:nth-child(3) {
+      -webkit-animation-delay: -21s;
+  }
+  .carousel.slide a:nth-child(4) {
+      -webkit-animation-delay: -16s;
+  }
+  .carousel.slide a:nth-child(5) {
+      -webkit-animation-delay: -11s;
+  }
+  .carousel.slide a:nth-child(6) {
+      -webkit-animation-delay: -6s;
+  }
+  
+  /* iOS doesn't like negative delay with translates (transform:translateX(100%);) */
+  /* So we use margin although it is less "smooth" */
+  @-webkit-keyframes slide-anim {
+    /* start slide in */
+    0% {
+    margin-left:100%;
+    }
+    /* end slide in */
+    5% {
+    margin-left:0%;
+    }
+    /* start slide out */
+    33.3333% {
+    margin-left:0%;
+    }
+    /* end slide out */
+    38.3333% {
+    margin-left:-100%;
+    }
+    100% {
+    margin-left:-100%;
+    }
+  }
+ }
+  </style>
+  <!-- /carousel --> 
+</head>
+<body class="body" style="box-sizing:border-box; padding:0 !important; margin:0 !important; display:block !important;"><style type="text/css">
+div.preheader 
+{ display: none !important; } 
+</style>
+<div class="preheader" style="font-size: 1px; display: none !important;">Verwende OUTLET10 für einen weiteren Rabatt</div>
+
+<!-- preheader hidden -->
+
+<div style="display:none;font-size:1px;color:#000001;line-height:1px;font-family:  Arial, sans-serif;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;">
+ &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
+
+<!-- preheader hidden -->
+
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="wrapper" bgcolor="#F8F8F8">
+  <tr>
+    <td align="center"><table role="presentation" width="600" border="0" cellspacing="0" cellpadding="0" class="full-width" align="center" style="width:600px; margin:0 auto;">
+        <tr>
+          <td class="full-width" style="width:600px; max-width:600px; min-width:600px" align="center"><table role="presentation" width="600" border="0" cellspacing="0" cellpadding="0" class="content-wrapper" align="center" style="width:600px; margin:0 auto;" bgcolor="#ffffff">
+              <tr>
+                <td class="full-width" style="width:600px; max-width:600px; min-width:600px;" align="center"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- mlt - header - logo black --><!--  --><table align="center" border="0" cellpadding="0" cellspacing="0" class="content-wrapper" role="presentation" style="width:600px; margin:0 auto;" width="600">
+	
+		<tr>
+			<td style="padding: 20px 8px;">
+				<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+					
+						<tr>
+							<td align="left">
+								<a   data-linkto="https://www.canyon.com/de-de" href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjkwZTc2OTFmLWYzZDctNDY1Ni1hYmI2LTk3OTkzNTIzM2I1ZSIsImRla1ZlcnNpb24iOjEsIml2IjoidHowMzdESUl4Rkx1REJ5bmNLL21GZz09IiwiY2lwaGVyVGV4dCI6IkhKZmQxbDV4M2d4ODdZYjgzbkdVZG1NckNkb2Vyc1YxMDZKQjlFbjRHd3hEMjlPL3R0N1FMOUphUHZvaW5lNzZ6UVBrTDFURDFkOThvQUxodFVLdVZLWjRpNFJabjRCeFdtTHd0ejAzN0RJSXhGTHVEQnluY0svbUZnPT0iLCJhdXRoVGFnIjoiNGJWQ3JsU21lSXVFV1orQWNWcGk4QT09In0%3D" title="Canyon logo"><img alt="icon canyon" border="0" height="34" src="https://image.marketing.emea.canyon.com/lib/fe8a13727c62017c72/m/2/logo-berg.png" style="display: block;" width="54"></a></td><td align="right">
+								<a   data-linkto="https://www.canyon.com/de-de" href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6ImY5ZjQwZjc2LTU5OWUtNGU5Yy1iYzgxLTFkMWRiOTc4NWZmMCIsImRla1ZlcnNpb24iOjEsIml2IjoiTmNadGpGSy9ncHpPblJHTXpwVEU2dz09IiwiY2lwaGVyVGV4dCI6Imh4QUl3dldNNDRLNGlwUjYwU3hmNXFCVW1sWGF4VUxvMnA0TzlORjdYd3dsd1VsWTEvU0pja2ovNHZWTGd0azNMOVRQTGtJREZtU0UwRU1NaWRIZzVhK2U5N2FwK3FWUmFPdDdOY1p0akZLL2dwek9uUkdNenBURTZ3PT0iLCJhdXRoVGFnIjoiREluUjRPV3ZudmUycWZxbFVXanJldz09In0%3D" title="Canyon logo"><img alt="logo canyon" border="0" height="34" src="https://image.marketing.emea.canyon.com/lib/fe8a13727c62017c72/m/2/logo-canyon-black.png" style="display: block;" width="146"></a></td></tr></table></td></tr></table><!-- /header - logo black --><!-- header - online black --> <!-- /header - online black --> <!--   --></td></tr></table></td>
+              </tr>
+              <tr>
+                <td class="full-width" style="width:600px; max-width:600px; min-width:600px;" align="center"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- header - title --><!--  --><table align="center" border="0" cellpadding="0" cellspacing="0" class="content-wrapper" role="presentation" style="width:600px; margin:0 auto;" width="600">
+ 
+  <tr>
+   <td style="padding: 24px 16px 16px 16px;">
+    <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+     
+      <tr>
+       <td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 20px; line-height: 24px; color: #222222; font-weight: 700; padding-bottom: 8px;">
+        </td></tr><tr>
+       <td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 32px; line-height: 36px; color: #222222; font-weight: 900; letter-spacing: -0.006em; text-transform: uppercase; padding-bottom: 8px;">
+        10 % Outlet Rabatt</td></tr></table></td></tr></table><!-- /header - title -->
+<!--   --></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- header - content - 1 button --><!--  --><!--  --><!-- image --><table align="center" border="0" cellpadding="0" cellspacing="0" class="content-wrapper" role="presentation" style="width:600px; margin:0 auto;" width="600">
+ 
+  <tr>
+   <td class="full-width-img radius" style="padding: 0 16px;">
+    <!--  --><a  href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6ImYzNGVmNzE3LTQxOTEtNDU3Yi04NTk3LWEyNTFjMTk1NDM0OSIsImRla1ZlcnNpb24iOjEsIml2IjoiZEdDMXdhN0F4YU93cG9TSlVxa0FhZz09IiwiY2lwaGVyVGV4dCI6InFmTm9xZGEwL2VxUzhzRnQvd0Nsd25tNHZrNUZPZHAvSG94aEZrSS82R0IrNGVBcDIxVkZFeWlzQVhhWGdhTHVIb0oyL05XWktLdVdWMWdySGtmcGlDZ25WTlRmV1g2eEkzZFpkR0Mxd2E3QXhhT3dwb1NKVXFrQWFnPT0iLCJhdXRoVGFnIjoiS3g1SDZZZ29KMVRVMzFsK3NTTjNXUT09In0%3D"><!--  --> <img alt="" border="0" src="https://dma.canyon.com/image/upload/f_auto/t_sale_tag_en/v1718001424/outlet-01-bikes_hcfnyn.jpg" style="display: block;" width="568"> <!--  --> </a> <!--  --></td></tr></table><!-- /image --><!--  --><!-- text + buttons --><table align="center" border="0" cellpadding="0" cellspacing="0" class="content-wrapper" role="presentation" style="width:600px; margin:0 auto;" width="600">
+ 
+  <tr>
+   <td style="padding: 24px 16px;">
+    <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+     
+      <tr>
+       <th align="left" class="column" style="font-weight:normal; vertical-align:top; width:276px;" valign="top" width="276">
+        <table border="0" cellpadding="0" cellspacing="0" class="black" role="presentation" width="100%">
+         <!--  -->
+          <tr class="dm-black">
+           <td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 19px; color: #222222; font-weight: 700; letter-spacing: 0.02em; padding-bottom: 10px;">
+            Verwende OUTLET10 für zusätzliche 10 % auf Outlet-Artikel</td></tr><!--  --><!--  --><tr class="dm-black">
+           <td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 19px; color: #222222; letter-spacing: 0.02em;">
+            Der Canyon Outlet ist eine Fundgrube für Bikes zu tollen Preisen – sofort versandbereit.<br><br>Unsere Bikes bieten schon jetzt unschlagbaren Wert in jeder Ausstattung – shoppe jetzt und sichere dir etwas Besonderes zu einem noch besseren Preis.<br><br>Es gelten die AGB*.</td></tr><!--  --><!--  --></table></th><th class="column-spacer" style="width:80px;" width="80">
+       </th><th align="left" class="column" style="font-weight:normal; vertical-align:top; width:212px;" valign="top" width="212">
+        <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+         
+          <tr class="white">
+           <td align="center" class="mso-pad-btn" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 16px; color: #FFFFFF; mso-padding-alt: 14px 16px 15px 16px; background-clip: padding-box; border-radius: 8px; background-color: #222222;">
+            <a  href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6ImFjOWUzYWQzLWRkZDctNGZmNC1hZjQzLTgyZWNhZTYzMTQ0OCIsImRla1ZlcnNpb24iOjEsIml2IjoiWUlsemVXWlc2YityQlNMdU1taFc4UT09IiwiY2lwaGVyVGV4dCI6ImZabHhtaUhZMldNMFo5TzZIaFNjNUhzM1pXQTRia1hvMzZ6cEd1QlFOaWNoTHJrcXRDOXc3c3FFQ213dEtDTUdjSmZycGcyMFo3UTMyV3hzbFIwWEV5WWZhZ0M0UmJkYjJDcGtZSWx6ZVdaVzZiK3JCU0x1TW1oVzhRPT0iLCJhdXRoVGFnIjoiYkpVZEZ4TW1IMm9BdUVXM1c5Z3FaQT09In0%3D" style="color: #FFFFFF; text-decoration: none; padding: 14px 16px 15px 16px; display:block;">Spare 10 % auf Bikes im Outlet</a></td></tr></table><table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+         
+          <tr>
+           <td height="12" style="font-size: 1px; line-height: 1px; height: 12px;">
+           </td></tr></table></th></tr></table></td></tr><tr>
+   <td height="32" style="height: 32px;">
+   </td></tr></table><!-- /text + buttons --><!-- /header - content - 1 button --><!--   --></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- image block 600px --><!--  --><table align="center" border="0" cellpadding="0" cellspacing="0" class="content-wrapper" role="presentation" style="width:600px; margin:0 auto;" width="600">
+	
+		<tr>
+			<td class="full-width-img">
+				<img alt="" border="0" src="https://img1.niftyimages.com/33k/oqe5/2g57?lang=de" style="display: block;" width="600"></td></tr></table><!-- /image block 600px --><!--   --></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- spacer --><!--  --><table align="center" border="0" cellpadding="0" cellspacing="0" class="content-wrapper" role="presentation" style="width:600px; margin:0 auto;" width="600">
+ 
+  <tr>
+   <td height="30" style="height: 30px; font-size:1px; line-height:1px;">
+   </td></tr></table><!-- /spacer -->
+<!--   --></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- header - content - 1 button --><!--  --><!--  --><!-- image --><table align="center" border="0" cellpadding="0" cellspacing="0" class="content-wrapper" role="presentation" style="width:600px; margin:0 auto;" width="600">
+	
+		<tr>
+			<td class="full-width-img radius" style="padding: 0 16px;">
+				<!--  --><a  href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6ImVlYjdjODNhLWJlMWQtNGRhZi05YzhlLTM0ZDJlNzlmYTQxNiIsImRla1ZlcnNpb24iOjEsIml2Ijoid2s1RjFxWXRVUitKQmlTU3JnOFl5UT09IiwiY2lwaGVyVGV4dCI6IjJ2UUhhaFVVTGljalFxQTEwVkpNRjljNzJibmp4S3ZrQ1hBUjlMWFFmZzV6WXJZQWZuTG1zQ1d5WEZJK2g2czZZbmV5OUFkZ0dmY0FMWUU4NEhRaE1rekN0MURDVjdtNDBzVkJ3azVGMXFZdFVSK0pCaVNTcmc4WXlRPT0iLCJhdXRoVGFnIjoiUE9CMElUSk13cmRRd2xlNXVOTEZRUT09In0%3D"><!--  --> <img alt="" border="0" src="https://dma.canyon.com/image/upload/t_email_landscape_small_crop/f_auto/outlet-02-gear_akfgoc.jpg" style="display: block;" width="568"> <!--  --> </a> <!--  --></td></tr></table><!-- /image --><!--  --><!-- text + buttons --><table align="center" border="0" cellpadding="0" cellspacing="0" class="content-wrapper" role="presentation" style="width:600px; margin:0 auto;" width="600">
+	
+		<tr>
+			<td style="padding: 24px 16px;">
+				<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+					
+						<tr>
+							<th align="left" class="column" style="font-weight:normal; vertical-align:top; width:276px;" valign="top" width="276">
+								<table border="0" cellpadding="0" cellspacing="0" class="black" role="presentation" width="100%">
+									<!--  -->
+										<tr class="dm-black">
+											<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 19px; color: #222222; font-weight: 700; letter-spacing: 0.02em; padding-bottom: 10px;">
+												Schnapp dir Zubehör. 10 % Rabatt gehen auf uns</td></tr><!--  --><!--  --><tr class="dm-black">
+											<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 19px; color: #222222; letter-spacing: 0.02em;">
+												Nutze den Code OUTLET10 und sichere dir 10 % Rabatt auf alle Accessoires, Kleidung und Komponenten in unserem Outlet.<br><br>Es gelten die AGB*.</td></tr><!--  --><!--  --></table></th><th class="column-spacer" style="width:80px;" width="80">
+							</th><th align="left" class="column" style="font-weight:normal; vertical-align:top; width:212px;" valign="top" width="212">
+								<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+									
+										<tr class="white">
+											<td align="center" class="mso-pad-btn" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 16px; color: #FFFFFF; mso-padding-alt: 14px 16px 15px 16px; background-clip: padding-box; border-radius: 8px; background-color: #222222;">
+												<a  href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjQ1NmMzMDljLWQwZDUtNDJkOS04NjNkLTVkMDI0MjQwMWFmNCIsImRla1ZlcnNpb24iOjEsIml2IjoiMjZ2bHdyRU5IbEFiaENDV0dZbGxNdz09IiwiY2lwaGVyVGV4dCI6IjlWRjVVSUI4VWZEdmdRQVdmbENIZnFxTGR1aERYR2FTcUVpZGZlMEtUeEJoaWNPa1dLZVEzN1BRbjR6ajZSWUMvZFdDcTBURUdoMWcwUi9aVlZsRENhU2Fnc1ZTenlhK0RGWkwyNnZsd3JFTkhsQWJoQ0NXR1lsbE13PT0iLCJhdXRoVGFnIjoiMlZWWlF3bWttb0xGVXM4bXZneFdTdz09In0%3D" style="color: #FFFFFF; text-decoration: none; padding: 14px 16px 15px 16px; display:block;">Spare 10 % auf Zubehör im Outlet</a></td></tr></table><table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+									
+										<tr>
+											<td height="12" style="font-size: 1px; line-height: 1px; height: 12px;">
+											</td></tr></table></th></tr></table></td></tr><tr>
+			<td height="32" style="height: 32px;">
+			</td></tr></table><!-- /text + buttons --><!-- /header - content - 1 button --><!--   --></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- divider --><!--  --><table align="center" border="0" cellpadding="0" cellspacing="0" class="content-wrapper" role="presentation" style="width:600px; margin:0 auto;" width="600">
+	
+		<tr>
+			<td height="30" style="height: 30px; border-top: 1px solid #CCCCCC;">
+			</td></tr></table><!-- /divider --><!--   --></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- header - title --><!--  --><table align="center" border="0" cellpadding="0" cellspacing="0" class="content-wrapper" role="presentation" style="width:600px; margin:0 auto;" width="600">
+ 
+  <tr>
+   <td style="padding: 24px 16px 16px 16px;">
+    <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+     
+      <tr>
+       <td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 20px; line-height: 24px; color: #222222; font-weight: 700; padding-bottom: 8px;">
+        Sale | Finde deinen nächste fahrbaren Untersatz</td></tr><tr>
+       <td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 32px; line-height: 36px; color: #222222; font-weight: 900; letter-spacing: -0.006em; text-transform: uppercase; padding-bottom: 8px;">
+        </td></tr></table></td></tr></table><!-- /header - title --><!--   --></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- section - product grid --><!--  --><table align="center" border="0" cellpadding="0" cellspacing="0" class="content-wrapper" role="presentation" style="width:600px; margin:0 auto;" width="600">
+	
+		<tr>
+			<td style="padding: 0 16px 16px 16px;">
+				<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+					
+						<tr>
+							<th align="left" class="column" style="font-weight:normal; vertical-align:top; width:276px;" valign="top" width="276">
+								<!--[if gte mso 9]>                                <v:image xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style=" border: 0;display: inline-block; width: 276px; height: 368px;" src="https://dma.canyon.com/image/upload/t_email_portrait_crop/f_auto/outlet-road_mok2qm.jpg" />                                <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style=" border: 0;display: inline-block;position: absolute; width: 276px; height: 368px;">                                  <v:fill  opacity="0%" color="#F2F2F2"  />                                  <v:textbox inset="0,0,0,0">                                    <![endif]-->
+<table background="https://dma.canyon.com/image/upload/t_email_portrait_crop/f_auto/outlet-road_mok2qm.jpg" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-image: url('https://dma.canyon.com/image/upload/t_email_portrait_crop/f_auto/outlet-road_mok2qm.jpg');background-repeat: number-repeat; background-position: center top; background-size: cover; border-radius: 12px;" width="100%">
+									
+										<tr>
+											<td class="full-width-img">
+												<img alt="" border="0" height="320" src="https://image.marketing.emea.canyon.com/lib/fe8a13727c62017c72/m/2/transparant-bg.png" width="276"></td></tr><tr>
+											<td align="center" style="padding-bottom: 16px;">
+												<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: separate; border-spacing: 0px;">
+													
+														<tr class="black">
+															<td align="center" class="mso-pad-btn-small" height="30" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 14px; color: #000000; mso-padding-alt: 0 16px; background-clip: padding-box; border-radius: 80px; border: 1px solid #888888; background-color: #FFFFFF; height: 30px;">
+																<a  href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjhlNzBlNWQyLTQ4MTYtNGUxOS04ZjJjLTNkMzRkYjlmZDUzZCIsImRla1ZlcnNpb24iOjEsIml2IjoiSmVIbnQ5YzFaUldYUjFuZnpkUUgvdz09IiwiY2lwaGVyVGV4dCI6Ik1tNTM5QTl0N0xqU09MTFpKV3UvUC9NTTdnZlVMYnZXYmFkc3dKb0libjl3dXZic0tJbGlKa3M4UTArdEZUWitybU9BUTlLc09oMlYva21JeUpuQ0tVVVJTQmlNek5zdGxBUW1KZUhudDljMVpSV1hSMW5memRRSC93PT0iLCJhdXRoVGFnIjoiaU1pWndpbEZFVWdZak16YkxaUUVKZz09In0%3D" style="color: #000000; text-decoration: none; padding: 4px 16px 5px 16px; display:block;">Rennräder kaufen</a></td></tr></table></td></tr></table><!--[if gte mso 9]>                                   </v:textbox>                                  </v:fill>                                </v:rect>                                </v:image><![endif]--></th><th class="column-spacer-small" style="width:16px;" width="16">
+							</th><th align="left" class="column" style="font-weight:normal; vertical-align:top; width:276px;" valign="top" width="276">
+								<!--[if gte mso 9]>                                <v:image xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style=" border: 0;display: inline-block; width: 276px; height: 368px;" src="https://dma.canyon.com/image/upload/t_email_portrait_crop/f_auto/outlet-gravel_zsl3tr.jpg" />                                <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style=" border: 0;display: inline-block;position: absolute; width: 276px; height: 368px;">                                  <v:fill  opacity="0%" color="#F2F2F2"  />                                  <v:textbox inset="0,0,0,0">                                    <![endif]-->
+<table background="https://dma.canyon.com/image/upload/t_email_portrait_crop/f_auto/outlet-gravel_zsl3tr.jpg" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-image: url('https://dma.canyon.com/image/upload/t_email_portrait_crop/f_auto/outlet-gravel_zsl3tr.jpg');background-repeat: number-repeat; background-position: center top; background-size: cover; border-radius: 12px;" width="100%">
+									
+										<tr>
+											<td class="full-width-img">
+												<img alt="" border="0" height="320" src="https://image.marketing.emea.canyon.com/lib/fe8a13727c62017c72/m/2/transparant-bg.png" width="276"></td></tr><tr>
+											<td align="center" style="padding-bottom: 16px;">
+												<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: separate; border-spacing: 0px;">
+													
+														<tr class="black">
+															<td align="center" class="mso-pad-btn-small" height="30" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 14px; color: #000000; mso-padding-alt: 0 16px; background-clip: padding-box; border-radius: 80px; border: 1px solid #888888; background-color: #FFFFFF; height: 30px;">
+																<a  href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6ImFhNjYxNGQ3LTRlNmUtNGViOC1iOTc3LWM0NGRlZjE2MmIzNyIsImRla1ZlcnNpb24iOjEsIml2IjoieU9RaW1USnVOU0xXbGhWOXVSZjJGUT09IiwiY2lwaGVyVGV4dCI6ImdNUEZQNmt4TWQvcWtOTk9nL1N1VjUyNFd1bWMySFZKbDhRZU40d0ZaSnEzeDZrR2xFcWhVbmhFdGRSdS9hZ1h6dTRVRmtLMnV0QWp6OHVFZGp6UGY3ZWJmTnZua0tkSHdtS0x5T1FpbVRKdU5TTFdsaFY5dVJmMkZRPT0iLCJhdXRoVGFnIjoiaEhZOHozKzNtM3piNTVDblI4Smlpdz09In0%3D" style="color: #000000; text-decoration: none; padding: 4px 16px 5px 16px; display:block;">Gravel Bikes kaufen</a></td></tr></table></td></tr></table><!--[if gte mso 9]>                                   </v:textbox>                                  </v:fill>                                </v:rect>                                </v:image><![endif]--></th></tr></table></td></tr></table><!-- /section - product grid --><!--   --></td></tr></table>
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- section - product grid --><!--  --><table align="center" border="0" cellpadding="0" cellspacing="0" class="content-wrapper" role="presentation" style="width:600px; margin:0 auto;" width="600">
+	
+		<tr>
+			<td style="padding: 0 16px 16px 16px;">
+				<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+					
+						<tr>
+							<th align="left" class="column" style="font-weight:normal; vertical-align:top; width:276px;" valign="top" width="276">
+								<!--[if gte mso 9]>                                <v:image xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style=" border: 0;display: inline-block; width: 276px; height: 368px;" src="https://dma.canyon.com/image/upload/t_email_portrait_crop/f_auto/outlet-mtb_uhdeyu.jpg" />                                <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style=" border: 0;display: inline-block;position: absolute; width: 276px; height: 368px;">                                  <v:fill  opacity="0%" color="#F2F2F2"  />                                  <v:textbox inset="0,0,0,0">                                    <![endif]-->
+<table background="https://dma.canyon.com/image/upload/t_email_portrait_crop/f_auto/outlet-mtb_uhdeyu.jpg" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-image: url('https://dma.canyon.com/image/upload/t_email_portrait_crop/f_auto/outlet-mtb_uhdeyu.jpg');background-repeat: number-repeat; background-position: center top; background-size: cover; border-radius: 12px;" width="100%">
+									
+										<tr>
+											<td class="full-width-img">
+												<img alt="" border="0" height="320" src="https://image.marketing.emea.canyon.com/lib/fe8a13727c62017c72/m/2/transparant-bg.png" width="276"></td></tr><tr>
+											<td align="center" style="padding-bottom: 16px;">
+												<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: separate; border-spacing: 0px;">
+													
+														<tr class="black">
+															<td align="center" class="mso-pad-btn-small" height="30" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 14px; color: #000000; mso-padding-alt: 0 16px; background-clip: padding-box; border-radius: 80px; border: 1px solid #888888; background-color: #FFFFFF; height: 30px;">
+																<a  href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjcyYWQxNjIxLTcxNGYtNDE4NS1hYWE2LTJjZjQ5YjMyNzgwZCIsImRla1ZlcnNpb24iOjEsIml2IjoidEJ2T3RTNGpqRTR6TkFDRUp0S3gvZz09IiwiY2lwaGVyVGV4dCI6ImZ3ZkVOQU5nNy9IcWFoR3ArNERwUTM3OWdrcDNpK29nS0EzSnJvMVVNZUxtbE9Ob3BNdDlRNGZtUk93VzRBaHRsTU9YK0tOckRlUVRIaDJSc0JZbHJxMUI3TWVoQ3Q5UjB6eWp0QnZPdFM0ampFNHpOQUNFSnRLeC9nPT0iLCJhdXRoVGFnIjoia2JBV0phNnRRZXpIb1FyZlVkTThvdz09In0%3D" style="color: #000000; text-decoration: none; padding: 4px 16px 5px 16px; display:block;">Mountainbikes kaufen</a></td></tr></table></td></tr></table><!--[if gte mso 9]>                                   </v:textbox>                                  </v:fill>                                </v:rect>                                </v:image><![endif]--></th><th class="column-spacer-small" style="width:16px;" width="16">
+							</th><th align="left" class="column" style="font-weight:normal; vertical-align:top; width:276px;" valign="top" width="276">
+								<!--[if gte mso 9]>                                <v:image xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style=" border: 0;display: inline-block; width: 276px; height: 368px;" src="https://dma.canyon.com/image/upload/t_email_portrait_crop/f_auto/outlet-urban_antzdr.jpg" />                                <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style=" border: 0;display: inline-block;position: absolute; width: 276px; height: 368px;">                                  <v:fill  opacity="0%" color="#F2F2F2"  />                                  <v:textbox inset="0,0,0,0">                                    <![endif]-->
+<table background="https://dma.canyon.com/image/upload/t_email_portrait_crop/f_auto/outlet-urban_antzdr.jpg" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-image: url('https://dma.canyon.com/image/upload/t_email_portrait_crop/f_auto/outlet-urban_antzdr.jpg');background-repeat: number-repeat; background-position: center top; background-size: cover; border-radius: 12px;" width="100%">
+									
+										<tr>
+											<td class="full-width-img">
+												<img alt="" border="0" height="320" src="https://image.marketing.emea.canyon.com/lib/fe8a13727c62017c72/m/2/transparant-bg.png" width="276"></td></tr><tr>
+											<td align="center" style="padding-bottom: 16px;">
+												<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: separate; border-spacing: 0px;">
+													
+														<tr class="black">
+															<td align="center" class="mso-pad-btn-small" height="30" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 14px; color: #000000; mso-padding-alt: 0 16px; background-clip: padding-box; border-radius: 80px; border: 1px solid #888888; background-color: #FFFFFF; height: 30px;">
+																<a  href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6ImFlNDEyYmMyLWFiNzktNDg2OS1hMzkyLTI4OWY3MTBmMDEzMSIsImRla1ZlcnNpb24iOjEsIml2IjoiamJLYkhLZWRjM1FFeW40MEFWbkRhdz09IiwiY2lwaGVyVGV4dCI6IlBBVjRPUDlRdENxcnFOOW5BQnQ1QTJXRnlOTmZwMEVESjlxbzh3VHFhMjZqU0RNL2tJMWZqV1gyYVVwVU9lU3VKT08yZ1hvK1drMTMzNDFNWmFjY3Nob2VNRmEwTzRXYi8xODhqYktiSEtlZGMzUUV5bjQwQVZuRGF3PT0iLCJhdXRoVGFnIjoiVEdXbkhMSWFIakJXdER1Rm0vOWZQQT09In0%3D" style="color: #000000; text-decoration: none; padding: 4px 16px 5px 16px; display:block;">City- & Trekkingbikes kaufen</a></td></tr></table></td></tr></table><!--[if gte mso 9]>                                   </v:textbox>                                  </v:fill>                                </v:rect>                                </v:image><![endif]--></th></tr></table></td></tr></table><!-- /section - product grid --><!--   --></td></tr></table>
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- divider --><!--  --><table align="center" border="0" cellpadding="0" cellspacing="0" class="content-wrapper" role="presentation" style="width:600px; margin:0 auto;" width="600">
+ 
+  <tr>
+   <td height="30" style="height: 30px; border-top: 1px solid #CCCCCC;">
+   </td></tr></table><!-- /divider -->
+<!--   --></td></tr></table>
+
+</td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- card - product img --><!--  --><table align="center" border="0" cellpadding="0" cellspacing="0" class="content-wrapper" role="presentation" style="width:600px; margin:0 auto;" width="600">
+ 
+  <tr>
+   <td style="padding: 0 16px;">
+    <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: separate; border-spacing: 0px;" width="100%">
+     
+      <tr>
+       <td style="border: 1px solid #BBBBBB; border-radius: 12px;">
+        <table border="0" cellpadding="0" cellspacing="0" dir="ltr" role="presentation" width="100%">
+         
+          <tr>
+           <th align="left" class="column" dir="ltr" rowspan="2" style="font-weight:normal; vertical-align:middle; width:276px;" valign="top" width="276">
+            <table border="0" cellpadding="0" cellspacing="0" dir="ltr" role="presentation" width="100%">
+             
+              <tr>
+               <td class="full-width-img b-radius-tl-bl">
+                <!--  --><a  href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6ImRjZmZmMzY1LTVkZTgtNDE3Ny05YTZjLThkY2YxNDVkYzE3YyIsImRla1ZlcnNpb24iOjEsIml2IjoiQUx5eVM5cDRCcjlpdHVxM2VBWHUvZz09IiwiY2lwaGVyVGV4dCI6ImNWQkQ4MUxESzVxRHpCb25vbSs5eXdIalVQUVd2cTFkYXFta0crSGQ2d3dzekF3SnJpay9YOXpBRnRuNzcwb3RZZUtXL045Q0plVld6MzFEMDE3aDl2bUl4UThDbi95WklKaUxBTHl5UzlwNEJyOWl0dXEzZUFYdS9nPT0iLCJhdXRoVGFnIjoiUTlOZTRmYjVpTVVQQXAvOG1TQ1lpdz09In0%3D" style="color: #000000; text-decoration: none; padding: 0px; display:block;"><!--  --><img alt="" border="0" src="https://dma.canyon.com/image/upload/t_email_portrait_crop/f_auto/v1759920909/2025_CJA_ACC_CAYN-KNOGxCANYON-CJA_-_bk_9768_htdmd2.jpg" width="276"> <!--  --> </a> <!--  --></td></tr></table></th><th align="left" class="column" dir="ltr" height="150" style="font-weight:normal; vertical-align:top; height: 150px;" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" dir="ltr" role="presentation" width="100%">
+             
+              <tr class="black">
+               <td class="pad-lr-16" style="padding: 24px 24px 0 24px;">
+                <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+                 <!--  --><tr class="dm-black">
+                   <td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 20px; line-height: 24px; color: #222222; font-weight: 700; padding-bottom: 8px;">
+                    Radreisen: Dein Trip, dein Input.</td></tr><tr class="dm-black">
+                   <td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 24px; color: #222222; font-weight: 500; letter-spacing: -0.006em; padding-bottom: 8px;">
+                    Gemeinsam mit quäldich, Ryzon und SPONSER sammeln wir Feedback aus der Community, um Reise-Erlebnisse noch besser umzusetzen.<br>
+
+Als Dank fürs Mitmachen gibt’s die Chance auf Gewinne im Gesamtwert von 6.800 €; darunter 17× 100 € Canyon Gutscheine.</td></tr></table></td></tr></table></th></tr><!--  --><tr>
+           <td dir="ltr" valign="bottom">
+            <table border="0" cellpadding="0" cellspacing="0" dir="ltr" role="presentation" width="100%">
+             
+              <tr>
+               <td align="left" class="pad-lr-16 pad-t-20" style="padding: 0 24px 24px 24px;">
+                <table border="0" cellpadding="0" cellspacing="0" class="black" role="presentation" style="border-collapse: separate; border-spacing: 0px;">
+                 
+                  <tr>
+                   <td align="center" class="mso-pad-btn-small" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 16px; color: #000000; mso-padding-alt: 6px 16px 7px 16px; background-clip: padding-box; border-radius: 80px; border: 1px solid #888888;">
+                    <a  href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjA4NDVlMDUyLTM2NTQtNDZkOC1hYWUzLTEwN2Q3MWJlMGExMSIsImRla1ZlcnNpb24iOjEsIml2IjoiQS90N0VXS04xSGF5Vlk0eFBtTmFyZz09IiwiY2lwaGVyVGV4dCI6InpSNHNaY3dWUlVQUkRGUVY0ZzNFQkpUM1kzRDdkTlJMOHM4YWtjYVVKVHBJNWJ1ZW95SW5mdWJvelpXTXZuTFRYeHVVWkFzWmQwZWt0MHJlbEJCTXpoaXFBSFY5cVFSdklnWVdBL3Q3RVdLTjFIYXlWWTR4UG1OYXJnPT0iLCJhdXRoVGFnIjoiM3BRUVRNNFlxZ0IxZmFrRWJ5SUdGZz09In0%3D" style="color: #000000; text-decoration: none; padding: 6px 16px 7px 16px; display:block;">Zur Umfrage</a></td></tr></table></td></tr></table></td></tr><!--  --></table></td></tr></table></td></tr></table><!-- /card - product img --><!--   --></td></tr></table>
+
+</td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+<table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- spacer --><!--  --><table align="center" border="0" cellpadding="0" cellspacing="0" class="content-wrapper" role="presentation" style="width:600px; margin:0 auto;" width="600">
+ 
+  <tr>
+   <td height="30" style="height: 30px; font-size:1px; line-height:1px;">
+   </td></tr></table><!-- /spacer -->
+<!--   --></td></tr></table>
+
+</td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- divider --><!--  --><table align="center" border="0" cellpadding="0" cellspacing="0" class="content-wrapper" role="presentation" style="width:600px; margin:0 auto;" width="600">
+ 
+  <tr>
+   <td height="30" style="height: 30px; border-top: 1px solid #CCCCCC;">
+   </td></tr></table><!-- /divider -->
+<!--   --></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- section - title and text --><!--  --><table align="center" border="0" cellpadding="0" cellspacing="0" class="content-wrapper" role="presentation" style="width:600px; margin:0 auto;" width="600">
+ 
+  <tr>
+   <td style="padding: 0 16px;">
+    <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+     
+      <tr>
+       <td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 20px; line-height: 24px; color: #222222; font-weight: 700; padding-bottom: 8px;">
+        </td></tr><tr>
+       <td align="left" style="font-style: italic; font-family: Arial, Helvetica, sans-serif; font-size: 14px; line-height: 20px; color: #222222; letter-spacing: -0.006em; padding-bottom: 8px;">
+        *Dieser Gutscheincode gilt online vom 10. Februar 2026, 09:30 Uhr MEZ, bis zum 12. Februar 2026, 09:30 Uhr MEZ, für Lieferungen an Adressen in EMEA**, Südamerika***, Kanada, Singapur und den Vereinigten Staaten von Amerika. Mit dem Code erhältst du zusätzlich 10 % Rabatt auf Fahrräder und Zubehörartikel im Canyon Factory Outlet. Er kann nicht in Verbindung mit einem anderen Rabattcode eingelöst werden. Der Code kann nicht rückwirkend angewendet werden und gilt nur für Produkte, die zum Zeitpunkt des Kaufs im Factory Outlet erhältlich sind. Kann nicht gegen Bargeld eingelöst werden, und der Weiterverkauf ist verboten. Der Code kann nur einmal pro Kunde verwendet werden. Canyon behält sich das Recht vor, die Bedingungen dieser Aktion jederzeit zu beenden oder zu ändern.**EMEA umfasst die folgenden Länder: Albanien, Bahrain, Ägypten, Länder der Europäischen Union, Kanada, Großbritannien, Island, Israel, Kasachstan, Kuwait, Kirgisistan, Libanon, Mauritius,
+ Nordmazedonien, Norwegen, Oman, Katar, Saudi-Arabien, Serbien, Schweiz, Türkei, Ukraine, Vereinigte Arabische Emirate und Sambia.***Südamerika umfasst die folgenden Länder: Bermuda, Bolivien, Brasilien, Chile, Kolumbien, Costa Rica, Ecuador, Guatemala, Honduras, Mexiko, Panama und Peru.</td></tr></table></td></tr></table><!-- START spacer 24px --><table align="center" border="0" cellpadding="0" cellspacing="0" class="content-wrapper" role="presentation" style="width:600px; margin:0 auto;" width="600">
+ 
+  <tr>
+   <td height="24" style="height: 24px;">
+   </td></tr></table><!-- /END spacer 24px --><!-- /section - title and text --><!--   --></td></tr></table></td>
+              </tr>
+              <tr>
+                <td class="full-width" style="width:600px; max-width:600px; min-width:600px;" align="center"><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- feedback --><!--  --><table align="center" border="0" cellpadding="0" cellspacing="0" class="content-wrapper" role="presentation" style="border-top: 1px solid #BBBBBB; width:600px; margin:0 auto;" width="600">
+	
+		<tr>
+			<td align="center" style="padding: 48px 16px">
+				<table border="0" cellpadding="0" cellspacing="0" dir="rtl" role="presentation" width="100%">
+					
+						<tr>
+							<th align="left" class="column" dir="ltr" style="font-weight:normal; vertical-align:middle" valign="middle">
+								<table border="0" cellpadding="0" cellspacing="0" role="presentation">
+									<!--  -->
+										<tr class="dm-black">
+											<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 20px; line-height: 24px; color: #222222; font-weight: 700; letter-spacing: 0.02em; padding-bottom: 8px;">
+												Möchtest du weiterhin über Rabattaktionen informiert werden?</td></tr><!--  --><!--  --><tr class="dm-black">
+											<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 19px; color: #444444; letter-spacing: 0.02em;">
+												Dein Feedback hilft uns, auf deine persönlichen Vorlieben einzugehen und sicherzustellen, dass du dich auf unsere Inhalte freust.</td></tr><!--  --></table></th><th class="column-spacer" style="width:32px;" width="32">
+							</th><th align="left" class="column" dir="ltr" style="font-weight:normal; vertical-align:middle; width:112px;" valign="middle" width="112">
+								<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="112">
+									
+										<tr>
+											<td align="left">
+												<a  href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjRmYmMxMjhmLTBjZTMtNDQ1Zi1iMmMzLTQ0ZWJhMDljZGE5OSIsImRla1ZlcnNpb24iOjEsIml2IjoiOVFHK0VmQ2RnYjNOQnpiTXE5RGgyZz09IiwiY2lwaGVyVGV4dCI6Im1UTTFheUZwZ1FNdEMvMktURDQxeXcrMGNEaHkrSVhneGg1NkFNenp0Y3BUSVpUcGJXWlFmWmN5dE8wWXJoR1ptNzVvWldUeXpUQThKTndrdlJLbEZxcHM1TGg3Qk42QTdPcmI5UUcrRWZDZGdiM05CemJNcTlEaDJnPT0iLCJhdXRoVGFnIjoiSkwwU3BSYXFiT1M0ZXdUZWdPenEydz09In0%3D"><img alt="thumbs up" border="0" height="" src="https://image.marketing.emea.canyon.com/lib/fe8a13727c62017c72/m/1/thumbs-up-x2.png" style="display: block;" width="48"> </a></td><td width="16">
+											</td><td align="left">
+												<a  href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjA2YTcxNDAxLWRjZDItNDhjMi05ZmRhLTgzMDU5NjM0YmFmNSIsImRla1ZlcnNpb24iOjEsIml2IjoidCt4dlExT2xBZk4vNlZydjh1Rm5pdz09IiwiY2lwaGVyVGV4dCI6IlFiaHo4TVBqcGVhSjVtV1hPdnBsU3pjelNuNFVLaXpIdS9aUXFjbC90YmEwWmVRU25NTkxhTFV4MURhVDc2L1ZTRlF0ZUl5ZE0wNGNEMW9TeVpUOGpPVndTa0RpaW82SVY5TUd0K3h2UTFPbEFmTi82VnJ2OHVGbml3PT0iLCJhdXRoVGFnIjoiRXNtVS9JemxjRXBBNG9xT2lGZlRCZz09In0%3D"><img alt="thumbs down" border="0" height="" src="https://image.marketing.emea.canyon.com/lib/fe8a13727c62017c72/m/1/thumbs-down-x2.png" style="display: block;" width="48"> </a></td></tr></table></th></tr></table></td></tr></table><!-- /feedback --></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"> <!-- trustpilot -->
+<table align="center" border="0" cellpadding="0" cellspacing="0" class="content-wrapper" role="presentation" style="width:600px; margin:0 auto;" width="600">
+ 
+  <tr>
+   <td align="center" style="padding: 40px 16px; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC;">
+    <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+     
+      <tr>
+       <td align="center">
+        <a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjgxYWJkYmRkLWM4NjEtNDA5Yi05MzAyLTk4YTc1YjY2Yjk3MyIsImRla1ZlcnNpb24iOjEsIml2IjoiUEdLcXJPZ0s5czZqWFBvYXdQSzNTUT09IiwiY2lwaGVyVGV4dCI6IjB4c3puU3BVYWE1RnMwOTBVdFhRdHMwYkgwRjVPSkdKcUFuTzJUWVYzNHMzZ3lEcVhETDB6dmZCWGtzTDF4NFM0QVdFdVRKTm90dG9EMUI0T2prUEN5Rkc5bitDRUVZOFlxcXM2QXIyenFOYytockE4cmRKIiwiYXV0aFRhZyI6IjIyZ1BVSGc2T1E4TElVYjJmNElRUmc9PSJ9" rel="noopener noreferrer" style="text-decoration: none;" target="_blank"><img alt="Trustpilot Logo" border="0" src="https://emailsignature.trustpilot.com/brand/n/2/logo.png" style="display: block;" width="130"> </a></td></tr><tr>
+       <td align="center" style="padding: 5px 0;">
+        <a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjU3ZDk3NDk0LTdiY2UtNGE1ZC1iNzBmLWNmZjRiYWU2NDk2YyIsImRla1ZlcnNpb24iOjEsIml2IjoicmVZN2tlMnZTME9yU0VpbE4xeXJvQT09IiwiY2lwaGVyVGV4dCI6InRCbmV6ZGY0ZURsSzZJTnZZN0hxT0RIWU9QMTlTbkNzS1NDbWVNaXdkZlowL082eHpNY29DNjdONlg1dXdkU3hPbk1KUDBZWjh2MEdwdzlqT3dFdVdnWFl3SDBCZFVldDVqdVI3YTlMUTZ0SVNLVTNYS3VnIiwiYXV0aFRhZyI6Ii9RYW5EMk03QVM1YUJkakFmUUYxUnc9PSJ9" rel="noopener noreferrer" style="text-decoration: none;" target="_blank"><img alt="Trustpilot Stars" border="0" src="https://emailsignature.trustpilot.com/newsletter/en-US/2/46d2f258000064000500a2c4/stars.png" style="display: block;" width="172"> </a></td></tr><tr>
+       <td align="center">
+        <a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjFiYmY0YTM0LTlkOTctNDU2OC1iNzNjLWUwNjhiY2U2MmI4NiIsImRla1ZlcnNpb24iOjEsIml2IjoicUI2dzg3dnVabC9xYkxwbjN6L1RmUT09IiwiY2lwaGVyVGV4dCI6IlVLT3k3bkVDcEhHL0M2anh3aW9FY3h6RWhXTnlFM1RGZUtMaTBOcFVpMkxENjY2WWN1UmNJaWh4UHlEL0dPb1VCVHpTaGNobUVMdXJXMmNKb3E1UEl2aHJubE9Ba1RLb0hyRHp1KzVtWCtwc3VtZmZQOU45IiwiYXV0aFRhZyI6InU2dGJad21pcms4aStHdWVVNENSTWc9PSJ9" rel="noopener noreferrer" style="text-decoration: none;" target="_blank"><img alt="TrustScore" border="0" src="https://emailsignature.trustpilot.com/newsletter/en-US/2/46d2f258000064000500a2c4/text@2x.png" style="display: block;" width="170"> </a></td></tr></table></td></tr></table> <!-- /trustpilot --> </td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!--  --><!-- footer -->
+<table align="center" border="0" cellpadding="0" cellspacing="0" class="content-wrapper" role="presentation" style="width:600px; margin:0 auto;" width="600">
+	
+		<tr>
+			<td align="left" class="pad-t-35" style="padding: 40px 16px; border-bottom: 1px solid #CCCCCC;">
+				<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+					
+						<tr>
+							<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #222222; letter-spacing: 0.01em; padding-bottom: 16px;">
+								<b>Zahlungsoptionen</b></td></tr><tr>
+							<td align="center">
+								<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+									
+										<tr>
+											<td align="center">
+												<!----><!-- tag - prepayment --><table align="left" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: separate; float: left">
+													
+														<tr>
+															<td align="left" style="border-radius: 20px; border: 1px solid #888888">
+																<table border="0" cellpadding="0" cellspacing="0" role="presentation">
+																	
+																		<tr>
+																			<td align="left" class="tag-pad-icon">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjdiZmY1NTdhLWExNDEtNDY1Ni04MWI5LTM2YjRmM2IwYzE0YiIsImRla1ZlcnNpb24iOjEsIml2IjoiUGlidjgveDJ4N2JFRVdXZWtOSGMxZz09IiwiY2lwaGVyVGV4dCI6IjRVQUhUYU81MmlmWS9Lbm5hd0VuY0RaT0Q3TXFTN1lXS1dQMmhFZk5JU1pyZXVIc0ovay9jNHd5TUxZeHF2UTlabkpBRm42ZkhnT0w2R0dqQ05HdTl5d0xFUmJXdlVBVFFaV1JQaWJ2OC94Mng3YkVFV1dla05IYzFnPT0iLCJhdXRoVGFnIjoib3dqUnJ2Y3NDeEVXMXIxQUUwR1ZrUT09In0%3D" style="display: block; padding: 8px 6px 8px 14px"><img alt="payment icon" src="https://image.marketing.emea.canyon.com/lib/fe8a13727c62017c72/m/1/2025_BRA_prepayment_payments_icons_x_Email_x_x_24x24_ALL_bu2pzl.png" width="24"> </a></td><td align="left" class="tag-pad-copy" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #222222; letter-spacing: 0.01em;">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjY0NDIwYzZjLWM2MWMtNDY0Yy04OTk1LTMyNjQwNTA1MmE2MSIsImRla1ZlcnNpb24iOjEsIml2IjoiNzRxVno5RmZPaVd6OEU3M05WNEpxZz09IiwiY2lwaGVyVGV4dCI6InlmQ2dTdEZobWl5WVNrUlhxU0cxTEtvbVBiUjhzcjdlL2U2a1hKQU0vbEF6WnNCT3pzdENIV0RFSG9EK2NJclg4T0lUakV3L1ZaV3ZMQmtiQzBuMkdPMFovRlU1Ny9uWHB4Y1c3NHFWejlGZk9pV3o4RTczTlY0SnFnPT0iLCJhdXRoVGFnIjoiR3d0SjloanRHZnhWT2UvNTE2Y1hGZz09In0%3D" style="display: block; padding: 8px 16px 8px 0">Vorabüberweisung</a></td></tr></table></td><td width="8">
+															</td></tr><tr>
+															<td height="8" style="height: 8px; line-height: 8px; font-size: 1px">
+															</td></tr></table><!-- /tag - prepayment --><!----><!----><!-- tag - canyonstore --><table align="left" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: separate; float: left">
+													
+														<tr>
+															<td align="left" style="border-radius: 20px; border: 1px solid #888888">
+																<table border="0" cellpadding="0" cellspacing="0" role="presentation">
+																	
+																		<tr>
+																			<td align="left" class="tag-pad-icon">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjViNTNiNmRlLTMwODQtNGRlNS05NTY2LTI4OThhOWZlMzVhNSIsImRla1ZlcnNpb24iOjEsIml2IjoiWkVjMXZhT3RZc3Y0MnRhL0RKenJnQT09IiwiY2lwaGVyVGV4dCI6Iks1d2lpOUU2S2g0a2NTdzV4UFpQV3B2V3cyV0lRMDZ6OE1PRjV4QUE4ejNXYzFVMTRaRFQ3a0I0QXpHdXl1UlloRTkzUkdOOU9uKzNtU1I0SFhQNDhoSit5c2Y2RzBINVFjN3BaRWMxdmFPdFlzdjQydGEvREp6cmdBPT0iLCJhdXRoVGFnIjoiZUIxeitQSVNmc3JIK2h0QitVSE82UT09In0%3D" style="display: block; padding: 8px 8px 8px 16px"><img alt="canyon store icon" src="https://image.marketing.emea.canyon.com/lib/fe8a13727c62017c72/m/1/2025_BRA_showroom_payments_icons_x_Email_x_x_24x24_ALL_reyrov.png" width="24"> </a></td><td align="left" class="tag-pad-copy" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #222222; letter-spacing: 0.01em;">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjNjNGJhZDA5LTY4YjktNDY2NS04NTQwLWJjYjc5YTViMGNmMCIsImRla1ZlcnNpb24iOjEsIml2IjoiZnkrMmU5SWpWaEMzcmtOWmxnTjR0Zz09IiwiY2lwaGVyVGV4dCI6Imp5OHA3QXI0b1U5cVZJRDBkOExXaUttOWR3V2YxWXkwT0hWQm1QdUw1SzBjSjJPTnZLU2tzTTBROE5kRGJ2YlpKTnhlMUdZYUphSXJKdjdoVkxKMTIxMCtXeW1qbGlvaDJ2WFpmeSsyZTlJalZoQzNya05abGdONHRnPT0iLCJhdXRoVGFnIjoiNFZTeWRkdGRQbHNwbzVZcUlkcjEyUT09In0%3D" style="display: block; padding: 8px 16px 8px 0">Canyon Store</a></td></tr></table></td><td width="8">
+															</td></tr><tr>
+															<td height="8" style="height: 8px; line-height: 8px; font-size: 1px">
+															</td></tr></table><!-- /tag - canyonstore --><!----><!----><!-- tag - credit card debt --><table align="left" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: separate; float: left">
+													
+														<tr>
+															<td align="left" style="border-radius: 20px; border: 1px solid #888888">
+																<table border="0" cellpadding="0" cellspacing="0" role="presentation">
+																	
+																		<tr>
+																			<td align="left" class="tag-pad-icon">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6ImQ4ODExMTRjLWU4NTMtNDZmZS04ODIzLTA1Mzc2MDY0ZWNhZSIsImRla1ZlcnNpb24iOjEsIml2Ijoia29DOE4vbXJMZkxybUJidkZKdU1PQT09IiwiY2lwaGVyVGV4dCI6IkFyVVRLYmgycW11eDNkZDJxZ004dTZlWFRkWXNDUE5YNkhOMVV5bVZIMkQ1eExCcVdSUWtBeUZiejRQQWFvYys3SGh6OGs4NWFwV0xhbXpCUFVtZ2VGaDVIT0RhQVFTVmV0WnFrb0M4Ti9tckxmTHJtQmJ2Rkp1TU9BPT0iLCJhdXRoVGFnIjoid1QxSm9IaFllUnpnMmdFRWxYcldhZz09In0%3D" style="display: block; padding: 8px 8px 8px 16px"><img alt="credit card debt icon" src="https://image.marketing.emea.canyon.com/lib/fe8a13727c62017c72/m/1/2025_BRA_card_payments_icons_x_Email_x_x_24x24_ALL_ei0mnk.png" width="24"> </a></td><td align="left" class="tag-pad-copy" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #222222; letter-spacing: 0.01em;">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6ImFlZmZhNGE4LWQwODktNDc0Ny1iZmE1LTE3NjkwZjRiZTcxYiIsImRla1ZlcnNpb24iOjEsIml2IjoidWdwOTZndlZZRWNjZkxvY1I3bzRSQT09IiwiY2lwaGVyVGV4dCI6IjlpU3BIWmszQ0hRL0s3TUhFb0J2TTNMSUEzUmIvVFFFYUpFdnExZmVOMzB4RGZOYktVZkphRCtPdW1Odi9vakI1Q0pCd3BJT3MxYWxKdTBkNFdJbkMvajE5eEhOREg4OENvUmh1Z3A5Nmd2VllFY2NmTG9jUjdvNFJBPT0iLCJhdXRoVGFnIjoiSGVGaUp3djQ5ZmNSelF4L1BBcUVZUT09In0%3D" style="display: block; padding: 8px 16px 8px 0">Kreditkarte, Debitkarte</a></td></tr></table></td><td width="8">
+															</td></tr><tr>
+															<td height="8" style="height: 8px; line-height: 8px; font-size: 1px">
+															</td></tr></table><!-- /tag - credit card debt --><!----><!----><!-- tag - paypal --><table align="left" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: separate; float: left">
+													
+														<tr>
+															<td align="left" style="border-radius: 20px; border: 1px solid #888888">
+																<table border="0" cellpadding="0" cellspacing="0" role="presentation">
+																	
+																		<tr>
+																			<td align="left" class="tag-pad-icon">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjNjOWUwMGQ1LTBmYjYtNDRkMC1hZTNmLWE1ZjhlYWUxNTgxNSIsImRla1ZlcnNpb24iOjEsIml2Ijoidk5tblpFSHZYZEYyMzZFd09SUlAxZz09IiwiY2lwaGVyVGV4dCI6ImdGanQ4SE9vMGhMY2Z0R1p4d3BHZzR6RHcyYUFPbVIwMGh4b0pTRzJML0NnRWE1b1E1a25vdjFBOTVVV1RQdXp1TFV2a0dTbTNLRTBXdGlTSFRJTTNYOGVhVk9Ha09JdWJyVXB2Tm1uWkVIdlhkRjIzNkV3T1JSUDFnPT0iLCJhdXRoVGFnIjoia2gweUROMS9IbWxUaHBEaUxtNjFLUT09In0%3D" style="display: block; padding: 8px 8px 8px 16px"><img alt="paypal icon" src="https://image.marketing.emea.canyon.com/lib/fe8a13727c62017c72/m/1/2025_BRA_paypal_payments_icons_x_Email_x_x_24x24_ALL_bhzq3z.png" width="24"> </a></td><td align="left" class="tag-pad-copy" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #222222; letter-spacing: 0.01em;">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6ImQzOTNiMmRlLWM3MmMtNGRlYi04YWZjLTA0YzQyYzZhZDUxOSIsImRla1ZlcnNpb24iOjEsIml2IjoiM0RoRmJudG5kMGVaYktIdSs3aGlBZz09IiwiY2lwaGVyVGV4dCI6InluZVNGMzY5YXR3ZlJYdVlaMnVsQ3lwNmdkcHBPQkFoMHJtZkNmbXE5dU1JU3gxRGUzdzYvQTdGNkozNU1ZSWlyenArSmFZMmQwdDRndXBYdnMxeERKbWlZVy9COG93djBJYUozRGhGYm50bmQwZVpiS0h1KzdoaUFnPT0iLCJhdXRoVGFnIjoiVjc3TmNReVpvbUZ2d2ZLTUw5Q0dpUT09In0%3D" style="display: block; padding: 8px 16px 8px 0">PayPal</a></td></tr></table></td><td width="8">
+															</td></tr><tr>
+															<td height="8" style="height: 8px; line-height: 8px; font-size: 1px">
+															</td></tr></table><!-- /tag - paypal --><!----><!----><!-- tag - klarna --><table align="left" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: separate; float: left">
+													
+														<tr>
+															<td align="left" style="border-radius: 20px; border: 1px solid #888888">
+																<table border="0" cellpadding="0" cellspacing="0" role="presentation">
+																	
+																		<tr>
+																			<td align="left" class="tag-pad-icon">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjMwNjI2NWYzLTVjMDktNGVhNi1hZmRlLTJjYzAwYjQzZDI0MCIsImRla1ZlcnNpb24iOjEsIml2IjoiRHFqU1F3V3JFbUE1bVRVb2hvMDZSZz09IiwiY2lwaGVyVGV4dCI6IkQrcE1zZ09Ta1BGZ0o0Ly9xc2hDVHRtRVQ0cHhBSGpNb0xqU0dkcWhFZ0FmR2hEU3hqNzFRTDVENUVMWWlvTGJZVVdYQ2REcWtNblArL1A2d01xcUtCN3JPR2gwSjZNYWtRUDhEcWpTUXdXckVtQTVtVFVvaG8wNlJnPT0iLCJhdXRoVGFnIjoiK3NES3FpZ2U2emhvZENlakdwRUQvQT09In0%3D" style="display: block; padding: 8px 8px 8px 16px"><img alt="klarna icon" src="https://image.marketing.emea.canyon.com/lib/fe8a13727c62017c72/m/1/2025_BRA_klarna_payments_icons_x_Email_x_x_24x24_ALL_fjadp4.png" width="24"> </a></td><td align="left" class="tag-pad-copy" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #222222; letter-spacing: 0.01em;">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjdlZGUwMjM5LWQ5YTQtNDlhMi05NzU4LWQ4OTUxMmQ2YTkzYiIsImRla1ZlcnNpb24iOjEsIml2IjoicUhaRVRQdXora09tUndOeHIwcEhDZz09IiwiY2lwaGVyVGV4dCI6IkZkbkd0K1VOTFd1N0pyZEtMODN3TG9mdHBobXFqbjJmNmYrbDlBNlFJVGtUZFNtT3RYSkprREhQZ3NrSUUvSGJpUXdJSXpjbGhpUmNvSmhsMlZKUEhRZWdvRnJRK1V3c245bCtxSFpFVFB1eitrT21Sd054cjBwSENnPT0iLCJhdXRoVGFnIjoiWmRsU1R4MEhvS0JhMFBsTUxKL1pmZz09In0%3D" style="display: block; padding: 8px 16px 8px 0">Klarna</a></td></tr></table></td><td width="8">
+															</td></tr><tr>
+															<td height="8" style="height: 8px; line-height: 8px; font-size: 1px">
+															</td></tr></table><!-- /tag - klarna --><!----><!----><!-- tag - jobrad --><table align="left" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: separate; float: left">
+													
+														<tr>
+															<td align="left" style="border-radius: 20px; border: 1px solid #888888">
+																<table border="0" cellpadding="0" cellspacing="0" role="presentation">
+																	
+																		<tr>
+																			<td align="left" class="tag-pad-icon">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6ImE0YmY5MGEzLTZmM2QtNDVmOC1hYTZlLTgxMzQ4YWY3YTBiOSIsImRla1ZlcnNpb24iOjEsIml2IjoiMm8wbndYVjY2aXJ4V2JUOHNQVC9rdz09IiwiY2lwaGVyVGV4dCI6IkhSejVmeHhYb0Z5YmswdHI5RVhMa3NCU1hKWm1MU0liVHFpZTgzaW5WRjRrcmpLRWVGNjZDeDM2N0VhRWp6RU5BVU1oMkVPL1p5RlIrcVRsUlN4cDZBaFNldW1HRHlvc3cwelAybzBud1hWNjZpcnhXYlQ4c1BUL2t3PT0iLCJhdXRoVGFnIjoiNVVVc2FlZ0lVbnJwaGc4cUxNTk16dz09In0%3D" style="display: block; padding: 8px 8px 8px 16px"><img alt="jobrad icon" src="https://image.marketing.emea.canyon.com/lib/fe8a13727c62017c72/m/1/2025_BRA_jobrad_payments_icons_x_Email_x_x_24x24_ALL_mc7wxj.png" width="24"> </a></td><td align="left" class="tag-pad-copy" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #222222; letter-spacing: 0.01em;">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjJjMmZhZDU4LTkwYTEtNGM5OC05ZTBlLTc2ZTkxODQxZjcyNCIsImRla1ZlcnNpb24iOjEsIml2IjoiTWpQR2U2RG9JT29KeVEwNCthNk1OQT09IiwiY2lwaGVyVGV4dCI6IjlYUXhPemtoNmJnK0xOQkZzYWNCalgzMVBTK0JBT3JQc2ZLTGVsd2F5S0FqZi84ejJlZ3RBRU5RN3hNZFFtd2ZaTUNDRzlwLzhXRDN0bkFRc3FpZGVFNHRzR3czT3pGTUthWENNalBHZTZEb0lPb0p5UTA0K2E2TU5BPT0iLCJhdXRoVGFnIjoiRUxLb25YaE9MYkJzTnpzeFRDbWx3Zz09In0%3D" style="display: block; padding: 8px 16px 8px 0">Jobrad</a></td></tr></table></td><td width="8">
+															</td></tr><tr>
+															<td height="8" style="height: 8px; line-height: 8px; font-size: 1px">
+															</td></tr></table><!-- /tag - jobrad --><!----><!----><!----><!----><!----><!----><!----><!----><!----><!-- tag - Bikeleasing --><table align="left" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: separate; float: left">
+													
+														<tr>
+															<td align="left" style="border-radius: 20px; border: 1px solid #888888">
+																<table border="0" cellpadding="0" cellspacing="0" role="presentation">
+																	
+																		<tr>
+																			<td align="left" class="tag-pad-icon">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6ImVhOGJhNjhhLWVjOGQtNDA1My05NDg5LTkxMDdhZDZiMTEzMSIsImRla1ZlcnNpb24iOjEsIml2IjoiTGQydWRZV0hJYW5NK1VyOTVkUXlnQT09IiwiY2lwaGVyVGV4dCI6IjB1RlJCc3pjR0dtVVRXem5ERERHWXdXNFF4TTBDYVRoOGZqdUh2MzlpOUN1Z08zTzdVQlhYSDNlWE5RRW1yU0J2Z2IvN1dtU0c3VnJlSXM5SG5nVlUxOUQrY0g5ZGVEbkx5bE9MZDJ1ZFlXSElhbk0rVXI5NWRReWdBPT0iLCJhdXRoVGFnIjoiUFI1NEZWTmZRL25CL1hYZzV5OHBUZz09In0%3D" style="display: block; padding: 8px 8px 8px 16px"><img alt="Bikeleasing icon" src="https://image.marketing.emea.canyon.com/lib/fe8a13727c62017c72/m/1/2025_BRA_bikeleasing_payments_icons_x_Email_x_x_24x24_ALL_fq0es8.png" width="24"> </a></td><td align="left" class="tag-pad-copy" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #222222; letter-spacing: 0.01em;">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6ImFjZjFjZjBlLTYyOTQtNDAzOS1iYjE0LWY4Nzc0N2U0YTAyYyIsImRla1ZlcnNpb24iOjEsIml2IjoiWk5hNzJzQjV3TXUyazh1cHFnMDcvdz09IiwiY2lwaGVyVGV4dCI6IlRwQ1pUWGVYMUZqRWZaWWJLd0FXNFE3aWFVdlVPbjBuK3pQcDhIZ3F3RzBCR3l6RlNiWWJlN0J0dkpoUTlYVWhqS0lGUGI1Y1dwZ3FFY3VqbGV2V1k1c3hJTWpTbC9JMUFNTFlaTmE3MnNCNXdNdTJrOHVwcWcwNy93PT0iLCJhdXRoVGFnIjoibzVYcjFtT2JNU0RJMHBmeU5RREMyQT09In0%3D" style="display: block; padding: 8px 16px 8px 0">Bikeleasing</a></td></tr></table></td><td width="8">
+															</td></tr><tr>
+															<td height="8" style="height: 8px; line-height: 8px; font-size: 1px">
+															</td></tr></table><!-- /tag - Bikeleasing --><!----><!----><!----><!-- tag - deutschdienstrad --><table align="left" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: separate; float: left">
+													
+														<tr>
+															<td align="left" style="border-radius: 20px; border: 1px solid #888888">
+																<table border="0" cellpadding="0" cellspacing="0" role="presentation">
+																	
+																		<tr>
+																			<td align="left" class="tag-pad-icon">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjYzNGUyZWJmLWE0MjYtNGVlNi05NDA4LTg1Y2M2ZTg2YmNlZSIsImRla1ZlcnNpb24iOjEsIml2IjoiaXlUU0NoSjhHbDlUVWhldEtUb0Fsdz09IiwiY2lwaGVyVGV4dCI6ImlkQzI4V2dHdWtkSmJTUkdEaFV2ZGZKdUVIMWlraHpmU3NmdnFtQnMxUEVBankzWFFpbkt4L2kvZmhiNFRXMGlWZEtTNG9VL3I3ZGdQTUp4N1V3N0pXcXRnRkkyWHlZeU4zNHNpeVRTQ2hKOEdsOVRVaGV0S1RvQWx3PT0iLCJhdXRoVGFnIjoiY2UxTU95VnFyWUJTTmw4bU1qZCtMQT09In0%3D" style="display: block; padding: 8px 8px 8px 16px"><img alt="deutsche dienstrad icon" src="https://image.marketing.emea.canyon.com/lib/fe8a13727c62017c72/m/1/2025_BRA_deutschedienstrad_payments_icons_x_Email_x_x_24x24_ALL_z1g06l.png" width="24"> </a></td><td align="left" class="tag-pad-copy" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #222222; letter-spacing: 0.01em;">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjU1MzUzM2U1LWFhNjYtNDUxOC05YzJmLWViNTg5MzJkZWQzNiIsImRla1ZlcnNpb24iOjEsIml2IjoiMnhTbHVnamR3WkdCRkh4UWF4dFluZz09IiwiY2lwaGVyVGV4dCI6IlJGa0RnbmQ1T1djdGRaaGxQeDhzSjV4cXVHQTRNNFpab2dMcHZuRy9uRW52L2ZISzd2QzVhQ1pVRCtaNm5ZRlhTNmdGaTVnY3ZNZ0J1QXNrYlVOZnVxWVptdTByUG82bDBUNXUyeFNsdWdqZHdaR0JGSHhRYXh0WW5nPT0iLCJhdXRoVGFnIjoiSkcxRFg3cW1HWnJ0S3o2T3BkRStiZz09In0%3D" style="display: block; padding: 8px 16px 8px 0">Deutsche Dienstrad</a></td></tr></table></td><td width="8">
+															</td></tr><tr>
+															<td height="8" style="height: 8px; line-height: 8px; font-size: 1px">
+															</td></tr></table><!-- /tag - deutschdienstrad --><!----><!----><!-- tag - companybike --><table align="left" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: separate; float: left">
+													
+														<tr>
+															<td align="left" style="border-radius: 20px; border: 1px solid #888888">
+																<table border="0" cellpadding="0" cellspacing="0" role="presentation">
+																	
+																		<tr>
+																			<td align="left" class="tag-pad-icon">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjljZDFkYzhlLTU2ODQtNGZhMi1hY2FlLTBmNDg0NjBjMzFhYyIsImRla1ZlcnNpb24iOjEsIml2IjoiYlhnd3hhNE9xSWdTQmtSeVpVV0hNUT09IiwiY2lwaGVyVGV4dCI6InR3alloZThXalFnaW9CMzNCUUk3YjJKb2FEN2ZXK0hpdG0vYXBMWWdaamY2bDA1dU5wekVWL2YwZ1dFZm4vd0prSDNhVTI5NUdoVVFvTnU5VXBkL3dUWXFEdkEzOE9XcEZwREliWGd3eGE0T3FJZ1NCa1J5WlVXSE1RPT0iLCJhdXRoVGFnIjoidlZLWGY4RTJLZzd3Ti9EbHFSYVF5QT09In0%3D" style="display: block; padding: 8px 8px 8px 16px"><img alt="companybike icon" src="https://image.marketing.emea.canyon.com/lib/fe8a13727c62017c72/m/1/2025_BRA_companybike_payments_icons_x_Email_x_x_24x24_ALL_bffw6v.png" width="24"> </a></td><td align="left" class="tag-pad-copy" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #222222; letter-spacing: 0.01em;">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjJhMDZkNDA5LTE0MTMtNDAxMS04N2MzLThiMWM5ZTMzM2NlNSIsImRla1ZlcnNpb24iOjEsIml2IjoiZkx0NkhJU3RHS2pjQ1ZobkNsa2xJUT09IiwiY2lwaGVyVGV4dCI6IlgxZmZvNWFrUVFjdEd4UzRNWWl3NjVWSk1VK0FmMHh1TnFIQ2hqNTlIREpBcjQ0bFhTVTNyN0VwT1N6Y3hxYUF3SEl4R1MvMThWQUJDeXZZbjhyWGpNdVFOalNxeXduZ2hxbkhmTHQ2SElTdEdLamNDVmhuQ2xrbElRPT0iLCJhdXRoVGFnIjoiMkovSzE0ekxrRFkwcXNzSjRJYXB4dz09In0%3D" style="display: block; padding: 8px 16px 8px 0">Company Bike</a></td></tr></table></td><td width="8">
+															</td></tr><tr>
+															<td height="8" style="height: 8px; line-height: 8px; font-size: 1px">
+															</td></tr></table><!-- /tag - companybike --><!----><!----><!-- tag - consorsfinanz --><table align="left" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: separate; float: left">
+													
+														<tr>
+															<td align="left" style="border-radius: 20px; border: 1px solid #888888">
+																<table border="0" cellpadding="0" cellspacing="0" role="presentation">
+																	
+																		<tr>
+																			<td align="left" class="tag-pad-icon">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6ImZhOTM4ODEzLTFlYTItNGQ2My1iZTYzLWExNjFkZjIwMDIzMiIsImRla1ZlcnNpb24iOjEsIml2IjoieitaSkM0OXEyeWVLT1h2UEs0VW9JQT09IiwiY2lwaGVyVGV4dCI6ImVrZm5OUkJtOGFBN0RDcElCWUhZWXgvOHB4RlhaSlMxd1BWWlB0dlZ6WVVLZ3I1N3hkRmxyYUZ0L3dPQTRmOTkxdGxIS1gyVmZOYWI4WUNqc0VOMlZldThEK1hMTjNISFJuaHl6K1pKQzQ5cTJ5ZUtPWHZQSzRVb0lBPT0iLCJhdXRoVGFnIjoibzdCRGRsWHJ2QS9seXpkeHgwWjRjZz09In0%3D" style="display: block; padding: 8px 8px 8px 16px"><img alt="consorsfinanz icon" src="https://image.marketing.emea.canyon.com/lib/fe8a13727c62017c72/m/1/2025_BRA_consorsfinanz_payments_icons_x_Email_x_x_24x24_ALL_jlqsle.png" width="24"> </a></td><td align="left" class="tag-pad-copy" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #222222; letter-spacing: 0.01em;">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjI3YThiM2UyLWZiYWMtNDFkMC1iYWRjLWFjYWEwMDlhOTk2OCIsImRla1ZlcnNpb24iOjEsIml2IjoiNi9ieDNVWmdTekFacGF6dGtKRnh3dz09IiwiY2lwaGVyVGV4dCI6Im40SENzellLL1F0dWdqUzBweTcyeFBQbkJHNkZTSGxFekNrdTFLVHMyOURMeEw4VGc3WUhiZHQrQmptS3BjZGJnTjcvYmxSSEdycjhmb25LUHBsc1RCZm1BbVBqWGI0L0orY1Q2L2J4M1VaZ1N6QVpwYXp0a0pGeHd3PT0iLCJhdXRoVGFnIjoieWo2WmJFd1g1Z0pqNDEyK1B5Zm5Fdz09In0%3D" style="display: block; padding: 8px 16px 8px 0">Consors Finanz</a></td></tr></table></td><td width="8">
+															</td></tr><tr>
+															<td height="8" style="height: 8px; line-height: 8px; font-size: 1px">
+															</td></tr></table><!-- /tag - consorsfinanz --><!----><!----><!----><!----><!----><!-- tag - applepay --><table align="left" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: separate; float: left">
+													
+														<tr>
+															<td align="left" style="border-radius: 20px; border: 1px solid #888888">
+																<table border="0" cellpadding="0" cellspacing="0" role="presentation">
+																	
+																		<tr>
+																			<td align="left" class="tag-pad-icon">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6ImNhNzNjMzFiLWM1MDctNDRlNi05ODJjLTI3Y2E4MTQ5ZTAyMSIsImRla1ZlcnNpb24iOjEsIml2IjoibzI2b3hXRVRkR0h4cVh2VnFrUmZSZz09IiwiY2lwaGVyVGV4dCI6Iko1c2FKems3YlV4TGxUd2tqaUVkYmQydlZpS1IvS0tBYzFFMHRhS0lPMG82ZlhOY05zUVV5Q0RCeG5WRnJxaGNsNzRuM29OaTh1QWE1R3ZiYjNtbTBoT3pGdU5iVi9XQS81WHVvMjZveFdFVGRHSHhxWHZWcWtSZlJnPT0iLCJhdXRoVGFnIjoiMjI5NXB0SVRzeGJqVzFmMWdQK1Y3Zz09In0%3D" style="display: block; padding: 8px 8px 8px 16px"><img alt="applepay icon" src="https://image.marketing.emea.canyon.com/lib/fe8a13727c62017c72/m/1/2025_BRA_applepay_payments_icons_x_Email_x_x_24x24_ALL_pzjegi.png" width="24"> </a></td><td align="left" class="tag-pad-copy" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #222222; letter-spacing: 0.01em;">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6ImViNjFmM2I2LTI0NGUtNGY1NC1iZTc4LWMyZWEyOTQwZDI4MCIsImRla1ZlcnNpb24iOjEsIml2IjoiTDNYYkVDRE90Y2NNeWhDbGFPc3FXdz09IiwiY2lwaGVyVGV4dCI6IlVYQ1dYUGJZNnN1TEZDYmNBN1pxYm1Pemx5Q0M1SVovWGxyVmdxcmFUMFAzMjBOUHNZdGpBdU82cERmNm4zMm1aK2QxVFQwNEtFK1RWQjlhamlLNitoSkRwTWVSbFZ5MG9yR3hMM1hiRUNET3RjY015aENsYU9zcVd3PT0iLCJhdXRoVGFnIjoiV280aXV2b1NRNlRIa1pWY3RLS3hzUT09In0%3D" style="display: block; padding: 8px 16px 8px 0">Apple Pay</a></td></tr></table></td><td width="8">
+															</td></tr><tr>
+															<td height="8" style="height: 8px; line-height: 8px; font-size: 1px">
+															</td></tr></table><!-- /tag - applepay --><!----><!----><!-- tag - googlepay --><table align="left" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: separate; float: left">
+													
+														<tr>
+															<td align="left" style="border-radius: 20px; border: 1px solid #888888">
+																<table border="0" cellpadding="0" cellspacing="0" role="presentation">
+																	
+																		<tr>
+																			<td align="left" class="tag-pad-icon">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjE2YzkyMTk3LTlmZTMtNDQ1Zi04MmFiLTY0N2E1ZWRlNjU2YSIsImRla1ZlcnNpb24iOjEsIml2IjoiclhpVnFndkYwNzlMeWpodnVDaGJXdz09IiwiY2lwaGVyVGV4dCI6IkV5ZmFTUDR4aDAxd2pCNDBOM1NWaGM3Y2ZxZFpCZEI5RWtsOGtkemxSdTZzM1c5OUZIbS9Kb1RmYklGVTY1V3J3US9kdjU3bXV1SnZmMFFWQmtTL2RiYlQ5WGhFNnQ0d2tJWUNyWGlWcWd2RjA3OUx5amh2dUNoYld3PT0iLCJhdXRoVGFnIjoiRlFaRXYzVzIwL1Y0Uk9yZU1KQ0dBZz09In0%3D" style="display: block; padding: 8px 8px 8px 16px"><img alt="googlepay icon" src="https://image.marketing.emea.canyon.com/lib/fe8a13727c62017c72/m/1/2025_BRA_googlepay_payments_icons_x_Email_x_x_24x24_ALL_o3o5oq.png" width="24"> </a></td><td align="left" class="tag-pad-copy" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #222222; letter-spacing: 0.01em;">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6ImY1MWEyYjYxLTQ1NTItNDdkMi1iNDJhLTRmZDNhODM5OTIxMCIsImRla1ZlcnNpb24iOjEsIml2IjoiSHJNZXdLNTBzcm4xY3o4RWF2K2FwZz09IiwiY2lwaGVyVGV4dCI6ImhlcnY2bjVtbVJNYngycmk5elNna0ljQ3N1QzNtRWp5NG9JU1VhZGhyWk5TeEcwb3B6Sk5TK1I3SFZMUnVVVDUwa0ljdXpJUDZEVWVCWk0yV1RiRXYrZzNWMjNkVG1ndS9Bc2VIck1ld0s1MHNybjFjejhFYXYrYXBnPT0iLCJhdXRoVGFnIjoiTmxrMnhML29OMWR0M1U1b0x2d0xIZz09In0%3D" style="display: block; padding: 8px 16px 8px 0">Google Pay</a></td></tr></table></td><td width="8">
+															</td></tr><tr>
+															<td height="8" style="height: 8px; line-height: 8px; font-size: 1px">
+															</td></tr></table><!-- /tag - googlepay --><!----><!----><!-- tag - giftcards --><table align="left" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: separate; float: left">
+													
+														<tr>
+															<td align="left" style="border-radius: 20px; border: 1px solid #888888">
+																<table border="0" cellpadding="0" cellspacing="0" role="presentation">
+																	
+																		<tr>
+																			<td align="left" class="tag-pad-icon">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjQzYTMwZWFiLTk3MmYtNDY2ZS1hOGUzLWU4OTU1NWNmZjA5MCIsImRla1ZlcnNpb24iOjEsIml2Ijoia0J3U0dOV2hnaDJ4L256elV4V0hDQT09IiwiY2lwaGVyVGV4dCI6Imtxc25ORFA2RUNOcnV6dXRqakFJMmloWGRvaC9XRUNoMEQxMGpTL25sbmhMd1l6UUs2WS9zakovd2dGMFdtblE3YSthUU1LdVQ1ZWZEdDBzSDRvWDZ6SWpBT042YnFZdHh2bjNrQndTR05XaGdoMngvbnp6VXhXSENBPT0iLCJhdXRoVGFnIjoiTEIrS0Yrc3lJd0RqZW02bUxjYjU5dz09In0%3D" style="display: block; padding: 8px 8px 8px 16px"><img alt="giftcards icon" src="https://image.marketing.emea.canyon.com/lib/fe8a13727c62017c72/m/1/2025_BRA_giftcard_payments_icons_x_Email_x_x_24x24_ALL_cgockz.png" width="24"> </a></td><td align="left" class="tag-pad-copy" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #222222; letter-spacing: 0.01em;">
+																				<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjE1MzM2NTVkLTBlOTEtNDAyNC05ZjViLTUwZTRiOGE4Y2Y5MiIsImRla1ZlcnNpb24iOjEsIml2Ijoid3JoTTFveVVxS0dSSjJmMXFJVUpJZz09IiwiY2lwaGVyVGV4dCI6InlrUlhMdGZiYnRQNDFvT1ZyTTVrR1dIV3M1eS9zd093eWtIYWFTZ21rT3BjekxNMWpuWXRPSTlxaDBxaC9FRy9KWllJZEhBUnhpd2tlNURpUmVTWGJBQXdRNEN2MFhQNjVIakp3cmhNMW95VXFLR1JKMmYxcUlVSklnPT0iLCJhdXRoVGFnIjoiNGtYa2wyd0FNRU9BcjlGeit1UjR5UT09In0%3D" style="display: block; padding: 8px 16px 8px 0">Geschenkgutscheine</a></td></tr></table></td><td width="8">
+															</td></tr><tr>
+															<td height="8" style="height: 8px; line-height: 8px; font-size: 1px">
+															</td></tr></table><!-- /tag - giftcards --><!----><!----><!----><!----></td></tr></table></td></tr></table></td></tr></table><!-- /footer --></td></tr></table><table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><!-- footer --><!--  --><table align="center" border="0" cellpadding="0" cellspacing="0" class="content-wrapper" role="presentation" style="width:600px; margin:0 auto;" width="600">
+	
+		<tr>
+			<td align="center" class="pad-t-35" style="padding: 35px 16px 35px 8px; border-bottom: 1px solid #CCCCCC;">
+				<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+					
+						<tr>
+							<th align="left" class="column" style="font-weight:normal; vertical-align:middle; width:252px;" valign="middle" width="252">
+								<table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+									
+										<tr>
+											<td align="left">
+												<a   data-linkto="https://www.canyon.com/de-DE" href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjRjOGIyOGU2LWRhYmUtNDE5ZS1iNjkxLWFhOWMzMjdkYTM3ZCIsImRla1ZlcnNpb24iOjEsIml2Ijoic3Q3N2NrK0dYQzlqN0J4Sk9BeC9Cdz09IiwiY2lwaGVyVGV4dCI6IldYdkU4L2c5Z3BDbkVlUGt4SlJIdi9XTkVKQ2VYSEUyZE80cWNYYlVqN25aZUVFeDBJYnFXNGZmeXZib21PdTNuaXZGeEYvWG1UVUtrWUcvTU9JckFMNWNyWGl4dWhUOEJCQUNzdDc3Y2srR1hDOWo3QnhKT0F4L0J3PT0iLCJhdXRoVGFnIjoidnpEaUt3QytYSzE0c2JvVS9BUVFBZz09In0%3D" title="Canyon logo"><img alt="Canyon" border="0" height="34" src="https://dma.canyon.com/image/upload/logo-canyon-black_w2nzkl.png" style="display: block;" width="146"></a></td></tr></table></th><th class="column-spacer" style="width:16px;" width="16">
+							</th><th align="left" class="column" style="font-weight:normal; vertical-align:middle; padding-left: 8px;" valign="middle">
+								<table border="0" cellpadding="0" cellspacing="0" role="presentation">
+									
+										<tr>
+											<td height="5">
+											</td></tr><tr>
+											<td align="left" colspan="6" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #222222; letter-spacing: 0.01em; padding-bottom: 12px;">
+												&nbsp;Follow us</td></tr><tr>
+											<td style="padding-right: 16px;">
+												<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjQwNzVhMDMwLWJkMzItNDhmNi05ZWMwLTZiZWRhZjNkNWQxOSIsImRla1ZlcnNpb24iOjEsIml2IjoiNUJndUk0Ym1CZWlRbytYT1V4ZzNoZz09IiwiY2lwaGVyVGV4dCI6IkZKM3EyQUFmcjk4cFU2RmZKbnIwejZxd3dGRWtWSFl3YVhyQy93UUw4Um5zZHJnMnhMdlJwRXhRUjdmMHUwV2RJNzFCUHl1Q211VE14Q3BIQW5PcjdmS3lqQzZ3NEFUa0dDNGpodVlGNkpDajVjNVRHRGVHIiwiYXV0aFRhZyI6IjVNekVLa2NDYzZ2dDhyS01MckRnQkE9PSJ9"><img alt="YT" border="0" height="32" src="https://dma.canyon.com/image/upload/icon-youtube.png" width="32"></a></td><td style="padding-right: 16px;">
+												<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjNlODgwN2QwLTc2MDUtNDdhNS1iYjFlLTU3ZmZkNWRhNTZmYSIsImRla1ZlcnNpb24iOjEsIml2IjoiNnR6aWt1UXlyU3I1cUl6anRaYm9TZz09IiwiY2lwaGVyVGV4dCI6IkI5cWVyM1hYcU8wVGkwUmp4NDc0UE1rTmhKam9zb1dNUVJhdW5ZSVc1MlVHMzNSb1JlZWxhQkNQSFhRV0VzdjFsbW9qZ1VSQTVWQng2anl5akppcERHUFI4Q3ZaWEdUcTNPS1M1REt0S3Ztb2pPTzFsdWhLIiwiYXV0aFRhZyI6IlVISHFQTEtNbUtrTVk5SHdLOWxjWkE9PSJ9"><img alt="IG" border="0" height="32" src="https://dma.canyon.com/image/upload/icon-instagram.png" width="32"></a></td><td style="padding-right: 16px;">
+												<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjA2Zjg4ZTc3LWI2N2YtNGVkZS05YmQ5LTNlZjlmMDFmNjQ2MiIsImRla1ZlcnNpb24iOjEsIml2IjoieEs3LzhqV3EyeFBKSEY3T1pMTFVNZz09IiwiY2lwaGVyVGV4dCI6ImV1aE9ZRUNONnYzSEozUElRZG5xUWxQRXM0Qk5OODZac3N3R1BEZ090MlhUNldPNWV2aXBOUENyNkM4Ri9qWDJWN2NMOVBRTktad1pWTjA4N0ljNFZlM0xNLy9XdVR6RXJ2L3lOYXJiRThrY1hzNWtzdFF5IiwiYXV0aFRhZyI6Im5CbFUzVHpzaHpoVjdjc3ovOWE1UEE9PSJ9"><img alt="FB" border="0" height="32" src="https://dma.canyon.com/image/upload/icon-facebook.png" width="32"></a></td><td style="padding-right: 16px;">
+												<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6Ijc5OTk5NTJjLWRkZWMtNGE2Zi04YmZjLThkMTY4ZjRjODQ0ZSIsImRla1ZlcnNpb24iOjEsIml2IjoiM0I1d2Z0NysyZ0x1M1BHZ2FKRWV3Zz09IiwiY2lwaGVyVGV4dCI6IjByaHk4RzdKb1VwaGRGeTBieFYxS3daa3FCK012L0Y4QU1XOUx0Mkp6VjMxRkszNHZMUVhidmJBQXo4UnU0VUJWSlVoMXFHYzlxMDNVbU9veDV6enZ5UTM1SEw1eWU3Y0huQiszdjdhQXU3YzhhQm9rUjdDIiwiYXV0aFRhZyI6InJUZFNZNmpIblBPL0pEZmtjdm5KN2c9PSJ9"><img alt="Tiktok" border="0" height="32" src="https://dma.canyon.com/image/upload/icon-tiktok.png" width="32"></a></td><td style="padding-right: 16px;">
+												<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjRmY2Y0ZjYzLTM2OTktNGVmZi1hODc0LTkyMDUyYTlmMDA5YiIsImRla1ZlcnNpb24iOjEsIml2IjoiMEVwMnUrZEU3TzIwdnowQnAyMkZQUT09IiwiY2lwaGVyVGV4dCI6Ik1FaSt1ZFFDTlB5SktpYnUrc0EzMWdEMEtnYlhNcm9tTFJXM1g3STdtUUR3KzBpZkVZKzJLeld3U0tWWkdwd1JBR2hFay8vdFB3NTlPWHVKaXVIeHY4Y2Q3MnBybHRmUVNuYTc1MFRzN2JTL1BRR25iWVU5IiwiYXV0aFRhZyI6IkRuMDVlNG1LNGZHL3h4M3ZhbXVXMXc9PSJ9"><img alt="Strava" border="0" height="32" src="https://dma.canyon.com/image/upload/icon-strava.png" width="32"></a></td><td style="padding-right: 16px;">
+												<a href="https://click.marketing.emea.canyon.com/?qs=eyJkZWtJZCI6IjQ2Yjc5YTMzLTJjMTYtNGU3Zi1hYzhmLWUwYWUxZmM1NjdmZCIsImRla1ZlcnNpb24iOjEsIml2IjoieTM5SlhoZWpsVzQ0L2FaM0xTcnNFUT09IiwiY2lwaGVyVGV4dCI6Ikd6bm1JRGpFNGMyVllwRllkVXdRelQvNmc4VklINk9SOWMrbDVMcFpubmZWQVNiR0k5cUVoaE5iN1B4cEFETTk4dlVScmJBWjRYVEVtYVR2U1YvMkxmUEZObUhORHVmTGYwbGVGNk9WYmpqOXBuY3RLdXdSIiwiYXV0aFRhZyI6ImRNU1pwTzlKWC9ZdDg4VTJZYzBPNXc9PSJ9"><img alt="Linkedin" border="0" height="32" src="https://dma.canyon.com/image/upload/icon-linkedin.png" width="32"></a></td></tr><tr>
+											<td height="5">
+											</td></tr></table></th></tr></table></td></tr><tr>
+			<td align="center" style="padding: 40px 16px;">
+				<table border="0" cellpadding="0" cellspacing="0" class="black" role="presentation" width="100%">
+					
+						<tr class="dm-black">
+							<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 20px; color: #222222; letter-spacing: 0.006em;">
+								&copy; 2026 Canyon Bicycles GmbH,<br>
+								Karl&minus;Tesche&minus;Strasse<span>&nbsp;</span>&zwnj;12,<br>
+								56073 Koblenz Rheinland-Pfalz DE</td></tr><tr class="dm-black">
+							<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 20px; color: #222222; letter-spacing: 0.006em; padding-top: 40px;">
+								Möchtest du die Art, wie du diese E-Mails erhältst, ändern?<br>Du kannst <a href="https://www.canyon.com/de-de/experience/newsletter/update?eh=3n-uXPzTkfHui1qyIb0cPLOplCC6S-KpvsNqQ0MCwBM=&sfid=0011v00002gIuTCAA0" style="color: #333333; text-decoration: none;"><u>deine Einstellungen aktualisieren</u></a> oder <a href="https://go.canyon.com/unsub_forward?qs=eyJkZWtJZCI6IjdhNWE0Mjg1LWE5ZGItNDhlOC1iYmRhLTczMDRiNGYyYjEwOCIsImRla1ZlcnNpb24iOjEsIml2IjoiVjQrUUJJdS9xWlIwbyswUU5UeWpGQT09IiwiY2lwaGVyVGV4dCI6InpuQjB3OWtkczdnQ3ZNd01EeFN2bGJ0TXVtOHVyYW14cU5IbkZXZXlYbnJRU1haTzVqaTdDL3hpRG9FMi9LMk1IR3B2MGg4RENaWllIZ2diVWExdE16T3c1Ynk0S2RRU1czV3NjcHN3NStRbHNSWkNXV2FNZ0tHZURHS1FPZ2xaU0Urb2xReFhnbWhGT1J0K04wSk9qRVJzUUd5dm94d0czSm0wbHpXSXVBNFpjZXZJdmhZc29OZ2UvSVJBbWliV0lKM0VPMU1YdVJZaXdhMS92NlkzOG9DakRwaHdYNmgvN0NKb1VjQlhqNUFFaTcrcGxIU2o3UkExUEtNVSIsImF1dGhUYWciOiJwamZ5Z0tNT21IQmZxSC9zSW1oUndBPT0ifQ%3D%3D" style="color: #333333; text-decoration: none;">
+<u>dich aus dieser Liste austragen</u></a>.</td></tr></table></td></tr></table><!-- /footer --><!--   --></td></tr></table></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<img src="https://click.marketing.emea.canyon.com/open.aspx?4-385538-187376149-7296517-94-265623912-6006&d=70253&bmt=0" width="1" height="1" alt=""></custom>
+</custom>
+</body>
+</html>
