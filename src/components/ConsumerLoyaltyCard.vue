@@ -17,7 +17,7 @@
         </div>
       </div>
       <button @click="$emit('view-details')" class="details-btn">
-        My Loyalty Account
+        Mein CREW Account
       </button>
     </div>
 
@@ -62,9 +62,9 @@
 
       <!-- Maxed Out Message -->
       <div v-else class="maxed-out-section">
-        <div class="celebration-icon">💎</div>
-        <h4>Platinum Status Achieved!</h4>
-        <p>You enjoy all exclusive benefits of our highest loyalty level.</p>
+        <div class="celebration-icon">🏆</div>
+        <h4>Legend Status erreicht!</h4>
+        <p>Du genießt alle exklusiven Benefits des höchsten CREW Levels.</p>
       </div>
 
       <!-- Points Multiplier Info -->
@@ -85,7 +85,7 @@ export default {
     loyaltyTier: {
       type: String,
       required: true,
-      default: 'bronze'
+      default: 'rider'
     },
     availablePoints: {
       type: Number,
@@ -113,30 +113,27 @@ export default {
   setup() {
     const getTierIcon = (tier) => {
       switch (tier) {
-        case 'bronze': return '🥉'
-        case 'silver': return '🥈'
-        case 'gold': return '🥇'
-        case 'platinum': return '💎'
-        default: return '🏆'
+        case 'rider': return '🚴'
+        case 'racer': return '⚡'
+        case 'legend': return '🏆'
+        default: return '🚴'
       }
     }
 
     const getTierName = (tier) => {
       switch (tier) {
-        case 'bronze': return 'Bronze'
-        case 'silver': return 'Silver'
-        case 'gold': return 'Gold'
-        case 'platinum': return 'Platinum'
-        default: return 'Member'
+        case 'rider': return 'Rider'
+        case 'racer': return 'Racer'
+        case 'legend': return 'Legend'
+        default: return 'Rider'
       }
     }
 
     const getMultiplier = (tier) => {
       switch (tier) {
-        case 'bronze': return '1'
-        case 'silver': return '1.25'
-        case 'gold': return '1.5'
-        case 'platinum': return '2'
+        case 'rider': return '1'
+        case 'racer': return '1.25'
+        case 'legend': return '1.5'
         default: return '1'
       }
     }
@@ -188,25 +185,20 @@ export default {
   font-size: 1.1rem;
 }
 
-.tier-bronze {
-  background: linear-gradient(135deg, #CD7F32, #B8722A);
+.tier-rider {
+  background: linear-gradient(135deg, #6B7280, #4B5563);
   color: white;
 }
 
-.tier-silver {
-  background: linear-gradient(135deg, #C0C0C0, #A8A8A8);
-  color: #333;
+.tier-racer {
+  background: linear-gradient(135deg, #1F2937, #111827);
+  color: white;
 }
 
-.tier-gold {
-  background: linear-gradient(135deg, #FFD700, #DAA520);
+.tier-legend {
+  background: linear-gradient(135deg, #B8860B, #DAA520);
   color: #333;
-}
-
-.tier-platinum {
-  background: linear-gradient(135deg, #E5E4E2, #B4B4B4);
-  color: #333;
-  border: 2px solid #8B8B8B;
+  border: 2px solid #8B6914;
 }
 
 .points-display {

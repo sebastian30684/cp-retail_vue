@@ -687,6 +687,68 @@ class TrackingService {
     });
   }
 
+  // CREW: Track Challenge Activity to CDP
+  trackChallengeActivity(challengeId, challengeName, challengeType, activityType, currentProgress, targetGoal, unit, pointsEarned, rewardType, rewardDescription) {
+    if (!this.shouldTrack()) return;
+
+    const cdpData = {
+      "cookieId": this.cookieId,
+      "cdcUid": this.cdcUid,
+      "timestamp": new Date().toISOString(),
+      "challengeId": challengeId,
+      "challengeName": challengeName,
+      "challengeType": challengeType,
+      "activityType": activityType,
+      "currentProgress": currentProgress,
+      "targetGoal": targetGoal,
+      "unit": unit,
+      "pointsEarned": pointsEarned || 0,
+      "rewardType": rewardType || null,
+      "rewardDescription": rewardDescription || null
+    };
+
+    this.sendToCDP('ChallengeActivity', cdpData);
+    this.sendToGTM('challenge_activity', {
+      challenge_id: challengeId,
+      challenge_name: challengeName,
+      activity_type: activityType,
+      progress: currentProgress,
+      target: targetGoal,
+      points_earned: pointsEarned || 0
+    });
+  }
+
+  // CREW: Track Ride Club Activity to CDP
+  trackRideClubActivity(clubId, clubName, clubType, activityType, rideId, rideName, totalRides, pointsEarned, milestoneType, milestoneReward) {
+    if (!this.shouldTrack()) return;
+
+    const cdpData = {
+      "cookieId": this.cookieId,
+      "cdcUid": this.cdcUid,
+      "timestamp": new Date().toISOString(),
+      "clubId": clubId,
+      "clubName": clubName,
+      "clubType": clubType,
+      "activityType": activityType,
+      "rideId": rideId || null,
+      "rideName": rideName || null,
+      "totalRides": totalRides || 0,
+      "pointsEarned": pointsEarned || 0,
+      "milestoneType": milestoneType || null,
+      "milestoneReward": milestoneReward || null
+    };
+
+    this.sendToCDP('RideClubActivity', cdpData);
+    this.sendToGTM('ride_club_activity', {
+      club_id: clubId,
+      club_name: clubName,
+      activity_type: activityType,
+      ride_id: rideId,
+      total_rides: totalRides,
+      points_earned: pointsEarned || 0
+    });
+  }
+
   calculateWarrantyEnd(years) {
     const date = new Date();
     date.setFullYear(date.getFullYear() + years);

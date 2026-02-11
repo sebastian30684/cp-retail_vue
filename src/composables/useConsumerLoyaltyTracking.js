@@ -4,9 +4,9 @@
 
 import { ref } from 'vue'
 
-// Capitalize tier for CDP (bronze → Bronze, silver → Silver, etc.)
+// Capitalize tier for CDP (rider → Rider, racer → Racer, legend → Legend)
 const capitalizeTier = (tier) => {
-  if (!tier) return 'Bronze'
+  if (!tier) return 'Rider'
   return tier.charAt(0).toUpperCase() + tier.slice(1).toLowerCase()
 }
 
@@ -290,7 +290,7 @@ export function useConsumerTracking() {
       event: 'loyalty_signup',
       loyalty: {
         userId: userId,
-        tier: 'bronze',
+        tier: 'rider',
         welcomeBonus: 100
       }
     })
@@ -339,6 +339,98 @@ export function useConsumerTracking() {
       pointsBalance: balance,
       loyaltyTier: tier
     })
+  }
+
+  // ============================================
+  // CREW: CHALLENGE ACTIVITY TRACKING
+  // ============================================
+
+  const trackCdpChallengeActivity = (activityData) => {
+    const {
+      cdcUid,
+      challengeId,
+      challengeName,
+      challengeType = 'monthly',
+      activityType,    // 'started', 'progress', 'completed'
+      currentProgress = 0,
+      targetGoal = 0,
+      unit = 'km',
+      pointsEarned = 0,
+      rewardType = null,
+      rewardDescription = null
+    } = activityData
+
+    const eventData = {
+      cookieId: getCookieId(),
+      cdcUid: cdcUid,
+      timestamp: new Date().toISOString(),
+      challengeId,
+      challengeName,
+      challengeType,
+      activityType,
+      currentProgress,
+      targetGoal,
+      unit,
+      pointsEarned,
+      rewardType,
+      rewardDescription
+    }
+
+    if (typeof window !== 'undefined' && window.CDP) {
+      window.CDP.report('ChallengeActivity', eventData)
+      console.log('📊 [CDP ChallengeActivity]', eventData)
+    } else {
+      console.warn('⚠️ CDP not available, queuing ChallengeActivity event')
+      trackingQueue.value.push({ type: 'CDP_ChallengeActivity', data: eventData })
+    }
+
+    return eventData
+  }
+
+  // ============================================
+  // CREW: RIDE CLUB ACTIVITY TRACKING
+  // ============================================
+
+  const trackCdpRideClubActivity = (activityData) => {
+    const {
+      cdcUid,
+      clubId,
+      clubName,
+      clubType = 'official',
+      activityType,    // 'joined', 'ride_attended', 'milestone', 'ride_organized'
+      rideId = null,
+      rideName = null,
+      totalRides = 0,
+      pointsEarned = 0,
+      milestoneType = null,
+      milestoneReward = null
+    } = activityData
+
+    const eventData = {
+      cookieId: getCookieId(),
+      cdcUid: cdcUid,
+      timestamp: new Date().toISOString(),
+      clubId,
+      clubName,
+      clubType,
+      activityType,
+      rideId,
+      rideName,
+      totalRides,
+      pointsEarned,
+      milestoneType,
+      milestoneReward
+    }
+
+    if (typeof window !== 'undefined' && window.CDP) {
+      window.CDP.report('RideClubActivity', eventData)
+      console.log('📊 [CDP RideClubActivity]', eventData)
+    } else {
+      console.warn('⚠️ CDP not available, queuing RideClubActivity event')
+      trackingQueue.value.push({ type: 'CDP_RideClubActivity', data: eventData })
+    }
+
+    return eventData
   }
 
   // ============================================
@@ -486,6 +578,10 @@ export function useConsumerTracking() {
     trackInviteView,
     trackInviteAccept,
     trackInviteDecline,
+
+    // CREW: Challenge & Ride Club tracking
+    trackCdpChallengeActivity,
+    trackCdpRideClubActivity,
 
     // Engagement tracking
     trackReviewSubmitted,

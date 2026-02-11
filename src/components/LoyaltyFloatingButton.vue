@@ -23,7 +23,7 @@
         </span>
       </div>
       <div class="btn-text">
-        <span class="btn-title">Loyalty Program</span>
+        <span class="btn-title">Canyon CREW</span>
         <span class="btn-subtitle">{{ tierName }} &bull; {{ loyaltyMetrics.availablePoints.toLocaleString() }} Points</span>
       </div>
     </button>
@@ -33,7 +33,7 @@
       <div class="modal-content">
         <!-- Header -->
         <div class="modal-header">
-          <h2>Loyalty Program</h2>
+          <h2>Canyon CREW</h2>
           <button @click="isModalOpen = false" class="close-btn">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M6 18L18 6M6 6l12 12"/>
@@ -64,7 +64,7 @@
             <div class="tier-display">
               <div class="tier-icon-large">{{ tierIcon }}</div>
               <div class="tier-info">
-                <h3>{{ tierName }} Member</h3>
+                <h3>CREW {{ tierName }}</h3>
                 <p class="points-large">{{ loyaltyMetrics.availablePoints.toLocaleString() }} Points</p>
                 <p class="points-value">= {{ getPointsValue(loyaltyMetrics.availablePoints) }} EUR</p>
               </div>
@@ -189,10 +189,10 @@ export default {
     let toastTimeout = null
 
     const redemptionOptions = [
-      { points: 100, value: 5, discountType: 'fixed', description: '5 EUR Voucher' },
-      { points: 200, value: 12, discountType: 'fixed', description: '12 EUR Voucher' },
-      { points: 500, value: 35, discountType: 'fixed', description: '35 EUR Voucher' },
-      { points: 150, value: 4.95, discountType: 'shipping', description: 'Free Express Shipping' }
+      { points: 100, value: 5, discountType: 'fixed', description: '5 EUR Gutschein' },
+      { points: 200, value: 12, discountType: 'fixed', description: '12 EUR Gutschein' },
+      { points: 500, value: 35, discountType: 'fixed', description: '35 EUR Gutschein' },
+      { points: 150, value: 4.95, discountType: 'shipping', description: 'Gratis Express-Versand' }
     ]
 
     // Check if discount is already applied
@@ -232,13 +232,13 @@ export default {
     })
 
     const tierIcon = computed(() => {
-      const icons = { bronze: '🥉', silver: '🥈', gold: '🥇', platinum: '💎' }
-      return icons[loyaltyMetrics.value.currentTier] || '🏆'
+      const icons = { rider: '🚴', racer: '⚡', legend: '🏆' }
+      return icons[loyaltyMetrics.value.currentTier] || '🚴'
     })
 
     const tierName = computed(() => {
-      const names = { bronze: 'Bronze', silver: 'Silver', gold: 'Gold', platinum: 'Platinum' }
-      return names[loyaltyMetrics.value.currentTier] || 'Member'
+      const names = { rider: 'Rider', racer: 'Racer', legend: 'Legend' }
+      return names[loyaltyMetrics.value.currentTier] || 'Rider'
     })
 
     const pointsBadge = computed(() => {

@@ -1,188 +1,150 @@
 // composables/useConsumerLoyalty.js
-// B2C Consumer Loyalty System - Points-based rewards program
-// Designed for Consumer Products & Retail
+// Canyon CREW Loyalty Program - Community & Performance Membership
+// 3 Tiers: Rider → Racer → Legend
+// Hybrid qualification: Spend + Engagement Points
 
 import { reactive, computed } from 'vue'
-
-/**
- * B2C Loyalty Tiers:
- * - Bronze: Entry level, basic benefits
- * - Silver: Regular customers, enhanced benefits
- * - Gold: Loyal customers, premium benefits
- * - Platinum: VIP customers, exclusive benefits
- */
 
 export function useConsumerLoyalty() {
 
   // ============================================
-  // CONSUMER LOYALTY TIERS (Points-based)
+  // CANYON CREW TIERS (Hybrid: Spend + Engagement)
   // ============================================
 
   const loyaltyTiers = {
-    bronze: {
-      name: 'Bronze',
+    rider: {
+      name: 'Rider',
       threshold: 0,
-      icon: '🥉',
-      color: '#CD7F32',
+      maxThreshold: 499,
+      icon: '🚴',
+      color: '#6B7280',       // Grau
+      accentColor: '#9CA3AF',
       pointsMultiplier: 1.0,
 
       benefits: {
         rewards: [
-          '0.5 points per EUR spent',
-          'Birthday bonus: 50 points',
-          'Welcome bonus: 100 points'
+          'Welcome Gift: Canyon Bidons (2er Set)',
+          'Birthday Reward: 10% auf Zubehör',
+          '0.5 points per EUR spent'
         ],
         shipping: [
           'Standard shipping',
           'Free shipping from 50 EUR'
         ],
         exclusive: [
-          'Newsletter with exclusive offers',
-          'Early access to sales'
+          'Early Access: 24h vor Sale-Start',
+          'Member Newsletter mit exklusiven Inhalten',
+          'Canyon App: Voller Zugang',
+          'Basis Ride Challenges'
         ],
-        support: [
-          'Email support',
-          'FAQ access'
+        experiences: [
+          'Community Forum Zugang'
         ]
       },
 
       benefitsList: [
-        '0.5 points per EUR spent',
-        'Birthday bonus: 50 points',
-        'Free shipping from 50 EUR',
-        'Newsletter with exclusive offers'
+        'Welcome Gift: Canyon Bidons',
+        'Birthday: 10% auf Zubehör',
+        'Early Access: 24h vor Sale',
+        'Basis Ride Challenges'
       ],
 
+      welcomeGift: 'Canyon Bidons (2er Set)',
       discountRate: 0,
       freeShippingThreshold: 50,
       supportLevel: 'standard'
     },
 
-    silver: {
-      name: 'Silver',
-      threshold: 500, // 500 points to reach
-      icon: '🥈',
-      color: '#C0C0C0',
+    racer: {
+      name: 'Racer',
+      threshold: 500,
+      maxThreshold: 1999,
+      icon: '⚡',
+      color: '#1F2937',       // Schwarz
+      accentColor: '#374151',
       pointsMultiplier: 1.25,
 
       benefits: {
         rewards: [
-          '1.25x points multiplier',
-          'Birthday bonus: 100 points',
-          'Double points events'
+          'Welcome Gift Upgrade: Canyon Trikot',
+          '1.25x Points Multiplier',
+          '5% Rabatt auf alle Bestellungen',
+          'Birthday: 15% auf alle Produkte'
         ],
         shipping: [
-          'Free standard shipping',
-          'Express shipping discount: 50%'
+          'Free Shipping: Immer kostenlos',
+          'Express Versand: 50% Rabatt'
         ],
         exclusive: [
-          'Exclusive member sales',
-          'Early access: 24h before public'
+          'Early Access: 48h vor Sale-Start',
+          'Pro-Level Ride Challenges',
+          'Einladung zu lokalen Member Events',
+          'Pro Deal Access: Sonderkonditionen Zubehör'
         ],
-        support: [
-          'Priority email support',
-          'Live chat support'
+        experiences: [
+          'Priority Service: Bevorzugte Werkstatt-Termine',
+          'Ride Club Events Zugang'
         ]
       },
 
       benefitsList: [
-        '1.25x points multiplier',
-        'Free standard shipping',
-        'Priority support'
+        '5% Rabatt auf alles',
+        'Free Shipping immer',
+        'Pro Ride Challenges',
+        'Priority Werkstatt-Termine'
       ],
 
-      discountRate: 0,
+      welcomeGift: 'Canyon Trikot',
+      discountRate: 5,
       freeShippingThreshold: 0,
       supportLevel: 'priority'
     },
 
-    gold: {
-      name: 'Gold',
-      threshold: 2000, // 2000 points to reach
-      icon: '🥇',
-      color: '#FFD700',
+    legend: {
+      name: 'Legend',
+      threshold: 2000,
+      maxThreshold: null,
+      icon: '🏆',
+      color: '#B8860B',       // Gold/Schwarz
+      accentColor: '#DAA520',
       pointsMultiplier: 1.5,
 
       benefits: {
         rewards: [
-          '1.5x points multiplier',
-          'Birthday bonus: 200 points',
-          'Double points every month',
-          'Bonus points on new products'
+          'Welcome Gift: Canyon Premium Kit (Trikot, Hose, Cap)',
+          '1.5x Points Multiplier',
+          '10% Rabatt auf alle Bestellungen',
+          'Birthday: 20% auf alle Produkte'
         ],
         shipping: [
-          'Free express shipping',
-          'Same-day delivery in select cities',
-          'Free returns (extended 60 days)'
+          'Free Express Shipping weltweit',
+          'Priority Handling',
+          'Free Gift Wrapping'
         ],
         exclusive: [
-          'VIP member sales',
-          'Early access: 48h before public',
-          'Exclusive product previews'
+          'Early Access: 72h vor Sale-Start',
+          'Legend-Only Challenges & Events',
+          'Custom Options: Personalisierung bei Bike-Kauf',
+          'Test Bike Program: Neue Modelle vorab testen'
         ],
-        support: [
-          'Dedicated support line',
-          'Video consultation available',
-          'Faster response times'
+        experiences: [
+          'VIP Service: Persönlicher Ansprechpartner',
+          'Factory Tour: Einladung nach Koblenz',
+          'Exklusive Rides mit Profi-Fahrern',
+          'Concierge Service: Bike Fitting, Reiseplanung'
         ]
       },
 
       benefitsList: [
-        '1.5x points multiplier',
-        'Free express shipping',
-        'Dedicated support line',
-        '48h early access to sales'
+        '10% Rabatt auf alles',
+        'Free Express weltweit',
+        'Factory Tour Koblenz',
+        'Test Bike Program',
+        'Persönlicher Ansprechpartner'
       ],
 
-      discountRate: 0,
-      freeShippingThreshold: 0,
-      expressShipping: true,
-      supportLevel: 'dedicated'
-    },
-
-    platinum: {
-      name: 'Platinum',
-      threshold: 5000, // 5000 points to reach
-      icon: '💎',
-      color: '#E5E4E2',
-      pointsMultiplier: 2.0,
-
-      benefits: {
-        rewards: [
-          '2x points multiplier',
-          'Birthday bonus: 500 points',
-          'Surprise bonus points',
-          'Partner rewards program'
-        ],
-        shipping: [
-          'Free express shipping worldwide',
-          'Priority handling',
-          'Free gift wrapping',
-          'Unlimited free returns'
-        ],
-        exclusive: [
-          'Private sales access',
-          'Early access: 72h before public',
-          'Exclusive limited editions',
-          'VIP events & experiences'
-        ],
-        support: [
-          'Personal shopping assistant',
-          'WhatsApp support',
-          '24/7 priority support',
-          'Exclusive hotline'
-        ]
-      },
-
-      benefitsList: [
-        '2x points multiplier',
-        'Free worldwide express shipping',
-        'Personal shopping assistant',
-        'VIP events access',
-        'Exclusive limited editions'
-      ],
-
-      discountRate: 0,
+      welcomeGift: 'Canyon Premium Kit (Trikot, Hose, Cap)',
+      discountRate: 10,
       freeShippingThreshold: 0,
       expressShipping: true,
       worldwideShipping: true,
@@ -191,16 +153,34 @@ export function useConsumerLoyalty() {
   }
 
   // ============================================
+  // ENGAGEMENT POINT SOURCES
+  // ============================================
+
+  const engagementPointSources = {
+    bikePurchase:       { pointsPerEur: 1,   description: 'Bike-Kauf' },
+    accessoryPurchase:  { pointsPerEur: 1,   description: 'Zubehör/Bekleidung' },
+    servicePurchase:    { pointsPerEur: 1.5, description: 'Service/Wartung' },
+    challengeComplete:  { pointsRange: [50, 500], description: 'Challenge abgeschlossen' },
+    rideClubAttend:     { points: 25,  description: 'Ride Club Teilnahme' },
+    productReview:      { points: 10,  description: 'Produktbewertung' },
+    referral:           { points: 100, description: 'Freund geworben' },
+    stravaShare:        { points: 5,   description: 'Strava Ride geteilt' }
+  }
+
+  // ============================================
   // POINTS REDEMPTION OPTIONS
   // ============================================
 
   const redemptionOptions = [
-    { points: 100, value: 5, type: 'voucher', description: '5 EUR Gutschein' },
-    { points: 200, value: 12, type: 'voucher', description: '12 EUR Gutschein' },
-    { points: 500, value: 35, type: 'voucher', description: '35 EUR Gutschein' },
-    { points: 1000, value: 80, type: 'voucher', description: '80 EUR Gutschein' },
-    { points: 150, value: null, type: 'shipping', description: 'Gratis Express-Versand' },
-    { points: 250, value: null, type: 'gift', description: 'Überraschungsgeschenk' }
+    { points: 100,  value: 5,    type: 'voucher',  description: '5 EUR Gutschein',    discountType: 'fixed' },
+    { points: 200,  value: 12,   type: 'voucher',  description: '12 EUR Gutschein',   discountType: 'fixed' },
+    { points: 500,  value: 35,   type: 'voucher',  description: '35 EUR Gutschein',   discountType: 'fixed' },
+    { points: 1000, value: 80,   type: 'voucher',  description: '80 EUR Gutschein',   discountType: 'fixed' },
+    { points: 150,  value: null,  type: 'shipping', description: 'Gratis Express-Versand', discountType: 'shipping' },
+    { points: 250,  value: null,  type: 'gift',     description: 'Überraschungsgeschenk',  discountType: 'gift' },
+    // Legend-exclusive redemptions
+    { points: 2000, value: null,  type: 'experience', description: 'Factory Tour Koblenz',  discountType: 'experience', minTier: 'legend' },
+    { points: 1500, value: null,  type: 'experience', description: 'Pro Ride Event Ticket', discountType: 'experience', minTier: 'racer' }
   ]
 
   // ============================================
@@ -208,17 +188,22 @@ export function useConsumerLoyalty() {
   // ============================================
 
   const bonusEvents = {
-    welcome: { points: 100, description: 'Welcome Bonus' },
-    birthday: { points: 50, multiplier: 'tier', description: 'Birthday Bonus' },
-    review: { points: 25, description: 'Product Review' },
-    referral: { points: 200, description: 'Refer a Friend' },
-    newsletter: { points: 50, description: 'Newsletter Signup' },
-    firstPurchase: { points: 50, description: 'First Purchase' },
-    appDownload: { points: 75, description: 'App Download' },
-    // Strava Integration Bonuses
-    stravaConnect: { points: 100, description: 'Connect Strava Account' },
-    stravaMonthlySync: { points: 50, description: 'Monthly Strava Sync Bonus' },
-    stravaKilometers: { points: 1, description: 'Point per kilometer ridden', perUnit: 'km' }
+    welcome:            { points: 100, description: 'Welcome Bonus' },
+    birthday:           { points: 50,  multiplier: 'tier', description: 'Birthday Bonus' },
+    review:             { points: 10,  description: 'Produktbewertung' },
+    referral:           { points: 100, description: 'Freund geworben' },
+    newsletter:         { points: 50,  description: 'Newsletter Signup' },
+    firstPurchase:      { points: 50,  description: 'First Purchase' },
+    appDownload:        { points: 75,  description: 'App Download' },
+    // Strava Integration
+    stravaConnect:      { points: 100, description: 'Connect Strava Account' },
+    stravaMonthlySync:  { points: 50,  description: 'Monthly Strava Sync Bonus' },
+    stravaKilometers:   { points: 1,   description: 'Point per kilometer ridden', perUnit: 'km' },
+    // CREW specific
+    challengeComplete:  { points: 50,  description: 'Challenge abgeschlossen (Basis)', variable: true },
+    rideClubJoin:       { points: 25,  description: 'Ride Club beigetreten' },
+    rideClubAttend:     { points: 25,  description: 'Ride Club Event Teilnahme' },
+    stravaShare:        { points: 5,   description: 'Strava Ride geteilt' }
   }
 
   // ============================================
@@ -226,37 +211,52 @@ export function useConsumerLoyalty() {
   // ============================================
 
   const state = reactive({
-    currentTier: 'bronze',
+    currentTier: 'rider',
     totalPoints: 0,
     availablePoints: 0,
     lifetimePoints: 0,
+    engagementPoints: 0,
     isActive: false
   })
 
   // ============================================
-  // TIER CALCULATION
+  // TIER CALCULATION (Hybrid: max of Spend OR Engagement)
   // ============================================
 
-  const calculateTier = (lifetimePoints) => {
-    const tierOrder = ['bronze', 'silver', 'gold', 'platinum']
+  const calculateTier = (lifetimePoints, engagementPoints = 0) => {
+    const effectivePoints = Math.max(lifetimePoints || 0, engagementPoints || 0)
+    const tierOrder = ['rider', 'racer', 'legend']
     const tierEntries = tierOrder.map(key => [key, loyaltyTiers[key]]).reverse()
-    return tierEntries.find(([_, tier]) => lifetimePoints >= tier.threshold)?.[0] || 'bronze'
+    return tierEntries.find(([_, tier]) => effectivePoints >= tier.threshold)?.[0] || 'rider'
   }
 
   // ============================================
   // POINTS CALCULATION
   // ============================================
 
-  // Base rate: 0.5 points per EUR (multiplied by tier multiplier)
   const BASE_POINTS_PER_EUR = 0.5
 
-  const calculatePointsForPurchase = (amount, tierName = 'bronze') => {
-    const tier = loyaltyTiers[tierName] || loyaltyTiers.bronze
-    return Math.floor(amount * BASE_POINTS_PER_EUR * tier.pointsMultiplier)
+  const calculatePointsForPurchase = (amount, tierName = 'rider', purchaseType = 'standard') => {
+    const tier = loyaltyTiers[tierName] || loyaltyTiers.rider
+    let multiplier = tier.pointsMultiplier
+    // Service purchases get 1.5x bonus
+    if (purchaseType === 'service') {
+      multiplier *= 1.5
+    }
+    return Math.floor(amount * BASE_POINTS_PER_EUR * multiplier)
   }
 
-  const calculateDiscountedPrice = (price, tierName = 'bronze') => {
-    const tier = loyaltyTiers[tierName] || loyaltyTiers.bronze
+  const calculateEngagementPointsForPurchase = (amount, purchaseType = 'standard') => {
+    const source = purchaseType === 'service'
+      ? engagementPointSources.servicePurchase
+      : purchaseType === 'bike'
+        ? engagementPointSources.bikePurchase
+        : engagementPointSources.accessoryPurchase
+    return Math.floor(amount * source.pointsPerEur)
+  }
+
+  const calculateDiscountedPrice = (price, tierName = 'rider') => {
+    const tier = loyaltyTiers[tierName] || loyaltyTiers.rider
     const discount = (price * tier.discountRate) / 100
     return price - discount
   }
@@ -277,16 +277,20 @@ export function useConsumerLoyalty() {
     return tier.benefits || {}
   }
 
-  const getNextTierInfo = (currentPoints) => {
-    const currentTierName = calculateTier(currentPoints)
-    const tierOrder = ['bronze', 'silver', 'gold', 'platinum']
+  const getNextTierInfo = (currentPoints, engagementPoints = 0) => {
+    const effectivePoints = Math.max(currentPoints || 0, engagementPoints || 0)
+    const currentTierName = calculateTier(currentPoints, engagementPoints)
+    const tierOrder = ['rider', 'racer', 'legend']
     const currentIndex = tierOrder.indexOf(currentTierName)
 
     if (currentIndex < tierOrder.length - 1) {
       const nextTierName = tierOrder[currentIndex + 1]
       const nextTier = loyaltyTiers[nextTierName]
-      const remaining = nextTier.threshold - currentPoints
-      const progress = Math.min((currentPoints / nextTier.threshold) * 100, 100)
+      const remaining = nextTier.threshold - effectivePoints
+      const currentTierThreshold = loyaltyTiers[currentTierName].threshold
+      const range = nextTier.threshold - currentTierThreshold
+      const progressInRange = effectivePoints - currentTierThreshold
+      const progress = Math.min((progressInRange / range) * 100, 100)
 
       return {
         name: nextTier.name,
@@ -301,11 +305,11 @@ export function useConsumerLoyalty() {
       }
     }
 
-    return null // Already at highest tier
+    return null // Already Legend (highest tier)
   }
 
   const getTierData = (tierName) => {
-    return loyaltyTiers[tierName] || loyaltyTiers.bronze
+    return loyaltyTiers[tierName] || loyaltyTiers.rider
   }
 
   const getPointsValue = (points) => {
@@ -313,11 +317,20 @@ export function useConsumerLoyalty() {
     return (points / 100) * 5
   }
 
-  const getRedemptionOptions = (availablePoints) => {
-    return redemptionOptions.filter(option => option.points <= availablePoints)
+  const getRedemptionOptions = (availablePoints, tierName = 'rider') => {
+    const tierOrder = ['rider', 'racer', 'legend']
+    const currentTierIndex = tierOrder.indexOf(tierName)
+    return redemptionOptions.filter(option => {
+      if (option.points > availablePoints) return false
+      if (option.minTier) {
+        const minTierIndex = tierOrder.indexOf(option.minTier)
+        if (currentTierIndex < minTierIndex) return false
+      }
+      return true
+    })
   }
 
-  const getBonusForEvent = (eventType, tierName = 'bronze') => {
+  const getBonusForEvent = (eventType, tierName = 'rider') => {
     const event = bonusEvents[eventType]
     if (!event) return 0
 
@@ -337,33 +350,43 @@ export function useConsumerLoyalty() {
     const scores = {
       purchases: 0,
       activity: 0,
-      social: 0,
+      community: 0,
+      challenges: 0,
       total: 0
     }
 
-    // Purchase engagement (40%)
+    // Purchase engagement (30%)
     const purchaseScore = Math.min((metrics.orderCount || 0) / 10, 1) * 100
     scores.purchases = Math.round(purchaseScore)
 
-    // Activity engagement (40%)
+    // Activity engagement (25%)
     const activityScore = Math.min(
       ((metrics.reviewsWritten || 0) * 10 +
        (metrics.wishlistItems || 0) * 5 +
+       (metrics.stravaKm || 0) * 0.1 +
        (metrics.pageViews || 0) * 0.1) / 100, 1
     ) * 100
     scores.activity = Math.round(activityScore)
 
-    // Social engagement (20%)
-    const socialScore = Math.min(
+    // Community engagement (25%)
+    const communityScore = Math.min(
       ((metrics.referrals || 0) * 30 +
+       (metrics.rideClubAttendance || 0) * 15 +
        (metrics.socialShares || 0) * 10) / 100, 1
     ) * 100
-    scores.social = Math.round(socialScore)
+    scores.community = Math.round(communityScore)
+
+    // Challenge engagement (20%)
+    const challengeScore = Math.min(
+      ((metrics.challengesCompleted || 0) * 25) / 100, 1
+    ) * 100
+    scores.challenges = Math.round(challengeScore)
 
     scores.total = Math.round(
-      scores.purchases * 0.4 +
-      scores.activity * 0.4 +
-      scores.social * 0.2
+      scores.purchases * 0.30 +
+      scores.activity * 0.25 +
+      scores.community * 0.25 +
+      scores.challenges * 0.20
     )
 
     return scores
@@ -373,7 +396,7 @@ export function useConsumerLoyalty() {
   // ALIAS FUNCTIONS FOR COMPATIBILITY
   // ============================================
 
-  const calculatePoints = (amount, tierName = 'bronze') => {
+  const calculatePoints = (amount, tierName = 'rider') => {
     return calculatePointsForPurchase(amount, tierName)
   }
 
@@ -386,6 +409,7 @@ export function useConsumerLoyalty() {
     loyaltyTiers,
     redemptionOptions,
     bonusEvents,
+    engagementPointSources,
 
     // State
     state,
@@ -398,8 +422,9 @@ export function useConsumerLoyalty() {
     getTierData,
 
     // Points functions
-    calculatePoints, // Alias for checkout compatibility
+    calculatePoints,
     calculatePointsForPurchase,
+    calculateEngagementPointsForPurchase,
     calculateDiscountedPrice,
     getPointsValue,
     getRedemptionOptions,

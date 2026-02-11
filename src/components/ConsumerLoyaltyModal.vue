@@ -6,7 +6,7 @@
           <div class="tier-badge-large" :class="`tier-${loyaltyData.currentTier}`">
             <span class="tier-icon">{{ getTierIcon(loyaltyData.currentTier) }}</span>
             <div class="tier-info">
-              <span class="tier-name">{{ getTierName(loyaltyData.currentTier) }} Member</span>
+              <span class="tier-name">CREW {{ getTierName(loyaltyData.currentTier) }}</span>
               <small>{{ loyaltyData.lifetimePoints.toLocaleString() }} Lifetime Points</small>
             </div>
           </div>
@@ -67,6 +67,7 @@
               <div class="redeem-type" :class="option.type">
                 <span v-if="option.type === 'voucher'">🎟️</span>
                 <span v-else-if="option.type === 'shipping'">📦</span>
+                <span v-else-if="option.type === 'experience'">🏔️</span>
                 <span v-else>🎁</span>
               </div>
               <div class="redeem-info">
@@ -137,9 +138,9 @@
         <!-- Maxed Out Section -->
         <div v-else class="section maxed-section">
           <div class="maxed-content">
-            <div class="celebration-icon">💎</div>
-            <h3>Platinum Status Achieved!</h3>
-            <p>You enjoy all exclusive benefits of our highest loyalty level. Thank you for your loyalty!</p>
+            <div class="celebration-icon">🏆</div>
+            <h3>Legend Status Achieved!</h3>
+            <p>Du genießt alle exklusiven Benefits unseres höchsten CREW Levels. Danke für deine Treue!</p>
           </div>
         </div>
 
@@ -197,28 +198,42 @@
               <div class="earn-icon">🛒</div>
               <div class="earn-info">
                 <span class="earn-title">Shopping</span>
-                <span class="earn-points">{{ getMultiplier(loyaltyData.currentTier) }} Point per EUR</span>
+                <span class="earn-points">{{ getMultiplier(loyaltyData.currentTier) }}x Punkte pro EUR</span>
               </div>
             </div>
             <div class="earn-card">
-              <div class="earn-icon">🎂</div>
+              <div class="earn-icon">🏆</div>
               <div class="earn-info">
-                <span class="earn-title">Birthday</span>
-                <span class="earn-points">Up to 500 Points</span>
+                <span class="earn-title">Ride Challenges</span>
+                <span class="earn-points">50 - 500 Punkte</span>
+              </div>
+            </div>
+            <div class="earn-card">
+              <div class="earn-icon">🚴</div>
+              <div class="earn-info">
+                <span class="earn-title">Ride Club Events</span>
+                <span class="earn-points">25 Punkte pro Ride</span>
+              </div>
+            </div>
+            <div class="earn-card">
+              <div class="earn-icon">🔗</div>
+              <div class="earn-info">
+                <span class="earn-title">Strava verbinden</span>
+                <span class="earn-points">100 Punkte + 1 Pt/km</span>
               </div>
             </div>
             <div class="earn-card">
               <div class="earn-icon">⭐</div>
               <div class="earn-info">
-                <span class="earn-title">Write a Review</span>
-                <span class="earn-points">25 Points</span>
+                <span class="earn-title">Produktbewertung</span>
+                <span class="earn-points">10 Punkte</span>
               </div>
             </div>
             <div class="earn-card">
               <div class="earn-icon">👥</div>
               <div class="earn-info">
-                <span class="earn-title">Refer a Friend</span>
-                <span class="earn-points">200 Points</span>
+                <span class="earn-title">Freund werben</span>
+                <span class="earn-points">100 Punkte</span>
               </div>
             </div>
           </div>
@@ -254,47 +269,41 @@ export default {
   emits: ['close', 'redeem'],
   setup(props, { emit }) {
     const allTiers = {
-      bronze: {
-        name: 'Bronze',
+      rider: {
+        name: 'Rider',
         threshold: 0,
-        icon: '🥉',
+        icon: '🚴',
         pointsMultiplier: 1.0,
         discountRate: 0,
         freeShippingThreshold: 50
       },
-      silver: {
-        name: 'Silver',
+      racer: {
+        name: 'Racer',
         threshold: 500,
-        icon: '🥈',
+        icon: '⚡',
         pointsMultiplier: 1.25,
         discountRate: 5,
         freeShippingThreshold: 0
       },
-      gold: {
-        name: 'Gold',
+      legend: {
+        name: 'Legend',
         threshold: 2000,
-        icon: '🥇',
+        icon: '🏆',
         pointsMultiplier: 1.5,
         discountRate: 10,
-        freeShippingThreshold: 0
-      },
-      platinum: {
-        name: 'Platinum',
-        threshold: 5000,
-        icon: '💎',
-        pointsMultiplier: 2.0,
-        discountRate: 15,
         freeShippingThreshold: 0
       }
     }
 
     const redemptionOptions = [
-      { points: 100, value: 5, type: 'voucher', description: '5 EUR Voucher' },
-      { points: 200, value: 12, type: 'voucher', description: '12 EUR Voucher' },
-      { points: 500, value: 35, type: 'voucher', description: '35 EUR Voucher' },
-      { points: 1000, value: 80, type: 'voucher', description: '80 EUR Voucher' },
-      { points: 150, value: null, type: 'shipping', description: 'Free Express Shipping' },
-      { points: 250, value: null, type: 'gift', description: 'Surprise Gift' }
+      { points: 100, value: 5, type: 'voucher', description: '5 EUR Gutschein' },
+      { points: 200, value: 12, type: 'voucher', description: '12 EUR Gutschein' },
+      { points: 500, value: 35, type: 'voucher', description: '35 EUR Gutschein' },
+      { points: 1000, value: 80, type: 'voucher', description: '80 EUR Gutschein' },
+      { points: 150, value: null, type: 'shipping', description: 'Gratis Express-Versand' },
+      { points: 250, value: null, type: 'gift', description: 'Überraschungsgeschenk' },
+      { points: 1500, value: null, type: 'experience', description: 'Pro Ride Event Ticket' },
+      { points: 2000, value: null, type: 'experience', description: 'Factory Tour Koblenz' }
     ]
 
     const getTierIcon = (tier) => {
@@ -326,7 +335,7 @@ export default {
         rewards: '🎁 Rewards',
         shipping: '📦 Shipping',
         exclusive: '⭐ Exclusive Benefits',
-        support: '💬 Support'
+        experiences: '🏔️ Experiences'
       }
       return labels[category] || category
     }
@@ -399,22 +408,16 @@ export default {
   font-weight: 600;
 }
 
-.tier-bronze {
-  background: linear-gradient(135deg, #CD7F32, #B8722A);
+.tier-rider {
+  background: linear-gradient(135deg, #6B7280, #4B5563);
 }
 
-.tier-silver {
-  background: linear-gradient(135deg, #C0C0C0, #A8A8A8);
-  color: #333;
+.tier-racer {
+  background: linear-gradient(135deg, #1F2937, #111827);
 }
 
-.tier-gold {
-  background: linear-gradient(135deg, #FFD700, #DAA520);
-  color: #333;
-}
-
-.tier-platinum {
-  background: linear-gradient(135deg, #E5E4E2, #B4B4B4);
+.tier-legend {
+  background: linear-gradient(135deg, #B8860B, #DAA520);
   color: #333;
 }
 
@@ -726,7 +729,7 @@ export default {
 
 /* Maxed Section */
 .maxed-content {
-  background: linear-gradient(135deg, #E5E4E2, #B4B4B4);
+  background: linear-gradient(135deg, #B8860B, #DAA520);
   color: #333;
   padding: 2rem;
   border-radius: 12px;

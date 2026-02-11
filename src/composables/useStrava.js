@@ -507,6 +507,58 @@ export function useStrava() {
   }
 
   // ============================================
+  // CHALLENGE METRICS (for useChallenges integration)
+  // ============================================
+
+  /**
+   * Aggregated metrics used by the challenge system to validate progress.
+   * Returns current month, YTD, and special metrics for challenge types.
+   */
+  function getChallengeMetrics() {
+    const now = new Date()
+    const thisMonth = now.getMonth()
+    const thisYear = now.getFullYear()
+
+    const monthActivities = state.activities.filter(a => {
+      const d = new Date(a.date)
+      return d.getMonth() === thisMonth && d.getFullYear() === thisYear
+    })
+
+    const yearActivities = state.activities.filter(a => {
+      const d = new Date(a.date)
+      return d.getFullYear() === thisYear
+    })
+
+    // Early bird: rides started before 7:00 AM this month
+    const earlyRides = monthActivities.filter(a => {
+      const d = new Date(a.date)
+      return d.getHours() < 7
+    }).length
+
+    // Longest single ride this month (km)
+    const longestRide = monthActivities.length > 0
+      ? Math.max(...monthActivities.map(a => a.distance))
+      : 0
+
+    return {
+      // This month
+      thisMonthDistance: monthActivities.reduce((sum, a) => sum + a.distance, 0),
+      thisMonthElevation: monthActivities.reduce((sum, a) => sum + a.elevation, 0),
+      thisMonthRides: monthActivities.length,
+      thisMonthTime: monthActivities.reduce((sum, a) => sum + a.movingTime, 0),
+
+      // Year to date
+      ytdDistance: yearActivities.reduce((sum, a) => sum + a.distance, 0),
+      ytdElevation: yearActivities.reduce((sum, a) => sum + a.elevation, 0),
+      ytdRides: yearActivities.length,
+
+      // Special metrics for specific challenges
+      earlyRides,
+      longestRide
+    }
+  }
+
+  // ============================================
   // RETURN PUBLIC API
   // ============================================
 
@@ -552,6 +604,9 @@ export function useStrava() {
     distancePerGear,
     getDistanceByGearName,
     getLastRideByGearName,
+
+    // Challenge Integration
+    getChallengeMetrics,
 
     // CDP Tracking
     trackStravaConnection,
