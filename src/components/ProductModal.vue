@@ -163,8 +163,6 @@
             <!-- Emarsys Product View Recommendations -->
             <div id="productViewRecoId" class="emarsys-reco-container"></div>
 
-            <!-- Emarsys Web Channel: Loyalty -->
-            <div id="emarsys_webchannel_loyalty" class="emarsys-webchannel-slot"></div>
           </div>
         </div>
       </div>

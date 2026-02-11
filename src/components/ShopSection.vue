@@ -5,16 +5,8 @@
         <h1>Shop</h1>
         <p>Premium Bikes & Accessories</p>
 
-        <!-- Login Notice for non-authenticated users -->
-        <div v-if="!isLoggedIn" class="login-notice">
-          <div class="notice-card">
-            <div class="notice-icon">🎁</div>
-            <div class="notice-content">
-              <h3>Loyalty Program</h3>
-              <p>Sign in and collect points with every purchase. Get exclusive discounts and benefits!</p>
-            </div>
-          </div>
-        </div>
+        <!-- Emarsys Web Channel: Loyalty Banner -->
+        <div id="emarsys_webchannel_loyalty" class="login-notice"></div>
       </div>
 
       <!-- Loading State -->
@@ -116,9 +108,6 @@
             @product-click="handleRecoProductClick"
           />
         </div>
-
-        <!-- Emarsys Web Channel: Loyalty -->
-        <div id="emarsys_webchannel_loyalty" class="emarsys-webchannel-slot"></div>
 
         <!-- Products Grid -->
         <div class="products-section">
@@ -613,38 +602,19 @@ export default {
   color: var(--sap-gray-6);
 }
 
-/* Login Notice */
+/* Emarsys Web Channel: Loyalty Banner */
 .login-notice {
   margin-top: 1.5rem;
 }
 
-.notice-card {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: linear-gradient(135deg, #fef3c7, #fde68a);
-  border: 1px solid #f59e0b;
+.login-notice:empty {
+  display: none;
+}
+
+.login-notice:not(:empty) {
+  min-height: 270px;
   border-radius: 12px;
-  padding: 1.5rem;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.notice-icon {
-  font-size: 2rem;
-}
-
-.notice-content h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #92400e;
-  margin: 0 0 0.5rem 0;
-}
-
-.notice-content p {
-  font-size: 0.9rem;
-  color: #78350f;
-  margin: 0;
+  overflow: hidden;
 }
 
 /* Filters Section */
