@@ -113,6 +113,27 @@
             </div>
           </div>
 
+          <!-- Ride Stats from CDP -->
+          <div v-if="bike.total_mileage || bike.last_ride_date" class="ride-stats-bar">
+            <div class="ride-stat" v-if="bike.total_mileage">
+              <span class="material-icons-outlined ride-stat-icon">straighten</span>
+              <span class="ride-stat-label">Total</span>
+              <span class="ride-stat-value">{{ bike.total_mileage }} km</span>
+            </div>
+            <div class="ride-stat-divider" v-if="bike.total_mileage && bike.last_ride_date"></div>
+            <div class="ride-stat" v-if="bike.last_ride_date">
+              <span class="material-icons-outlined ride-stat-icon">event</span>
+              <span class="ride-stat-label">Last Ride</span>
+              <span class="ride-stat-value">{{ formatRideDate(bike.last_ride_date) }}</span>
+            </div>
+            <div class="ride-stat-divider" v-if="bike.last_ride_km && bike.last_ride_date"></div>
+            <div class="ride-stat" v-if="bike.last_ride_km">
+              <span class="material-icons-outlined ride-stat-icon">route</span>
+              <span class="ride-stat-label">Distance</span>
+              <span class="ride-stat-value">{{ bike.last_ride_km }} km</span>
+            </div>
+          </div>
+
           <div v-if="getStravaMileage(bike.accountName) > 0" class="strava-mileage-bar">
             <svg viewBox="0 0 24 24" class="strava-mileage-icon">
               <path fill="currentColor" d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169" />
@@ -228,7 +249,7 @@ export default {
     const getDetailFields = (bike) => {
       // Exclude fields already shown in header/quick-stats
       return getBikeDisplayFields(bike).filter(f =>
-        !['accountName', 'accountID', 'color', 'size', 'category', 'weight', 'bike_status', 'warranty_status'].includes(f.key)
+        !['accountName', 'accountID', 'color', 'size', 'category', 'weight', 'bike_status', 'warranty_status', 'total_mileage', 'last_ride_date', 'last_ride_km'].includes(f.key)
       )
     }
 
@@ -238,6 +259,14 @@ export default {
         day: 'numeric',
         hour: '2-digit',
         minute: '2-digit'
+      })
+    }
+
+    const formatRideDate = (dateStr) => {
+      return new Date(dateStr).toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
       })
     }
 
@@ -252,6 +281,7 @@ export default {
       handleSyncMileage,
       getDetailFields,
       formatDate,
+      formatRideDate,
       getBikeImage,
       getStravaMileage,
       isSyncing,
@@ -579,6 +609,45 @@ export default {
 .warranty-expired {
   background: rgba(220, 53, 69, 0.1);
   color: #DC3545;
+}
+
+/* Ride Stats Bar (CDP) */
+.ride-stats-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1.25rem;
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.05), rgba(13, 110, 253, 0.02));
+  border-top: 1px solid rgba(13, 110, 253, 0.1);
+  border-bottom: 1px solid rgba(13, 110, 253, 0.1);
+}
+
+.ride-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.ride-stat-icon {
+  font-size: 15px;
+  color: #0D6EFD;
+}
+
+.ride-stat-label {
+  font-size: 0.75rem;
+  color: var(--sap-gray-6, #5B738B);
+}
+
+.ride-stat-value {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0D6EFD;
+}
+
+.ride-stat-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(13, 110, 253, 0.2);
 }
 
 /* Strava Mileage Bar */

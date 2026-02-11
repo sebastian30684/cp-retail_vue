@@ -278,6 +278,9 @@ export function useBikeGarage() {
       { key: 'bike_status', label: 'Status', value: bike.bike_status },
       { key: 'warranty_status', label: 'Warranty', value: bike.warranty_status },
       { key: 'warranty_end_date', label: 'Warranty Until', value: bike.warranty_end_date ? new Date(bike.warranty_end_date).toLocaleDateString() : null },
+      { key: 'total_mileage', label: 'Total Mileage', value: bike.total_mileage ? `${bike.total_mileage} km` : null },
+      { key: 'last_ride_date', label: 'Last Ride', value: bike.last_ride_date ? new Date(bike.last_ride_date).toLocaleDateString() : null },
+      { key: 'last_ride_km', label: 'Last Ride Distance', value: bike.last_ride_km ? `${bike.last_ride_km} km` : null },
     ]
     return fields.filter(f => f.value !== undefined && f.value !== null && f.value !== '')
   }
