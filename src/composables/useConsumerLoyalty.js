@@ -23,8 +23,8 @@ export function useConsumerLoyalty() {
 
       benefits: {
         rewards: [
-          'Welcome Gift: Canyon Bidons (2er Set)',
-          'Birthday Reward: 10% auf Zubehör',
+          'Welcome Gift: Canyon Bidons (Set of 2)',
+          'Birthday Reward: 10% on Accessories',
           '0.5 points per EUR spent'
         ],
         shipping: [
@@ -32,21 +32,21 @@ export function useConsumerLoyalty() {
           'Free shipping from 50 EUR'
         ],
         exclusive: [
-          'Early Access: 24h vor Sale-Start',
-          'Member Newsletter mit exklusiven Inhalten',
-          'Canyon App: Voller Zugang',
-          'Basis Ride Challenges'
+          'Early Access: 24h before Sale',
+          'Member Newsletter with exclusive content',
+          'Canyon App: Full Access',
+          'Basic Ride Challenges'
         ],
         experiences: [
-          'Community Forum Zugang'
+          'Community Forum Access'
         ]
       },
 
       benefitsList: [
         'Welcome Gift: Canyon Bidons',
-        'Birthday: 10% auf Zubehör',
-        'Early Access: 24h vor Sale',
-        'Basis Ride Challenges'
+        'Birthday: 10% on Accessories',
+        'Early Access: 24h before Sale',
+        'Basic Ride Challenges'
       ],
 
       welcomeGift: 'Canyon Bidons (2er Set)',
@@ -66,32 +66,32 @@ export function useConsumerLoyalty() {
 
       benefits: {
         rewards: [
-          'Welcome Gift Upgrade: Canyon Trikot',
+          'Welcome Gift Upgrade: Canyon Jersey',
           '1.25x Points Multiplier',
-          '5% Rabatt auf alle Bestellungen',
-          'Birthday: 15% auf alle Produkte'
+          '5% Discount on all orders',
+          'Birthday: 15% on all products'
         ],
         shipping: [
-          'Free Shipping: Immer kostenlos',
-          'Express Versand: 50% Rabatt'
+          'Free Shipping: Always free',
+          'Express Shipping: 50% off'
         ],
         exclusive: [
-          'Early Access: 48h vor Sale-Start',
+          'Early Access: 48h before Sale',
           'Pro-Level Ride Challenges',
-          'Einladung zu lokalen Member Events',
-          'Pro Deal Access: Sonderkonditionen Zubehör'
+          'Invitation to local Member Events',
+          'Pro Deal Access: Special conditions on accessories'
         ],
         experiences: [
-          'Priority Service: Bevorzugte Werkstatt-Termine',
-          'Ride Club Events Zugang'
+          'Priority Service: Preferred workshop appointments',
+          'Ride Club Events Access'
         ]
       },
 
       benefitsList: [
-        '5% Rabatt auf alles',
-        'Free Shipping immer',
+        '5% Discount on everything',
+        'Free Shipping always',
         'Pro Ride Challenges',
-        'Priority Werkstatt-Termine'
+        'Priority Workshop Appointments'
       ],
 
       welcomeGift: 'Canyon Trikot',
@@ -111,36 +111,36 @@ export function useConsumerLoyalty() {
 
       benefits: {
         rewards: [
-          'Welcome Gift: Canyon Premium Kit (Trikot, Hose, Cap)',
+          'Welcome Gift: Canyon Premium Kit (Jersey, Shorts, Cap)',
           '1.5x Points Multiplier',
-          '10% Rabatt auf alle Bestellungen',
-          'Birthday: 20% auf alle Produkte'
+          '10% Discount on all orders',
+          'Birthday: 20% on all products'
         ],
         shipping: [
-          'Free Express Shipping weltweit',
+          'Free Express Shipping worldwide',
           'Priority Handling',
           'Free Gift Wrapping'
         ],
         exclusive: [
-          'Early Access: 72h vor Sale-Start',
+          'Early Access: 72h before Sale',
           'Legend-Only Challenges & Events',
-          'Custom Options: Personalisierung bei Bike-Kauf',
-          'Test Bike Program: Neue Modelle vorab testen'
+          'Custom Options: Personalization on bike purchase',
+          'Test Bike Program: Test new models early'
         ],
         experiences: [
-          'VIP Service: Persönlicher Ansprechpartner',
-          'Factory Tour: Einladung nach Koblenz',
-          'Exklusive Rides mit Profi-Fahrern',
-          'Concierge Service: Bike Fitting, Reiseplanung'
+          'VIP Service: Personal contact person',
+          'Factory Tour: Invitation to Koblenz',
+          'Exclusive Rides with Pro Riders',
+          'Concierge Service: Bike Fitting, Travel Planning'
         ]
       },
 
       benefitsList: [
-        '10% Rabatt auf alles',
-        'Free Express weltweit',
+        '10% Discount on everything',
+        'Free Express worldwide',
         'Factory Tour Koblenz',
         'Test Bike Program',
-        'Persönlicher Ansprechpartner'
+        'Personal Contact Person'
       ],
 
       welcomeGift: 'Canyon Premium Kit (Trikot, Hose, Cap)',

@@ -650,6 +650,7 @@ export default {
     provide('cartDiscount', cartDiscount)
     provide('applyCartDiscount', applyCartDiscount)
     provide('removeCartDiscount', removeCartDiscount)
+    provide('addToCart', addToCart)
     
     // Check for existing cookie consent on mount
     onMounted(() => {

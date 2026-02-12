@@ -309,8 +309,9 @@ export default {
     const user = inject('user', { UID: 'demo_user', isLoggedIn: false })
     const cartDiscount = inject('cartDiscount', { type: 'none', value: 0, description: '' })
     const applyCartDiscount = inject('applyCartDiscount', () => {})
+    const addToCart = inject('addToCart', () => {})
     const { calculateTier, getTierData, getNextTierInfo, getActiveBenefits, getCategorizedBenefits } = useConsumerLoyalty()
-    const { trackCdpLoyaltyActivity } = useConsumerTracking()
+    const { trackCdpLoyaltyActivity, trackCdpChallengeActivity, trackCdpRideClubActivity } = useConsumerTracking()
 
     // Challenges
     const {
@@ -447,11 +448,24 @@ export default {
       const userId = user.UID || 'demo_user'
 
       if (option.type === 'product') {
-        // Product redemption: just deduct points + toast
+        // Product redemption: deduct points + add free item to cart
         loyaltyStorage.addPoints(userId, -option.points, `Redeemed: ${option.description}`)
+
+        // Add free product to cart
+        const freeProduct = {
+          id: `crew-reward-${Date.now()}`,
+          productName: option.description,
+          category: 'CREW Reward',
+          price: 0,
+          originalPrice: option.points / 10, // show original value
+          image: null,
+          isCREWReward: true
+        }
+        addToCart(freeProduct)
+
         loadLoyaltyData()
         isModalOpen.value = false
-        showToast(`${option.description} - Check your email for details!`)
+        showToast(`${option.description} added to cart!`)
         return
       }
 
@@ -489,7 +503,24 @@ export default {
     })
 
     const handleStartChallenge = (challengeId) => {
-      startChallenge(challengeId)
+      const challenge = startChallenge(challengeId)
+      // Track ChallengeActivity in CDP
+      const userId = user.UID || 'demo_user'
+      const template = availableChallengesList.value.find(c => c.id === challengeId) || {}
+      trackCdpChallengeActivity({
+        cdcUid: userId,
+        challengeId: challengeId,
+        challengeName: template.name || challengeId,
+        challengeType: template.type || 'monthly',
+        activityType: 'started',
+        currentProgress: 0,
+        targetGoal: template.targetGoal || 0,
+        unit: template.unit || 'km',
+        pointsEarned: 0,
+        rewardType: template.reward?.type || 'points',
+        rewardDescription: template.reward?.description || ''
+      })
+      console.log('📤 ChallengeActivity: started', challengeId)
     }
 
     const handleUpdateChallengesFromStrava = () => {
@@ -504,6 +535,24 @@ export default {
       const userId = user.UID || 'demo_user'
       loyaltyStorage.addPoints(userId, 25, 'Joined Ride Club')
       loadLoyaltyData()
+
+      // Track RideClubActivity in CDP
+      const club = availableClubs.value.find(c => c.id === clubId) || {}
+      trackCdpRideClubActivity({
+        cdcUid: userId,
+        clubId: clubId,
+        clubName: club.name || clubId,
+        clubType: club.type || 'official',
+        activityType: 'joined',
+        rideId: null,
+        rideName: null,
+        totalRides: 0,
+        pointsEarned: 25,
+        milestoneType: null,
+        milestoneReward: null
+      })
+      console.log('📤 RideClubActivity: joined', clubId)
+
       showToast('Joined club! +25 Points')
     }
 
@@ -591,9 +640,12 @@ export default {
 .loyalty-floating-container {
   position: fixed;
   bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
   z-index: 50;
+  pointer-events: none;
 }
 
 /* Backdrop */
@@ -602,6 +654,7 @@ export default {
   inset: 0;
   background: rgba(0, 0, 0, 0.4);
   z-index: 40;
+  pointer-events: auto;
 }
 
 /* Floating Button */
@@ -619,6 +672,7 @@ export default {
   box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
   transition: all 0.3s ease;
   z-index: 51;
+  pointer-events: auto;
 }
 
 .loyalty-floating-btn:hover {
@@ -676,6 +730,7 @@ export default {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   z-index: 51;
+  pointer-events: auto;
 }
 
 .modal-content {
@@ -1360,6 +1415,7 @@ export default {
   padding: 1rem 2rem;
   background: linear-gradient(135deg, #059669, #10b981);
   color: white;
+  pointer-events: auto;
   border-radius: 12px;
   box-shadow: 0 8px 30px rgba(5, 150, 105, 0.4);
   z-index: 60;

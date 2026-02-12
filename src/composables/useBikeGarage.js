@@ -216,6 +216,7 @@ export function useBikeGarage() {
    * Send bike mileage to CDP via tracking service (same pattern as Orders, LoyaltyActivity)
    */
   function sendBikeMileageToCDP(bikeId, bikeName, totalKm, lastRideDate, lastRideKm) {
+    console.log('📤 BikeMileageUpdate:', { bikeId, bikeName, totalKm, lastRideDate, lastRideKm })
     trackingService.trackBikeMileage(bikeId, bikeName, totalKm, lastRideDate, lastRideKm)
     return true
   }
