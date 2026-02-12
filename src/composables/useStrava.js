@@ -156,8 +156,14 @@ export function useStrava() {
   ]
 
   function generateRandomActivity() {
-    const gearIds = ['bike-001', 'bike-002', 'bike-003']
-    const gearId = gearIds[Math.floor(Math.random() * gearIds.length)]
+    // Use registered garage bikes (dynamic) instead of hardcoded IDs
+    const gear = state.athlete?.gear || []
+    if (gear.length === 0) {
+      console.warn('[Strava] No gear registered - cannot assign activity to bike')
+    }
+    const gearId = gear.length > 0
+      ? gear[Math.floor(Math.random() * gear.length)].id
+      : 'unknown'
 
     const distance = +(10 + Math.random() * 100).toFixed(1)
     const avgSpeed = +(18 + Math.random() * 18).toFixed(1)
@@ -480,6 +486,44 @@ export function useStrava() {
   })
 
   /**
+   * Register garage bikes from CDP so activities use actual user bikes
+   * Called by useBikeGarage after loading bikes — avoids circular dependency
+   */
+  function registerGarageBikes(garageBikes) {
+    if (!garageBikes || garageBikes.length === 0) return
+
+    // Map CDP bikes to Strava gear format
+    const mappedGear = garageBikes.map((bike, index) => ({
+      id: `garage-${index}`,
+      name: bike.accountName,
+      type: bike.category || 'Road Bike',
+      distance: 0
+    }))
+
+    // Update athlete gear list
+    if (!state.athlete) {
+      state.athlete = { gear: mappedGear }
+    } else {
+      state.athlete.gear = mappedGear
+    }
+
+    // Reassign existing activities to the new gear IDs (round-robin)
+    for (let i = 0; i < state.activities.length; i++) {
+      state.activities[i].gearId = mappedGear[i % mappedGear.length].id
+    }
+
+    // Persist updated state
+    localStorage.setItem(STRAVA_STORAGE_KEY, JSON.stringify({
+      isConnected: state.isConnected,
+      athlete: state.athlete,
+      lastSyncDate: state.lastSyncDate
+    }))
+    localStorage.setItem(STRAVA_ACTIVITIES_KEY, JSON.stringify(state.activities))
+
+    console.log('[Strava] Registered garage bikes:', mappedGear.map(g => g.name))
+  }
+
+  /**
    * Fuzzy match: find gear by name, falling back to matching first 2 words
    * (e.g. "Canyon Aeroad CFR AXS" matches "Canyon Aeroad CF SLX 8 AXS")
    */
@@ -614,6 +658,7 @@ export function useStrava() {
 
     // Gear / Bike Integration
     getGearName,
+    registerGarageBikes,
     distancePerGear,
     getDistanceByGearName,
     getLastRideByGearName,

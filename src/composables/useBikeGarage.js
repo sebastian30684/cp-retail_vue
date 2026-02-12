@@ -122,6 +122,10 @@ export function useBikeGarage() {
       state.lastFetchDate = new Date().toISOString()
       saveToLocalStorage()
 
+      // Register bikes with Strava for activity generation
+      const { registerGarageBikes } = useStrava()
+      registerGarageBikes(state.bikes)
+
       console.log('[BikeGarage] Loaded', state.bikes.length, 'bikes')
     } catch (err) {
       console.error('[BikeGarage] Error:', err)
@@ -168,6 +172,11 @@ export function useBikeGarage() {
         state.bikes = data.bikes || []
         state.lastFetchDate = data.lastFetchDate
         state.customerEmail = storedEmail
+        // Re-register bikes with Strava
+        const { registerGarageBikes } = useStrava()
+        if (state.bikes.length > 0) {
+          registerGarageBikes(state.bikes)
+        }
         return true
       }
     } catch (e) {
