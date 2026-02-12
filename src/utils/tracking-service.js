@@ -1,9 +1,9 @@
 // src/utils/tracking-service.js
 // SAP CDP + GTM Integration for B2C Consumer Products & Retail
 
-// Capitalize tier for CDP (bronze → Bronze, silver → Silver, etc.)
+// Capitalize tier for CDP (rider → Rider, racer → Racer, legend → Legend)
 const capitalizeTier = (tier) => {
-  if (!tier) return 'Bronze';
+  if (!tier) return 'Rider';
   return tier.charAt(0).toUpperCase() + tier.slice(1).toLowerCase();
 };
 
@@ -688,12 +688,12 @@ class TrackingService {
   }
 
   // CREW: Track Challenge Activity to CDP
-  trackChallengeActivity(challengeId, challengeName, challengeType, activityType, currentProgress, targetGoal, unit, pointsEarned, rewardType, rewardDescription) {
+  trackChallengeActivity(challengeId, challengeName, challengeType, activityType, currentProgress, targetGoal, unit, pointsEarned, rewardType, rewardDescription, bikeId) {
     if (!this.shouldTrack()) return;
 
     const cdpData = {
-      "cookieId": this.cookieId,
       "cdcUid": this.cdcUid,
+      "bikeId": bikeId || "",
       "timestamp": new Date().toISOString(),
       "challengeId": challengeId,
       "challengeName": challengeName,
@@ -719,12 +719,12 @@ class TrackingService {
   }
 
   // CREW: Track Ride Club Activity to CDP
-  trackRideClubActivity(clubId, clubName, clubType, activityType, rideId, rideName, totalRides, pointsEarned, milestoneType, milestoneReward) {
+  trackRideClubActivity(clubId, clubName, clubType, activityType, rideId, rideName, totalRides, pointsEarned, milestoneType, milestoneReward, bikeId) {
     if (!this.shouldTrack()) return;
 
     const cdpData = {
-      "cookieId": this.cookieId,
       "cdcUid": this.cdcUid,
+      "bikeId": bikeId || "",
       "timestamp": new Date().toISOString(),
       "clubId": clubId,
       "clubName": clubName,

@@ -1,0 +1,147 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<title>{variables.title}</title>
+{variables.codehead}
+<meta charset="UTF-8">
+<meta name="viewport" content="initial-scale=1, user-scalable=yes">
+<!--[if !mso]><!--><meta http-equiv="X-UA-Compatible" content="IE=edge" /><!--<![endif]-->
+<!--[if (gte mso 9)]>
+<style type="text/css">
+body {margin:0; padding:0; background:{variables.bg};}
+table {border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; border:0;}
+table td, table th {border-collapse:collapse; font-size:1px; line-height:1px;} 
+.inpl-not-mailing table {border-collapse:separate;}
+.lh {line-height:100% !important;}
+.lh13p {line-height:108% !important;}
+.lh14p {line-height:117% !important;}
+.lh15p {line-height:125% !important;}
+.lh16p {line-height:133% !important;}
+.lh17p {line-height:142% !important;}
+.lh18p {line-height:150% !important;}
+.lh19p {line-height:158% !important;}
+.lh20p {line-height:167% !important;}
+.inpl-not-mailing .lh, .inpl-not-mailing .lh font {line-height:1.2 !important;}
+.inpl-not-mailing .lh13p, .inpl-not-mailing .lh13p font {line-height:1.3 !important;}
+.inpl-not-mailing .lh14p, .inpl-not-mailing .lh14p font {line-height:1.4 !important;}
+.inpl-not-mailing .lh15p, .inpl-not-mailing .lh15p font {line-height:1.5 !important;}
+.inpl-not-mailing .lh16p, .inpl-not-mailing .lh16p font {line-height:1.6 !important;}
+.inpl-not-mailing .lh17p, .inpl-not-mailing .lh17p font {line-height:1.7 !important;}
+.inpl-not-mailing .lh18p, .inpl-not-mailing .lh18p font {line-height:1.8 !important;}
+.inpl-not-mailing .lh19p, .inpl-not-mailing .lh19p font {line-height:1.9 !important;}
+.inpl-not-mailing .lh20p, .inpl-not-mailing .lh20p font {line-height:2 !important;}
+</style>
+<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+<style type="text/css">
+.ol650 {width:650px;}
+.ol300 {width:300px;}
+.ol290 {width:290px;}
+.ol200 {width:200px;}
+.ol188 {width:188px;}
+.lhp1 {line-height:100% !important; padding:14px 40px;}
+.inpl-not-mailing .lhp1 {line-height:1.2 !important; padding:0 !important;}
+</style>
+<xml>
+<o:OfficeDocumentSettings>
+<o:AllowPNG/>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+#style#
+<style type="text/css">
+/* Outlook.com and Outlook 365 - Resets the default font size of 15px and also the line-height - Please keep it in the template */
+[class~="x_olf"] td, [class~="x_olf"] th {font-size:1px;}
+</style>
+<style type="text/css">
+@media only screen and (max-width: 414px) {
+.mfs24, .mfs24 span {font-size:6.66vw !important;}
+.mfs22, .mfs22 span {font-size:6.11vw !important;}
+.mfs20, .mfs20 span {font-size:5.55vw !important;}
+.mfs18, .mfs18 span {font-size:5vw !important;}
+.mfs16, .mfs16 span {font-size:4.44vw !important;}
+.mfs15, .mfs15 span {font-size:4.16vw !important;}
+.mfs14, .mfs14 span {font-size:3.88vw !important;}
+.mfs12, .mfs12 span {font-size:3.33vw !important;}
+.mfs10, .mfs10 span {font-size:2.77vw !important;}
+u + .body .gwfw {width:100% !important; width:100vw !important;}
+}
+</style>
+<style type="text/css">
+@media only screen and (max-width:414px) {
+/* Exclude from style because of Outlook - Please keep it in the template */
+.image1 {width:auto !important; height:auto !important; max-width:100% !important;}
+}
+</style>
+<!-- SAP Brand Colors CSS Variables -->
+<style type="text/css">
+:root {
+  --sap-blue-primary: #0070F2;
+  --sap-blue-secondary: #1B90FF;
+  --sap-blue-dark: #002A86;
+  --sap-blue-darkest: #00144A;
+  --sap-white: #FFFFFF;
+  --sap-gray-light: #F8FAFC;
+  --sap-gray-medium: #64748B;
+  --sap-gray-border: #E2E8F0;
+}
+
+/* SAP Email Header Styling */
+.sap-header {
+  background: linear-gradient(135deg, var(--sap-blue-primary) 0%, var(--sap-blue-dark) 100%);
+  padding: 20px 0;
+}
+
+.sap-logo-container {
+  background-color: var(--sap-white);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0, 112, 242, 0.15);
+}
+
+.sap-title-text {
+  font-family: "SAP 72", -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  color: var(--sap-blue-darkest);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+.sap-title-accent {
+  color: var(--sap-blue-primary);
+  font-weight: 500;
+}
+
+.sap-subtitle {
+  font-family: "SAP 72", -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  color: var(--sap-gray-medium);
+  font-weight: 400;
+}
+
+.sap-separator {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--sap-gray-border) 50%, transparent 100%);
+  margin: 15px 40px 0 40px;
+}
+</style>
+</head>
+<body class="body cta-{variables.ctaps}" style="background-color: {variables.bg};">
+  <table role="presentation" cellspacing="0" cellpadding="0" width="100%" style="min-width:100%;" bgcolor="{variables.bg}" class="gwfw olf">
+    <tr>
+      <td width="100%" align="center" style="vertical-align:top;">
+        <style type="text/css">.olm-fragment-custom .image1 {width:100% !important; height:auto !important; max-width:100% !important;}</style> 
+		  <table role="presentation" cellspacing="0" cellpadding="0" width="650" bgcolor="{variables.bgcontent}" class="ol650 fw" style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 20, 74, 0.08);">
+			<tr>
+			  <td height="20"></td>
+			</tr>
+			#body#
+		  </table>
+      </td>
+    </tr>
+  </table>
+  <!-- SAP Brand Footer -->
+  <div style="text-align: center; padding: 20px; color: var(--sap-gray-medium); font-family: 'SAP 72', Arial, sans-serif; font-size: 12px;">
+    Powered by SAP Customer Experience
+  </div>
+  <div style="display:none; white-space:nowrap; font:15px courier; line-height:0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+</body>
+</html>

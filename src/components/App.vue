@@ -227,6 +227,9 @@
     <!-- Loyalty Floating Button (global, on all pages) -->
     <LoyaltyFloatingButton :is-logged-in="user.isLoggedIn" />
 
+    <!-- Cookie Debug Overlay -->
+    <CookieDebugOverlay />
+
       </div>
 </template>
 
@@ -257,6 +260,7 @@ import ProfileModal from './ProfileModal.vue'
 import SettingsModal from './SettingsModal.vue'
 import EmarsysRecommendations from './EmarsysRecommendations.vue'
 import LoyaltyFloatingButton from './LoyaltyFloatingButton.vue'
+import CookieDebugOverlay from './CookieDebugOverlay.vue'
 import { loyaltyStorage, useConsumerLoyalty } from '../composables/useConsumerLoyalty.js'
 import { useConsumerTracking } from '../composables/useConsumerLoyaltyTracking.js'
 
@@ -292,6 +296,7 @@ export default {
     SettingsModal,
     EmarsysRecommendations,
     LoyaltyFloatingButton,
+    CookieDebugOverlay,
 
     // Inline Components for the pages
     HeroSection: {

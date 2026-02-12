@@ -348,6 +348,7 @@ export function useConsumerTracking() {
   const trackCdpChallengeActivity = (activityData) => {
     const {
       cdcUid,
+      bikeId = '',
       challengeId,
       challengeName,
       challengeType = 'monthly',
@@ -361,8 +362,8 @@ export function useConsumerTracking() {
     } = activityData
 
     const eventData = {
-      cookieId: getCookieId(),
       cdcUid: cdcUid,
+      bikeId,
       timestamp: new Date().toISOString(),
       challengeId,
       challengeName,
@@ -394,6 +395,7 @@ export function useConsumerTracking() {
   const trackCdpRideClubActivity = (activityData) => {
     const {
       cdcUid,
+      bikeId = '',
       clubId,
       clubName,
       clubType = 'official',
@@ -407,8 +409,8 @@ export function useConsumerTracking() {
     } = activityData
 
     const eventData = {
-      cookieId: getCookieId(),
       cdcUid: cdcUid,
+      bikeId,
       timestamp: new Date().toISOString(),
       clubId,
       clubName,

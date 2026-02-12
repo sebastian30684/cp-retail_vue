@@ -1,0 +1,404 @@
+/* SAP UNIFIED EMAIL TEMPLATE STYLES */
+/* ================================== */
+/* Einheitliche CSS-Struktur basierend auf SAP Brand Guidelines */
+
+/* Language Selector */
+e-language:not(:first-child) {
+    display: none;
+}
+
+/* SAP 72 FONT FAMILY */
+@font-face { 
+    font-family: "SAP 72"; 
+    src: url(https://d.dam.sap.com/a/9YLfbW3/SAP-72-Regular.woff2) format("woff2"), 
+         url(https://d.dam.sap.com/a/9YLfbW3/SAP-72-Regular.woff) format("woff"); 
+    font-weight: 400; 
+    font-style: normal;
+}
+
+@font-face { 
+    font-family: "SAP 72"; 
+    src: url(https://d.dam.sap.com/a/HG5nFpN/SAP-72-Bold.woff2) format("woff2"), 
+         url(https://d.dam.sap.com/a/HG5nFpN/SAP-72-Bold.woff) format("woff"); 
+    font-weight: 700; 
+    font-style: normal;
+}
+
+@font-face { 
+    font-family: "SAP 72 Condensed"; 
+    src: url(https://d.dam.sap.com/a/z5mQhxx/SAP-72-Condensed-Regular.woff2) format("woff2"), 
+         url(https://d.dam.sap.com/a/z5mQhxx/SAP-72-Condensed-Regular.woff) format("woff"); 
+    font-weight: 400; 
+    font-style: normal;
+}
+
+@font-face { 
+    font-family: "SAP 72 Condensed"; 
+    src: url(https://d.dam.sap.com/a/FJkrVhb/SAP-72-Condensed-Bold.woff2) format("woff2"), 
+         url(https://d.dam.sap.com/a/FJkrVhb/SAP-72-Condensed-Bold.woff) format("woff"); 
+    font-weight: 700; 
+    font-style: normal;
+}
+
+@font-face { 
+    font-family: SAPIcons; 
+    src: url(https://d.dam.sap.com/a/HQGFDxH/SAP-icons.woff2) format("woff2"), 
+         url(https://d.dam.sap.com/a/HQGFDxH/SAP-icons.woff) format("woff"); 
+    font-weight: 400; 
+    font-style: normal;
+}
+
+/* CSS CUSTOM PROPERTIES - SAP BRAND COLORS */
+:root {
+    /* SAP Brand Colors */
+    --sap-blue-2: #D1EFFF;
+    --sap-blue-4: #89D1FF;
+    --sap-blue-6: #1B90FF;
+    --sap-blue-7: #0070F2;
+    --sap-blue-10: #002A86;
+    --sap-blue-11: #00144A;
+    
+    /* Neutrals */
+    --sap-white: #FFFFFF;
+    --sap-gray-light: #F8FAFC;
+    --sap-gray-medium: #64748B;
+    --sap-gray-border: #E2E8F0;
+    --sap-gray-dark: #1A202C;
+    
+    /* Semantic */
+    --sap-success: #10B981;
+    --sap-warning: #F59E0B;
+    --sap-error: #EF4444;
+    
+    /* Typography */
+    --sap-font-family: "SAP 72", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    
+    /* Spacing */
+    --sap-space-xs: 4px;
+    --sap-space-sm: 8px;
+    --sap-space-md: 12px;
+    --sap-space-lg: 16px;
+    --sap-space-xl: 20px;
+    --sap-space-2xl: 24px;
+    --sap-space-3xl: 30px;
+    --sap-space-4xl: 40px;
+    
+    /* Border Radius */
+    --sap-radius-sm: 4px;
+    --sap-radius-md: 6px;
+    --sap-radius-lg: 8px;
+    --sap-radius-xl: 12px;
+    
+    /* Shadows */
+    --sap-shadow-sm: 0 2px 8px rgba(0, 20, 74, 0.08);
+    --sap-shadow-md: 0 4px 16px rgba(0, 20, 74, 0.12);
+    --sap-shadow-lg: 0 8px 24px rgba(0, 20, 74, 0.16);
+}
+
+/* FONT FAMILY */
+.ff {
+    font-family: var(--sap-font-family);
+}
+
+/* FONT SIZES */
+.fs-xs { font-size: 10px; }
+.fs-sm { font-size: 12px; }
+.fs-base { font-size: 14px; }
+.fs-md { font-size: 16px; }
+.fs-lg { font-size: 18px; }
+.fs-xl { font-size: 20px; }
+.fs-2xl { font-size: 24px; }
+.fs-3xl { font-size: 26px; }
+
+/* Legacy font size support */
+.fs10 { font-size: 10px; }
+.fs12 { font-size: 12px; }
+.fs14 { font-size: 14px; }
+.fs16 { font-size: 16px; }
+.fs18 { font-size: 18px; }
+.fs20 { font-size: 20px; }
+.fs24 { font-size: 24px; }
+.fs26 { font-size: 26px; }
+
+/* LINE HEIGHTS */
+.lh-tight, .lh-tight font { line-height: 1.2; }
+.lh-normal, .lh-normal font { line-height: 1.4; }
+.lh-relaxed, .lh-relaxed font { line-height: 1.6; }
+.lh-loose, .lh-loose font { line-height: 1.8; }
+
+/* Legacy line height support */
+.lh, .lh font { line-height: 1.2; }
+.lh14p, .lh14p font { line-height: 1.4; }
+.lh16p, .lh16p font { line-height: 1.6; }
+.lh18p, .lh18p font { line-height: 1.8; }
+
+/* SAP BRAND COLORS */
+.text-primary { color: var(--sap-blue-11); }
+.text-secondary { color: var(--sap-gray-medium); }
+.text-accent { color: var(--sap-blue-7); }
+.text-inverse { color: var(--sap-white); }
+
+/* Legacy color support */
+.fc1 { color: var(--sap-blue-11); }
+.fc2 { color: var(--sap-white); }
+.fc3 { color: var(--sap-gray-medium); }
+.fc-accent { color: var(--sap-blue-7); }
+
+/* FONT STYLES */
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-bold { font-weight: 700; }
+
+/* Legacy font weight support */
+.fwn { font-weight: 400; }
+.fwb { font-weight: 700; }
+
+/* TEXT DECORATION */
+.no-underline { text-decoration: none; }
+.underline { text-decoration: underline; }
+.line-through { text-decoration: line-through; }
+
+/* Legacy text decoration support */
+.tdn { text-decoration: none; }
+.tdu { text-decoration: underline; }
+.tds { text-decoration: line-through; }
+
+/* FONT STYLE */
+.italic { font-style: italic; }
+.fsi { font-style: italic; }
+
+/* TEXT TRANSFORM */
+.uppercase { text-transform: uppercase; }
+.upc { text-transform: uppercase; }
+
+/* ALIGNMENT */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+.align-top { vertical-align: top; }
+.align-middle { vertical-align: middle; }
+.align-bottom { vertical-align: bottom; }
+
+/* Legacy alignment support */
+.vat { vertical-align: top; }
+.vam { vertical-align: middle; }
+.vab { vertical-align: bottom; }
+
+/* LINKS - SAP Brand Compliant */
+.link-primary font a,
+.link-primary font a:visited,
+.link-primary font a:active {
+    color: var(--sap-blue-7);
+    text-decoration: none;
+    font-weight: inherit;
+}
+
+.link-primary font a:hover {
+    color: var(--sap-blue-10);
+    text-decoration: underline;
+}
+
+/* Legacy link styles */
+.la1 font a, .la1 font a:visited, .la1 font a:active {
+    color: var(--sap-blue-11);
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.la-sap font a, .la-sap font a:visited, .la-sap font a:active {
+    color: var(--sap-blue-7);
+    text-decoration: none;
+    font-weight: normal;
+}
+
+/* SAP CTA BUTTON SYSTEM */
+/* Primary CTA */
+.cta-primary table.fw:has(tbody>tr>td>a.ctam):not(table.fw:has(table.fw)) {
+    background-color: var(--sap-blue-7) !important;
+    border: 2px solid var(--sap-blue-7) !important;
+    border-radius: var(--sap-radius-md) !important;
+    transition: all 0.3s ease !important;
+}
+
+.cta-primary table.fw:has(tbody>tr>td>a.ctam):not(table.fw:has(table.fw)):hover {
+    background-color: var(--sap-blue-10) !important;
+    border-color: var(--sap-blue-10) !important;
+}
+
+.cta-primary .ctam font {
+    color: var(--sap-white) !important;
+    font-weight: 700 !important;
+    font-family: var(--sap-font-family) !important;
+}
+
+/* Secondary CTA */
+.cta-secondary table.fw:has(tbody>tr>td>a.ctam):not(table.fw:has(table.fw)) {
+    background-color: var(--sap-white) !important;
+    border: 2px solid var(--sap-blue-7) !important;
+    border-radius: var(--sap-radius-md) !important;
+    transition: all 0.3s ease !important;
+}
+
+.cta-secondary table.fw:has(tbody>tr>td>a.ctam):not(table.fw:has(table.fw)):hover {
+    background-color: var(--sap-blue-7) !important;
+}
+
+.cta-secondary .ctam font {
+    color: var(--sap-blue-7) !important;
+    font-weight: 700 !important;
+    font-family: var(--sap-font-family) !important;
+}
+
+.cta-secondary table.fw:has(tbody>tr>td>a.ctam):not(table.fw:has(table.fw)):hover .ctam font {
+    color: var(--sap-white) !important;
+}
+
+/* Subtle CTA */
+.cta-subtle table.fw:has(tbody>tr>td>a.ctam):not(table.fw:has(table.fw)) {
+    background-color: var(--sap-gray-light) !important;
+    border: 2px solid var(--sap-gray-border) !important;
+    border-radius: var(--sap-radius-md) !important;
+    transition: all 0.3s ease !important;
+}
+
+.cta-subtle table.fw:has(tbody>tr>td>a.ctam):not(table.fw:has(table.fw)):hover {
+    background-color: var(--sap-blue-2) !important;
+    border-color: var(--sap-blue-7) !important;
+}
+
+.cta-subtle .ctam font {
+    color: var(--sap-blue-11) !important;
+    font-weight: 700 !important;
+    font-family: var(--sap-font-family) !important;
+}
+
+/* COMPONENT STYLES */
+/* Cards */
+.card {
+    background-color: var(--sap-white);
+    border: 1px solid var(--sap-gray-border);
+    border-radius: var(--sap-radius-lg);
+    box-shadow: var(--sap-shadow-sm);
+}
+
+/* Separators */
+.separator {
+    height: 1px;
+    background-color: var(--sap-gray-border);
+}
+
+/* Media containers */
+.media-container {
+    background-color: var(--sap-gray-light);
+    border: 1px solid var(--sap-gray-border);
+    border-radius: var(--sap-radius-lg);
+}
+
+/* RESPONSIVE STYLES */
+@media only screen and (max-width: 414px) {
+    /* Mobile font sizes using viewport width */
+    .mfs-xs, .mfs-xs span { font-size: 2.77vw !important; }
+    .mfs-sm, .mfs-sm span { font-size: 3.33vw !important; }
+    .mfs-base, .mfs-base span { font-size: 3.88vw !important; }
+    .mfs-md, .mfs-md span { font-size: 4.44vw !important; }
+    .mfs-lg, .mfs-lg span { font-size: 5vw !important; }
+    .mfs-xl, .mfs-xl span { font-size: 5.55vw !important; }
+    .mfs-2xl, .mfs-2xl span { font-size: 6.66vw !important; }
+    
+    /* Legacy mobile font sizes */
+    .mfs10, .mfs10 span { font-size: 2.77vw !important; }
+    .mfs12, .mfs12 span { font-size: 3.33vw !important; }
+    .mfs14, .mfs14 span { font-size: 3.88vw !important; }
+    .mfs16, .mfs16 span { font-size: 4.44vw !important; }
+    .mfs18, .mfs18 span { font-size: 5vw !important; }
+    .mfs20, .mfs20 span { font-size: 5.55vw !important; }
+    .mfs24, .mfs24 span { font-size: 6.66vw !important; }
+    
+    /* Mobile layout utilities */
+    .fl { display: block !important; width: 100% !important; }
+    .fw { width: 100% !important; min-width: 0 !important; }
+    .mh { display: none !important; }
+    .image { width: 100% !important; height: auto !important; }
+    
+    /* Mobile spacing */
+    .rh-xs, .rh-xs div { height: 2px !important; }
+    .rh-sm, .rh-sm div { height: 4px !important; }
+    .rh-md, .rh-md div { height: 8px !important; }
+    .rh-lg, .rh-lg div { height: 12px !important; }
+    .rh-xl, .rh-xl div { height: 15px !important; }
+    .rh-2xl, .rh-2xl div { height: 20px !important; }
+    
+    /* Legacy responsive heights */
+    .rh4, .rh4 div { height: 4px !important; }
+    .rh10, .rh10 div { height: 10px !important; }
+    .rh15, .rh15 div { height: 15px !important; }
+    .rh20, .rh20 div { height: 20px !important; }
+    .rh25, .rh25 div { height: 25px !important; }
+    .rh30, .rh30 div { height: 30px !important; }
+    
+    /* Mobile widths */
+    .rw16 { width: 16px !important; }
+    .rw50p { width: 50% !important; }
+    
+    /* Mobile CTA adjustments */
+    .ctam { padding: 12px 16px !important; }
+}
+
+/* GLOBAL STYLES */
+@media only screen {
+    body {
+        margin: 0;
+        padding: 0;
+        background: var(--sap-white);
+        font-family: var(--sap-font-family);
+    }
+}
+
+/* Global link styling */
+a, a:active, a:visited {
+    color: var(--sap-blue-7);
+    text-decoration: none;
+    font-weight: inherit;
+}
+
+a:hover {
+    color: var(--sap-blue-10);
+    text-decoration: underline;
+}
+
+/* Email client compatibility */
+a[x-apple-data-detectors] {
+    color: inherit !important;
+    text-decoration: none !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+}
+
+table {
+    border-collapse: collapse;
+    mso-table-lspace: 0pt;
+    mso-table-rspace: 0pt;
+    border: 0;
+}
+
+table td, table th {
+    border-collapse: collapse;
+    font-size: 1px;
+    line-height: 1px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-weight: normal;
+    vertical-align: top;
+}
+
+/* Outlook-specific fixes */
+/*[if (gte mso 9)]>
+<style type="text/css">
+body { margin: 0; padding: 0; background: var(--sap-white); }
+.lhp1 { line-height: 100% !important; padding: 14px 40px; }
+</style>
+<![endif]*/
