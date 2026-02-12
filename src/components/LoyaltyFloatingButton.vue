@@ -356,15 +356,6 @@ export default {
 
     const tierOrder = ['rider', 'racer', 'legend']
 
-    const redemptionOptions = computed(() => {
-      const currentTier = loyaltyMetrics.value.currentTier
-      const currentTierIndex = tierOrder.indexOf(currentTier)
-      return allRedemptionOptions.filter(opt => {
-        const minTierIndex = tierOrder.indexOf(opt.minTier || 'rider')
-        return currentTierIndex >= minTierIndex
-      })
-    })
-
     // Check if discount is already applied
     const hasActiveDiscount = computed(() => {
       return cartDiscount && cartDiscount.type !== 'none'
@@ -399,6 +390,15 @@ export default {
         nextTierInfo,
         tierProgress: nextTierInfo ? nextTierInfo.progress : 100
       }
+    })
+
+    const redemptionOptions = computed(() => {
+      const currentTier = loyaltyMetrics.value.currentTier
+      const currentTierIndex = tierOrder.indexOf(currentTier)
+      return allRedemptionOptions.filter(opt => {
+        const minTierIndex = tierOrder.indexOf(opt.minTier || 'rider')
+        return currentTierIndex >= minTierIndex
+      })
     })
 
     const tierIcon = computed(() => {
