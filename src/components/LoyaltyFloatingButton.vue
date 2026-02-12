@@ -463,6 +463,18 @@ export default {
         }
         addToCart(freeProduct)
 
+        // Track REDEEM in CDP
+        const balance = loyaltyStorage.getPointsBalance(userId)
+        trackCdpLoyaltyActivity({
+          cdcUid: userId,
+          activityType: 'redeemPoints',
+          pointsAmount: option.points,
+          pointsBalance: balance.availablePoints,
+          redemptionType: 'product',
+          loyaltyTier: loyaltyMetrics.value.currentTier
+        })
+        console.log('📤 LoyaltyActivity: redeemPoints (product)', option.description)
+
         loadLoyaltyData()
         isModalOpen.value = false
         showToast(`${option.description} added to cart!`)
@@ -485,6 +497,18 @@ export default {
       })
 
       loyaltyStorage.addPoints(userId, -option.points, `Redeemed: ${option.description}`)
+
+      // Track REDEEM in CDP
+      const balance = loyaltyStorage.getPointsBalance(userId)
+      trackCdpLoyaltyActivity({
+        cdcUid: userId,
+        activityType: 'redeemPoints',
+        pointsAmount: option.points,
+        pointsBalance: balance.availablePoints,
+        redemptionType: option.discountType,
+        loyaltyTier: loyaltyMetrics.value.currentTier
+      })
+      console.log('📤 LoyaltyActivity: redeemPoints (discount)', option.description)
 
       loadLoyaltyData()
 
@@ -721,7 +745,8 @@ export default {
 /* Compact Modal */
 .loyalty-modal {
   position: fixed;
-  right: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: 5rem;
   width: 380px;
   max-height: 80vh;

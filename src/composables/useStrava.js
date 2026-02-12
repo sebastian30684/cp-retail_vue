@@ -480,12 +480,26 @@ export function useStrava() {
   })
 
   /**
+   * Fuzzy match: find gear by name, falling back to matching first 2 words
+   * (e.g. "Canyon Aeroad CFR AXS" matches "Canyon Aeroad CF SLX 8 AXS")
+   */
+  function findGearByName(gearName) {
+    if (!state.athlete?.gear || !gearName) return null
+    // Exact match first
+    let gear = state.athlete.gear.find(g => g.name === gearName)
+    if (gear) return gear
+    // Fuzzy: match on first 2 words (brand + model family)
+    const words = gearName.toLowerCase().split(/\s+/).slice(0, 2).join(' ')
+    gear = state.athlete.gear.find(g => g.name.toLowerCase().startsWith(words))
+    return gear || null
+  }
+
+  /**
    * Get total distance for a gear by its name (for matching with CDP bikes)
    * Returns km or 0 if not found
    */
   function getDistanceByGearName(gearName) {
-    if (!state.athlete?.gear || !gearName) return 0
-    const gear = state.athlete.gear.find(g => g.name === gearName)
+    const gear = findGearByName(gearName)
     if (!gear) return 0
     return distancePerGear.value[gear.id] || 0
   }
@@ -495,8 +509,7 @@ export function useStrava() {
    * Returns { date, km } or null if not found
    */
   function getLastRideByGearName(gearName) {
-    if (!state.athlete?.gear || !gearName) return null
-    const gear = state.athlete.gear.find(g => g.name === gearName)
+    const gear = findGearByName(gearName)
     if (!gear) return null
     const gearActivities = state.activities.filter(a => a.gearId === gear.id)
     if (gearActivities.length === 0) return null

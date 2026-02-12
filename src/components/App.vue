@@ -1191,6 +1191,7 @@ export default {
       emarsysTracker.trackPurchase(orderData.id, orderData.items);
 
       // Update consumer metrics
+      const userId = user.UID || 'demo_user'
       const metrics = loyaltyStorage.getConsumerMetrics(userId)
       console.log('Updated consumer metrics:', metrics)
 
