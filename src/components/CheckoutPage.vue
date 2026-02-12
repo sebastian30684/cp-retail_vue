@@ -305,11 +305,13 @@
 
               <!-- Points to Earn Section (B2C) -->
               <div class="review-section points-section">
-                <div class="points-banner">
-                  <span class="points-icon">⭐</span>
-                  <div class="points-info">
-                    <strong>+{{ pointsToEarn }} Points with this order</strong>
-                    <p>{{ getTierIcon(loyaltyTier) }} {{ getTierLabel(loyaltyTier) }} Member</p>
+                <div class="crew-points-banner">
+                  <div class="crew-points-left">
+                    <span class="crew-points-amount">+{{ pointsToEarn }}</span>
+                    <span class="crew-points-label">CREW Points</span>
+                  </div>
+                  <div class="crew-points-right">
+                    <span class="crew-tier-badge">{{ getTierIcon(loyaltyTier) }} {{ getTierLabel(loyaltyTier) }}</span>
                   </div>
                 </div>
               </div>
@@ -366,6 +368,13 @@
               </div>
 
               <div class="confirmation-content">
+                <!-- Points Hero Card -->
+                <div class="crew-points-hero">
+                  <div class="hero-points-number">+{{ placedOrder.pointsEarned }}</div>
+                  <div class="hero-points-text">CREW Points Earned</div>
+                  <div class="hero-tier-badge">{{ getTierIcon(loyaltyTier) }} {{ getTierLabel(loyaltyTier) }} Member</div>
+                </div>
+
                 <div class="confirmation-section">
                   <h3>Order Summary</h3>
                   <div class="summary-grid">
@@ -469,9 +478,15 @@
             </div>
 
             <!-- Points Preview -->
-            <div class="points-preview">
-              <span class="points-icon">⭐</span>
-              <span>+{{ pointsToEarn }} Points with this order</span>
+            <div class="crew-points-preview">
+              <div class="crew-preview-row">
+                <span class="crew-preview-icon">{{ getTierIcon(loyaltyTier) }}</span>
+                <span class="crew-preview-tier">Canyon CREW {{ getTierLabel(loyaltyTier) }}</span>
+              </div>
+              <div class="crew-preview-points">
+                <span class="crew-preview-amount">+{{ pointsToEarn }}</span>
+                <span class="crew-preview-label">Points with this order</span>
+              </div>
             </div>
           </div>
 
@@ -525,11 +540,12 @@ export default {
 
     // Address state (B2C - simplified for demo)
     const useSameAddress = ref(true)
+    const [userFirst, ...lastParts] = (user.name || '').split(' ')
     const billingAddress = reactive({
-      firstName: user.firstName || 'Max',
-      lastName: user.lastName || 'Mustermann',
+      firstName: userFirst || 'Max',
+      lastName: lastParts.join(' ') || 'Mustermann',
       email: user.email || 'max@example.com',
-      street: 'Musterstraße 123',
+      street: 'Dietmar Hopp Allee 7',
       postalCode: '69190',
       city: 'Walldorf',
       country: 'DE',
@@ -537,9 +553,9 @@ export default {
     })
 
     const deliveryAddress = reactive({
-      firstName: 'Max',
-      lastName: 'Mustermann',
-      street: 'Musterstraße 123',
+      firstName: userFirst || 'Max',
+      lastName: lastParts.join(' ') || 'Mustermann',
+      street: 'Dietmar Hopp Allee 7',
       postalCode: '69190',
       city: 'Walldorf',
       country: 'DE',
@@ -669,9 +685,8 @@ export default {
           notes: orderNotes.value
         }
 
-        // Save order and add earned points
+        // Save order (addOrder internally creates the points transaction)
         loyaltyStorage.addOrder(userId, orderData)
-        loyaltyStorage.addPoints(userId, earnedPoints, `Order ${orderId}`)
 
         // Track purchase
         trackPurchase(orderData)
@@ -716,18 +731,13 @@ export default {
 
     // Helpers (B2C)
     const getTierIcon = (tier) => {
-      const icons = { bronze: '🥉', silver: '🥈', gold: '🥇', platinum: '💎' }
-      return icons[tier] || '🛒'
+      const icons = { rider: '🚴', racer: '⚡', legend: '🏆' }
+      return icons[tier] || '🚴'
     }
 
     const getTierLabel = (tier) => {
-      const labels = {
-        bronze: 'Bronze',
-        silver: 'Silver',
-        gold: 'Gold',
-        platinum: 'Platinum'
-      }
-      return labels[tier] || 'Customer'
+      const labels = { rider: 'Rider', racer: 'Racer', legend: 'Legend' }
+      return labels[tier] || 'Rider'
     }
 
     const getCountryName = (code) => {
@@ -1609,5 +1619,124 @@ export default {
   margin-top: 0.5rem;
   padding-top: 0.5rem;
   border-top: 1px dashed var(--sap-gray-3);
+}
+
+/* CREW Points Banner (Review Step) */
+.crew-points-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border-radius: 12px;
+  border: 1px solid #f59e0b;
+}
+
+.crew-points-left {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.crew-points-amount {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #92400e;
+}
+
+.crew-points-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #92400e;
+}
+
+.crew-tier-badge {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #92400e;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+}
+
+/* CREW Points Preview (Sidebar) */
+.crew-points-preview {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border-radius: 12px;
+  border: 1px solid #f59e0b;
+}
+
+.crew-preview-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.crew-preview-icon {
+  font-size: 1.1rem;
+}
+
+.crew-preview-tier {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #92400e;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.crew-preview-points {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.crew-preview-amount {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #92400e;
+}
+
+.crew-preview-label {
+  font-size: 0.85rem;
+  color: #92400e;
+  font-weight: 500;
+}
+
+/* CREW Points Hero Card (Order Placed) */
+.crew-points-hero {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border-radius: 16px;
+  border: 2px solid #f59e0b;
+  margin-bottom: 1.5rem;
+}
+
+.hero-points-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #92400e;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.hero-points-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #92400e;
+  margin-bottom: 0.75rem;
+}
+
+.hero-tier-badge {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #92400e;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0.35rem 1rem;
+  border-radius: 20px;
 }
 </style>

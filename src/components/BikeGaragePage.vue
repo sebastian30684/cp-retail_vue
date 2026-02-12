@@ -161,6 +161,14 @@
         <span v-if="lastFetchDate" class="last-updated">Last updated: {{ formatDate(lastFetchDate) }}</span>
       </div>
     </div>
+
+    <!-- Sync Toast -->
+    <transition name="toast-fade">
+      <div v-if="showToast" class="sync-toast">
+        <span class="toast-icon">✅</span>
+        <span class="toast-message">{{ toastMessage }}</span>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -177,6 +185,8 @@ export default {
     const user = inject('user', { email: '', isLoggedIn: false })
     const productImageMap = ref({})
     const isSyncing = ref(false)
+    const showToast = ref(false)
+    const toastMessage = ref('')
 
     const {
       bikes,
@@ -241,6 +251,15 @@ export default {
       try {
         const results = await syncMileageToCDP()
         console.log('[BikeGarage] Mileage sync results:', results)
+        // Show toast with sync summary
+        if (results && results.length > 0) {
+          const totalKm = results.reduce((sum, r) => sum + (r.km || 0), 0)
+          toastMessage.value = `Synced ${totalKm.toFixed(0)} km across ${results.length} bike${results.length > 1 ? 's' : ''} to CDP`
+        } else {
+          toastMessage.value = 'Mileage synced to CDP'
+        }
+        showToast.value = true
+        setTimeout(() => { showToast.value = false }, 4000)
       } finally {
         isSyncing.value = false
       }
@@ -285,7 +304,9 @@ export default {
       getBikeImage,
       getStravaMileage,
       isSyncing,
-      hasStravaData
+      hasStravaData,
+      showToast,
+      toastMessage
     }
   }
 }
@@ -806,5 +827,39 @@ export default {
     gap: 0.25rem;
     text-align: center;
   }
+}
+
+/* Sync Toast */
+.sync-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #FC4C02, #E34402);
+  color: white;
+  padding: 0.85rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(252, 76, 2, 0.35);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  z-index: 10000;
+}
+
+.toast-icon {
+  font-size: 1.1rem;
+}
+
+.toast-fade-enter-active,
+.toast-fade-leave-active {
+  transition: all 0.4s ease;
+}
+
+.toast-fade-enter-from,
+.toast-fade-leave-to {
+  opacity: 0;
+  transform: translateX(-50%) translateY(1rem);
 }
 </style>

@@ -171,6 +171,7 @@
 <script setup>
 import { ref, computed, onMounted, inject } from 'vue'
 import { useStrava } from '../composables/useStrava'
+import { loyaltyStorage } from '../composables/useConsumerLoyalty'
 import StravaConnectCard from './StravaConnectCard.vue'
 import StravaActivityCard from './StravaActivityCard.vue'
 import StravaActivityModal from './StravaActivityModal.vue'
@@ -208,10 +209,22 @@ onMounted(() => {
 
 function onConnected(athleteData) {
   console.log('Connected to Strava:', athleteData)
+  // Award 1pt per km for total distance synced
+  const userId = user.UID || 'demo_user'
+  const kmPoints = Math.floor(totalDistance.value)
+  if (kmPoints > 0) {
+    loyaltyStorage.addPoints(userId, kmPoints, `Strava: ${totalDistance.value.toFixed(0)} km synced`)
+  }
 }
 
 async function handleSync() {
   await syncActivities()
+  // Award 1pt per km for synced distance
+  const userId = user.UID || 'demo_user'
+  const kmPoints = Math.floor(totalDistance.value)
+  if (kmPoints > 0) {
+    loyaltyStorage.addPoints(userId, kmPoints, `Strava Sync: ${totalDistance.value.toFixed(0)} km`)
+  }
 }
 
 function handleDisconnect() {

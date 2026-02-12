@@ -48,6 +48,14 @@
             :class="['tab-btn', { active: activeTab === 'overview' }]"
           >Overview</button>
           <button
+            @click="activeTab = 'challenges'"
+            :class="['tab-btn', { active: activeTab === 'challenges' }]"
+          >Challenges</button>
+          <button
+            @click="activeTab = 'clubs'"
+            :class="['tab-btn', { active: activeTab === 'clubs' }]"
+          >Clubs</button>
+          <button
             @click="activeTab = 'history'"
             :class="['tab-btn', { active: activeTab === 'history' }]"
           >History</button>
@@ -126,6 +134,126 @@
             <p v-else class="empty-state">No points history yet</p>
           </div>
 
+          <!-- Challenges Tab -->
+          <div v-if="activeTab === 'challenges'" class="tab-panel">
+            <!-- Active Challenges -->
+            <div v-if="activeChallenges.length > 0" class="challenges-section">
+              <h4>Active Challenges</h4>
+              <div class="challenge-list">
+                <div v-for="ch in activeChallenges" :key="ch.id" class="challenge-card">
+                  <div class="challenge-header">
+                    <span class="challenge-icon">{{ ch.icon }}</span>
+                    <div class="challenge-info">
+                      <span class="challenge-name">{{ ch.name }}</span>
+                      <span class="challenge-desc">{{ ch.description }}</span>
+                    </div>
+                  </div>
+                  <div class="challenge-progress">
+                    <div class="progress-bar-sm">
+                      <div class="progress-fill-sm" :style="{ width: Math.min(100, (ch.currentProgress / ch.targetGoal) * 100) + '%' }"></div>
+                    </div>
+                    <span class="progress-text">{{ ch.currentProgress }} / {{ ch.targetGoal }} {{ ch.unit }}</span>
+                  </div>
+                  <div class="challenge-reward">
+                    <span>🎁 {{ ch.reward.description }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Available Challenges -->
+            <div class="challenges-section">
+              <h4>Available Challenges</h4>
+              <div v-if="availableChallengesList.length > 0" class="challenge-list">
+                <div v-for="ch in availableChallengesList" :key="ch.id" class="challenge-card available">
+                  <div class="challenge-header">
+                    <span class="challenge-icon">{{ ch.icon }}</span>
+                    <div class="challenge-info">
+                      <span class="challenge-name">{{ ch.name }}</span>
+                      <span class="challenge-desc">{{ ch.description }}</span>
+                    </div>
+                  </div>
+                  <div class="challenge-reward">
+                    <span>🎁 {{ ch.reward.description }}</span>
+                  </div>
+                  <button class="start-challenge-btn" @click="handleStartChallenge(ch.id)">Start Challenge</button>
+                </div>
+              </div>
+              <p v-else class="empty-state">No more challenges available</p>
+            </div>
+
+            <div v-if="completedChallengeCount > 0" class="challenges-completed">
+              ✅ {{ completedChallengeCount }} challenge{{ completedChallengeCount > 1 ? 's' : '' }} completed
+            </div>
+
+            <button v-if="activeChallenges.length > 0" class="sync-strava-btn" @click="handleUpdateChallengesFromStrava">
+              🔄 Update from Strava
+            </button>
+          </div>
+
+          <!-- Clubs Tab -->
+          <div v-if="activeTab === 'clubs'" class="tab-panel">
+            <!-- My Clubs -->
+            <div v-if="myClubs.length > 0" class="clubs-section">
+              <h4>My Clubs</h4>
+              <div class="club-list">
+                <div v-for="club in myClubs" :key="club.id" class="club-card joined">
+                  <span class="club-icon">{{ club.icon }}</span>
+                  <div class="club-info">
+                    <span class="club-name">{{ club.name }}</span>
+                    <span class="club-location">{{ club.location }}</span>
+                  </div>
+                  <span class="club-members">{{ club.memberCount }} members</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Upcoming Rides -->
+            <div v-if="nextUpcomingRides.length > 0" class="clubs-section">
+              <h4>Upcoming Rides</h4>
+              <div class="ride-list">
+                <div v-for="ride in nextUpcomingRides" :key="ride.id" class="ride-card">
+                  <div class="ride-date">
+                    <span class="ride-day">{{ formatRideDay(ride.date) }}</span>
+                    <span class="ride-month">{{ formatRideMonth(ride.date) }}</span>
+                  </div>
+                  <div class="ride-info">
+                    <span class="ride-name">{{ ride.name }}</span>
+                    <span class="ride-details">{{ ride.distance }} km · {{ ride.difficulty }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Available Clubs -->
+            <div v-if="availableClubs.length > 0" class="clubs-section">
+              <h4>Join a Club</h4>
+              <div class="club-list">
+                <div v-for="club in availableClubs" :key="club.id" class="club-card">
+                  <span class="club-icon">{{ club.icon }}</span>
+                  <div class="club-info">
+                    <span class="club-name">{{ club.name }}</span>
+                    <span class="club-location">{{ club.location }}</span>
+                  </div>
+                  <button class="join-club-btn" @click="handleJoinClub(club.id)">Join +25pts</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Passport -->
+            <div class="clubs-section passport-section">
+              <h4>🛂 Ride Passport</h4>
+              <div class="passport-stats">
+                <span class="passport-rides">{{ passport.totalRides }} Rides</span>
+                <div class="passport-milestones">
+                  <span v-for="ms in passportMilestones" :key="ms.rides" :class="['milestone-badge', { achieved: passport.totalRides >= ms.rides }]">
+                    {{ ms.icon }} {{ ms.reward }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- Redeem Tab -->
           <div v-if="activeTab === 'redeem'" class="tab-panel">
             <h3>Redeem Your Points</h3>
@@ -138,10 +266,13 @@
             </div>
 
             <div class="redeem-options">
-              <div v-for="option in redemptionOptions" :key="option.points" class="redeem-option">
+              <div v-for="option in redemptionOptions" :key="option.description" :class="['redeem-option', { 'product-option': option.type === 'product' }]">
                 <div class="redeem-info">
-                  <span class="redeem-desc">{{ option.description }}</span>
-                  <span class="redeem-points">{{ option.points }} pts</span>
+                  <span class="redeem-icon">{{ option.icon }}</span>
+                  <div>
+                    <span class="redeem-desc">{{ option.description }}</span>
+                    <span class="redeem-points">{{ option.points }} pts</span>
+                  </div>
                 </div>
                 <button
                   @click="handleRedeem(option)"
@@ -163,6 +294,8 @@
 import { ref, computed, inject, onMounted, watch } from 'vue'
 import { useConsumerLoyalty, loyaltyStorage } from '../composables/useConsumerLoyalty.js'
 import { useConsumerTracking } from '../composables/useConsumerLoyaltyTracking.js'
+import { useChallenges } from '../composables/useChallenges.js'
+import { useRideClubs } from '../composables/useRideClubs.js'
 
 export default {
   name: 'LoyaltyFloatingButton',
@@ -179,6 +312,27 @@ export default {
     const { calculateTier, getTierData, getNextTierInfo, getActiveBenefits, getCategorizedBenefits } = useConsumerLoyalty()
     const { trackCdpLoyaltyActivity } = useConsumerTracking()
 
+    // Challenges
+    const {
+      activeChallenges,
+      completedChallengeCount,
+      getAvailableChallenges,
+      startChallenge,
+      updateAllChallengesFromStrava,
+      initializeChallenges
+    } = useChallenges()
+
+    // Ride Clubs
+    const {
+      myClubs,
+      availableClubs,
+      passport,
+      upcomingRides,
+      passportMilestones,
+      joinClub,
+      initializeRideClubs
+    } = useRideClubs()
+
     const isModalOpen = ref(false)
     const activeTab = ref('overview')
     const orderHistory = ref([])
@@ -188,12 +342,27 @@ export default {
     const successToastMessage = ref('')
     let toastTimeout = null
 
-    const redemptionOptions = [
-      { points: 100, value: 5, discountType: 'fixed', description: '5 EUR Gutschein' },
-      { points: 200, value: 12, discountType: 'fixed', description: '12 EUR Gutschein' },
-      { points: 500, value: 35, discountType: 'fixed', description: '35 EUR Gutschein' },
-      { points: 150, value: 4.95, discountType: 'shipping', description: 'Gratis Express-Versand' }
+    const allRedemptionOptions = [
+      { points: 100, value: 5, type: 'discount', discountType: 'fixed', description: '5 EUR Voucher', icon: '🎟️', minTier: 'rider' },
+      { points: 200, value: 12, type: 'discount', discountType: 'fixed', description: '12 EUR Voucher', icon: '🎟️', minTier: 'rider' },
+      { points: 500, value: 35, type: 'discount', discountType: 'fixed', description: '35 EUR Voucher', icon: '🎟️', minTier: 'rider' },
+      { points: 150, value: 4.95, type: 'discount', discountType: 'shipping', description: 'Free Express Shipping', icon: '📦', minTier: 'rider' },
+      { points: 500, value: 0, type: 'product', description: 'Free Canyon Cycling Socks', icon: '👕', minTier: 'racer' },
+      { points: 1000, value: 0, type: 'product', description: 'Free Canyon CORE Road Jersey', icon: '👕', minTier: 'racer' },
+      { points: 1500, value: 0, type: 'product', description: 'Free Canyon Bibshort', icon: '👕', minTier: 'legend' },
+      { points: 2000, value: 0, type: 'product', description: 'Free Canyon Premium Kit', icon: '👕', minTier: 'legend' }
     ]
+
+    const tierOrder = ['rider', 'racer', 'legend']
+
+    const redemptionOptions = computed(() => {
+      const currentTier = loyaltyMetrics.value.currentTier
+      const currentTierIndex = tierOrder.indexOf(currentTier)
+      return allRedemptionOptions.filter(opt => {
+        const minTierIndex = tierOrder.indexOf(opt.minTier || 'rider')
+        return currentTierIndex >= minTierIndex
+      })
+    })
 
     // Check if discount is already applied
     const hasActiveDiscount = computed(() => {
@@ -275,16 +444,25 @@ export default {
     const handleRedeem = (option) => {
       if (loyaltyMetrics.value.availablePoints < option.points) return
 
-      // Check if a discount is already applied
+      const userId = user.UID || 'demo_user'
+
+      if (option.type === 'product') {
+        // Product redemption: just deduct points + toast
+        loyaltyStorage.addPoints(userId, -option.points, `Redeemed: ${option.description}`)
+        loadLoyaltyData()
+        isModalOpen.value = false
+        showToast(`${option.description} - Check your email for details!`)
+        return
+      }
+
+      // Discount redemption: apply to cart
       if (hasActiveDiscount.value) {
         alert('A discount is already applied to your cart. Please remove it first.')
         return
       }
 
-      const userId = user.UID || 'demo_user'
       const redemptionId = `REDEEM-${Date.now()}`
 
-      // Apply discount to cart
       applyCartDiscount({
         type: option.discountType,
         value: option.value,
@@ -292,25 +470,64 @@ export default {
         loyaltyRedemptionId: redemptionId
       })
 
-      // Deduct points (tracking happens in App.vue after order completion)
       loyaltyStorage.addPoints(userId, -option.points, `Redeemed: ${option.description}`)
 
       loadLoyaltyData()
 
-      // Close modal and show success toast
       isModalOpen.value = false
       showToast(`${option.description} applied!`)
+    }
+
+    // Challenge & Club computed/helpers
+    const availableChallengesList = computed(() => {
+      const tier = loyaltyMetrics.value.currentTier
+      return getAvailableChallenges(tier)
+    })
+
+    const nextUpcomingRides = computed(() => {
+      return upcomingRides.value.slice(0, 3)
+    })
+
+    const handleStartChallenge = (challengeId) => {
+      startChallenge(challengeId)
+    }
+
+    const handleUpdateChallengesFromStrava = () => {
+      const updated = updateAllChallengesFromStrava()
+      if (updated.length > 0) {
+        showToast(`Updated ${updated.length} challenge${updated.length > 1 ? 's' : ''} from Strava`)
+      }
+    }
+
+    const handleJoinClub = (clubId) => {
+      joinClub(clubId)
+      const userId = user.UID || 'demo_user'
+      loyaltyStorage.addPoints(userId, 25, 'Joined Ride Club')
+      loadLoyaltyData()
+      showToast('Joined club! +25 Points')
+    }
+
+    const formatRideDay = (dateStr) => {
+      return new Date(dateStr).getDate()
+    }
+
+    const formatRideMonth = (dateStr) => {
+      return new Date(dateStr).toLocaleDateString('en-US', { month: 'short' })
     }
 
     onMounted(() => {
       if (props.isLoggedIn) {
         loadLoyaltyData()
+        initializeChallenges()
+        initializeRideClubs()
       }
     })
 
     watch(() => props.isLoggedIn, (newVal) => {
       if (newVal) {
         loadLoyaltyData()
+        initializeChallenges()
+        initializeRideClubs()
       }
     })
 
@@ -349,7 +566,22 @@ export default {
       successToastMessage,
       getPointsValue,
       formatDate,
-      handleRedeem
+      handleRedeem,
+      // Challenges
+      activeChallenges,
+      completedChallengeCount,
+      availableChallengesList,
+      handleStartChallenge,
+      handleUpdateChallengesFromStrava,
+      // Clubs
+      myClubs,
+      availableClubs,
+      passport,
+      passportMilestones,
+      nextUpcomingRides,
+      handleJoinClub,
+      formatRideDay,
+      formatRideMonth
     }
   }
 }
@@ -491,11 +723,11 @@ export default {
 
 .tab-btn {
   flex: 1;
-  padding: 0.75rem;
+  padding: 0.75rem 0.25rem;
   background: none;
   border: none;
   border-bottom: 2px solid transparent;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: #6b7280;
   cursor: pointer;
   transition: all 0.2s;
@@ -747,7 +979,22 @@ export default {
 
 .redeem-info {
   display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.redeem-info > div {
+  display: flex;
   flex-direction: column;
+}
+
+.redeem-icon {
+  font-size: 1.1rem;
+}
+
+.redeem-option.product-option {
+  background: linear-gradient(135deg, #fef3c7, #fefce8);
+  border-color: #f59e0b;
 }
 
 .redeem-desc {
@@ -805,6 +1052,300 @@ export default {
 
 .warning-icon {
   font-size: 1rem;
+}
+
+/* Challenges Tab */
+.challenges-section {
+  margin-bottom: 1rem;
+}
+
+.challenges-section h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.85rem;
+  color: #374151;
+}
+
+.challenge-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.challenge-card {
+  padding: 0.75rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.challenge-card.available {
+  border-style: dashed;
+}
+
+.challenge-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.challenge-icon {
+  font-size: 1.25rem;
+}
+
+.challenge-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.challenge-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.challenge-desc {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.challenge-progress {
+  margin-bottom: 0.35rem;
+}
+
+.progress-bar-sm {
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 0.25rem;
+}
+
+.progress-fill-sm {
+  height: 100%;
+  background: linear-gradient(90deg, #f59e0b, #eab308);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 0.7rem;
+  color: #6b7280;
+}
+
+.challenge-reward {
+  font-size: 0.75rem;
+  color: #92400e;
+}
+
+.start-challenge-btn {
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: 0.4rem;
+  background: linear-gradient(135deg, #f59e0b, #eab308);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.start-challenge-btn:hover {
+  filter: brightness(1.1);
+}
+
+.challenges-completed {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #059669;
+  padding: 0.5rem;
+  background: #ecfdf5;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.sync-strava-btn {
+  width: 100%;
+  padding: 0.5rem;
+  background: white;
+  border: 1px solid #FC4C02;
+  color: #FC4C02;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.sync-strava-btn:hover {
+  background: #fff7ed;
+}
+
+/* Clubs Tab */
+.clubs-section {
+  margin-bottom: 1rem;
+}
+
+.clubs-section h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.85rem;
+  color: #374151;
+}
+
+.club-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.club-card {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.club-card.joined {
+  border-left: 3px solid #3b82f6;
+}
+
+.club-icon {
+  font-size: 1.2rem;
+}
+
+.club-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.club-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.club-location {
+  font-size: 0.7rem;
+  color: #6b7280;
+}
+
+.club-members {
+  font-size: 0.7rem;
+  color: #9ca3af;
+}
+
+.join-club-btn {
+  padding: 0.3rem 0.6rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.join-club-btn:hover {
+  background: #2563eb;
+}
+
+/* Ride List */
+.ride-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ride-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.ride-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 36px;
+  padding: 0.25rem;
+  background: #3b82f6;
+  color: white;
+  border-radius: 6px;
+}
+
+.ride-day {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.ride-month {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+}
+
+.ride-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.ride-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.ride-details {
+  font-size: 0.7rem;
+  color: #6b7280;
+}
+
+/* Passport */
+.passport-section {
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+  border-radius: 10px;
+}
+
+.passport-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.passport-rides {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e40af;
+}
+
+.passport-milestones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.milestone-badge {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  background: white;
+  border-radius: 12px;
+  color: #9ca3af;
+  border: 1px solid #e5e7eb;
+}
+
+.milestone-badge.achieved {
+  background: #fef3c7;
+  color: #92400e;
+  border-color: #f59e0b;
 }
 
 /* Success Toast */

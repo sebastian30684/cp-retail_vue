@@ -1173,11 +1173,7 @@ export default {
       // Stop cart abandon timer - order was completed
       stopCartAbandonTimer()
 
-      // Save to loyalty storage
-      const userId = user.UID || 'demo_user'
-      loyaltyStorage.addOrder(userId, orderData)
-
-      // Track in CDP
+      // Track in CDP (order already saved in CheckoutPage)
       trackPurchase(orderData)
 
       // GTM PURCHASE TRACKING (loyalty data sent separately via LoyaltyActivity events)

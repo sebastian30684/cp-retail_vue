@@ -62,13 +62,10 @@
         <div class="section redeem-section">
           <h3>Redeem Points</h3>
           <div class="redeem-options">
-            <div v-for="option in getAvailableRedemptions()" :key="option.points" class="redeem-card"
+            <div v-for="option in getAvailableRedemptions(loyaltyData.currentTier)" :key="option.description" class="redeem-card"
               :class="{ disabled: loyaltyData.availablePoints < option.points }">
               <div class="redeem-type" :class="option.type">
-                <span v-if="option.type === 'voucher'">🎟️</span>
-                <span v-else-if="option.type === 'shipping'">📦</span>
-                <span v-else-if="option.type === 'experience'">🏔️</span>
-                <span v-else>🎁</span>
+                <span>{{ option.icon || '🎁' }}</span>
               </div>
               <div class="redeem-info">
                 <span class="redeem-description">{{ option.description }}</span>
@@ -296,14 +293,18 @@ export default {
     }
 
     const redemptionOptions = [
-      { points: 100, value: 5, type: 'voucher', description: '5 EUR Gutschein' },
-      { points: 200, value: 12, type: 'voucher', description: '12 EUR Gutschein' },
-      { points: 500, value: 35, type: 'voucher', description: '35 EUR Gutschein' },
-      { points: 1000, value: 80, type: 'voucher', description: '80 EUR Gutschein' },
-      { points: 150, value: null, type: 'shipping', description: 'Gratis Express-Versand' },
-      { points: 250, value: null, type: 'gift', description: 'Überraschungsgeschenk' },
-      { points: 1500, value: null, type: 'experience', description: 'Pro Ride Event Ticket' },
-      { points: 2000, value: null, type: 'experience', description: 'Factory Tour Koblenz' }
+      { points: 100, value: 5, type: 'voucher', description: '5 EUR Voucher', icon: '🎟️', minTier: 'rider' },
+      { points: 200, value: 12, type: 'voucher', description: '12 EUR Voucher', icon: '🎟️', minTier: 'rider' },
+      { points: 500, value: 35, type: 'voucher', description: '35 EUR Voucher', icon: '🎟️', minTier: 'rider' },
+      { points: 1000, value: 80, type: 'voucher', description: '80 EUR Voucher', icon: '🎟️', minTier: 'rider' },
+      { points: 150, value: null, type: 'shipping', description: 'Free Express Shipping', icon: '📦', minTier: 'rider' },
+      { points: 250, value: null, type: 'gift', description: 'Surprise Gift', icon: '🎁', minTier: 'rider' },
+      { points: 500, value: null, type: 'product', description: 'Free Canyon Cycling Socks', icon: '👕', minTier: 'racer' },
+      { points: 1000, value: null, type: 'product', description: 'Free Canyon CORE Road Jersey', icon: '👕', minTier: 'racer' },
+      { points: 1500, value: null, type: 'product', description: 'Free Canyon Bibshort', icon: '👕', minTier: 'legend' },
+      { points: 2000, value: null, type: 'product', description: 'Free Canyon Premium Kit', icon: '👕', minTier: 'legend' },
+      { points: 1500, value: null, type: 'experience', description: 'Pro Ride Event Ticket', icon: '🏔️', minTier: 'racer' },
+      { points: 2000, value: null, type: 'experience', description: 'Factory Tour Koblenz', icon: '🏭', minTier: 'legend' }
     ]
 
     const getTierIcon = (tier) => {
@@ -340,8 +341,13 @@ export default {
       return labels[category] || category
     }
 
-    const getAvailableRedemptions = () => {
-      return redemptionOptions
+    const getAvailableRedemptions = (currentTier) => {
+      const tierOrder = ['rider', 'racer', 'legend']
+      const currentTierIndex = tierOrder.indexOf(currentTier || 'rider')
+      return redemptionOptions.filter(opt => {
+        const minTierIndex = tierOrder.indexOf(opt.minTier || 'rider')
+        return currentTierIndex >= minTierIndex
+      })
     }
 
     const redeemPoints = (option) => {

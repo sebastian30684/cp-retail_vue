@@ -47,15 +47,21 @@
 </template>
 
 <script setup>
+import { inject } from 'vue'
 import { useStrava } from '../composables/useStrava'
+import { loyaltyStorage } from '../composables/useConsumerLoyalty'
 
 const emit = defineEmits(['connected'])
+const user = inject('user', { UID: 'demo_user' })
 
 const { connectStrava, isLoading } = useStrava()
 
 async function handleConnect() {
   const result = await connectStrava()
   if (result.success) {
+    // Award 100 bonus points for connecting Strava
+    const userId = user.UID || 'demo_user'
+    loyaltyStorage.addPoints(userId, 100, 'Strava Connected Bonus')
     emit('connected', result.athlete)
   }
 }
