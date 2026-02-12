@@ -6,12 +6,7 @@
         <p>Premium Bikes & Accessories</p>
 
         <!-- Emarsys Web Channel: Loyalty Banner -->
-        <div id="emarsys_webchannel_loyalty" class="login-notice">
-          <!-- TODO: Remove placeholder after Emarsys zone setup -->
-          <div style="background: linear-gradient(135deg, #fef3c7, #fde68a); border: 2px dashed #f59e0b; border-radius: 12px; padding: 2rem; text-align: center; color: #92400e;">
-            Emarsys Web Channel Zone: <strong>emarsys_webchannel_loyalty</strong>
-          </div>
-        </div>
+        <div id="emarsys_webchannel_loyalty" class="login-notice"></div>
       </div>
 
       <!-- Loading State -->
