@@ -225,7 +225,7 @@
     />
 
     <!-- Loyalty Floating Button (global, on all pages) -->
-    <LoyaltyFloatingButton :is-logged-in="user.isLoggedIn" />
+    <LoyaltyFloatingButton :is-logged-in="user.isLoggedIn" :loyalty-joined="loyaltyJoined" />
 
     <!-- Cookie Debug Overlay -->
     <CookieDebugOverlay />
@@ -234,7 +234,7 @@
 </template>
 
 <script>
-import { ref, reactive, onMounted, computed, provide } from 'vue'
+import { ref, reactive, onMounted, onUnmounted, computed, provide } from 'vue'
 import Header from './Header.vue'
 import Footer from './Footer.vue'
 import CookieConsent from './CookieConsent.vue'
@@ -474,6 +474,23 @@ export default {
     const { calculateTier } = useConsumerLoyalty()
     const { clearBikeGarage } = useBikeGarage()
     
+    // Loyalty join state (tracks Emarsys webchannel Join button click)
+    const loyaltyJoined = ref(localStorage.getItem('loyalty-joined') === 'true')
+
+    // Listen for clicks on the Emarsys Join button (capture phase to fire before stopPropagation)
+    const handleLoyaltyJoinClick = (e) => {
+      if (e.target.closest('#canyon-loyalty-join-btn')) {
+        loyaltyJoined.value = true
+        localStorage.setItem('loyalty-joined', 'true')
+        console.log('🎉 [Loyalty] User joined via Emarsys banner')
+      }
+    }
+    document.addEventListener('click', handleLoyaltyJoinClick, true)
+
+    onUnmounted(() => {
+      document.removeEventListener('click', handleLoyaltyJoinClick, true)
+    })
+
     // Core app state
     const currentPage = ref('home')
     const showCategoryModalVisible = ref(false)
@@ -1318,6 +1335,7 @@ export default {
       showProfileModal,
       showSettingsModal,
       isDevelopment,
+      loyaltyJoined,
       handleNavigation,
       handleShowAuthModal,
       handleLogin,

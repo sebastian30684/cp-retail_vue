@@ -15,7 +15,7 @@
     <div v-if="isModalOpen" class="modal-backdrop" @click="isModalOpen = false"></div>
 
     <!-- Floating Button -->
-    <button @click="isModalOpen = !isModalOpen" class="loyalty-floating-btn">
+    <button @click="loyaltyJoined && (isModalOpen = !isModalOpen)" :class="['loyalty-floating-btn', { 'loyalty-disabled': !loyaltyJoined }]">
       <div class="tier-icon-wrapper">
         <span class="tier-emoji">{{ tierIcon }}</span>
         <span v-if="loyaltyMetrics.availablePoints > 0" class="points-badge">
@@ -301,6 +301,10 @@ export default {
   name: 'LoyaltyFloatingButton',
   props: {
     isLoggedIn: {
+      type: Boolean,
+      default: false
+    },
+    loyaltyJoined: {
       type: Boolean,
       default: false
     }
@@ -699,9 +703,16 @@ export default {
   pointer-events: auto;
 }
 
-.loyalty-floating-btn:hover {
+.loyalty-floating-btn:hover:not(.loyalty-disabled) {
   transform: scale(1.05);
   box-shadow: 0 12px 40px rgba(59, 130, 246, 0.5);
+}
+
+.loyalty-floating-btn.loyalty-disabled {
+  background: linear-gradient(135deg, #9ca3af, #6b7280);
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .tier-icon-wrapper {
