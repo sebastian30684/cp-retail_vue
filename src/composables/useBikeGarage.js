@@ -198,27 +198,18 @@ export function useBikeGarage() {
   // ============================================
 
   /**
-   * Get Strava mileage for a bike by matching accountName with Strava gear name
+   * Get Strava mileage for a bike by its garage index (handles duplicate names)
    */
-  function getStravaMileage(accountName) {
-    const { getDistanceByGearName, isConnected, state: stravaState } = useStrava()
-    if (!isConnected.value) {
-      console.log('[BikeGarage] Strava not connected')
-      return 0
-    }
-    // Check if activities have gearId
-    const activitiesWithGear = stravaState.activities.filter(a => a.gearId)
-    if (activitiesWithGear.length === 0 && stravaState.activities.length > 0) {
-      console.warn('[BikeGarage] ⚠️ Activities have no gearId! Click "Sync Activities" in Strava to reload mock data.')
-    }
-    const km = getDistanceByGearName(accountName)
-    return km
+  function getStravaMileage(bikeIndex) {
+    const { getDistanceByGarageIndex, isConnected } = useStrava()
+    if (!isConnected.value) return 0
+    return getDistanceByGarageIndex(bikeIndex)
   }
 
-  function getStravaLastRide(accountName) {
-    const { getLastRideByGearName, isConnected } = useStrava()
+  function getStravaLastRide(bikeIndex) {
+    const { getLastRideByGarageIndex, isConnected } = useStrava()
     if (!isConnected.value) return null
-    return getLastRideByGearName(accountName)
+    return getLastRideByGarageIndex(bikeIndex)
   }
 
   /**
@@ -252,10 +243,11 @@ export function useBikeGarage() {
     console.log('[BikeGarage] Strava distancePerGear:', JSON.parse(JSON.stringify(distancePerGear.value)))
 
     const results = []
-    for (const bike of state.bikes) {
-      const km = getStravaMileage(bike.accountName)
-      const lastRide = getStravaLastRide(bike.accountName)
-      console.log('[BikeGarage] Bike:', bike.accountName, '| accountID:', bike.accountID, '| Strava km:', km, '| lastRide:', lastRide)
+    for (let i = 0; i < state.bikes.length; i++) {
+      const bike = state.bikes[i]
+      const km = getStravaMileage(i)
+      const lastRide = getStravaLastRide(i)
+      console.log('[BikeGarage] Bike:', bike.accountName, '| accountID:', bike.accountID, '| index:', i, '| Strava km:', km, '| lastRide:', lastRide)
       if (km > 0 && bike.accountID) {
         sendBikeMileageToCDP(bike.accountID, bike.accountName, km, lastRide?.date, lastRide?.km)
         results.push({ bikeId: bike.accountID, name: bike.accountName, km, lastRide, success: true })

@@ -54,7 +54,7 @@
 
       <!-- Bikes Grid -->
       <div v-else class="bikes-grid">
-        <div v-for="bike in bikes" :key="bike.accountID" class="bike-card">
+        <div v-for="(bike, bikeIndex) in bikes" :key="bike.accountID" class="bike-card">
           <div v-if="getBikeImage(bike.accountName)" class="bike-card-image">
             <img :src="getBikeImage(bike.accountName)" :alt="bike.accountName" />
           </div>
@@ -134,12 +134,12 @@
             </div>
           </div>
 
-          <div v-if="getStravaMileage(bike.accountName) > 0" class="strava-mileage-bar">
+          <div v-if="getStravaMileage(bikeIndex) > 0" class="strava-mileage-bar">
             <svg viewBox="0 0 24 24" class="strava-mileage-icon">
               <path fill="currentColor" d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169" />
             </svg>
             <span class="strava-mileage-label">Strava Mileage</span>
-            <span class="strava-mileage-value">{{ getStravaMileage(bike.accountName).toFixed(1) }} km</span>
+            <span class="strava-mileage-value">{{ getStravaMileage(bikeIndex).toFixed(1) }} km</span>
           </div>
 
           <div class="bike-details-grid">

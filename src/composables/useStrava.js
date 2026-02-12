@@ -549,6 +549,15 @@ export function useStrava() {
   }
 
   /**
+   * Get total distance by garage bike index (handles duplicate names)
+   * Returns km or 0 if not found
+   */
+  function getDistanceByGarageIndex(index) {
+    const gearId = `garage-${index}`
+    return distancePerGear.value[gearId] || 0
+  }
+
+  /**
    * Get the most recent ride for a gear by its name
    * Returns { date, km } or null if not found
    */
@@ -556,6 +565,20 @@ export function useStrava() {
     const gear = findGearByName(gearName)
     if (!gear) return null
     const gearActivities = state.activities.filter(a => a.gearId === gear.id)
+    if (gearActivities.length === 0) return null
+    const lastActivity = gearActivities.reduce((latest, a) =>
+      new Date(a.date) > new Date(latest.date) ? a : latest
+    )
+    return { date: lastActivity.date, km: lastActivity.distance }
+  }
+
+  /**
+   * Get the most recent ride by garage bike index (handles duplicate names)
+   * Returns { date, km } or null if not found
+   */
+  function getLastRideByGarageIndex(index) {
+    const gearId = `garage-${index}`
+    const gearActivities = state.activities.filter(a => a.gearId === gearId)
     if (gearActivities.length === 0) return null
     const lastActivity = gearActivities.reduce((latest, a) =>
       new Date(a.date) > new Date(latest.date) ? a : latest
@@ -661,7 +684,9 @@ export function useStrava() {
     registerGarageBikes,
     distancePerGear,
     getDistanceByGearName,
+    getDistanceByGarageIndex,
     getLastRideByGearName,
+    getLastRideByGarageIndex,
 
     // Challenge Integration
     getChallengeMetrics,
