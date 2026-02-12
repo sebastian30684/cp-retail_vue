@@ -613,9 +613,13 @@ export default {
 
 .login-notice:not(:empty) {
   display: block !important;
-  min-height: 270px;
   border-radius: 12px;
   overflow: hidden;
+}
+
+/* Override Emarsys guard absolute positioning so banner takes up layout space */
+.login-notice :deep([data-wps-guard]) {
+  position: relative !important;
 }
 
 /* Filters Section */
