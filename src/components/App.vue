@@ -650,7 +650,6 @@ export default {
     provide('cartDiscount', cartDiscount)
     provide('applyCartDiscount', applyCartDiscount)
     provide('removeCartDiscount', removeCartDiscount)
-    provide('addToCart', addToCart)
     
     // Check for existing cookie consent on mount
     onMounted(() => {
@@ -1095,7 +1094,9 @@ export default {
       // EMARSYS CART SYNC
       emarsysTracker.trackCart(cartItems.value);
     }
-    
+
+    provide('addToCart', addToCart)
+
     const removeFromCart = (productOrId) => {
       const id = typeof productOrId === 'string' ? productOrId : productOrId.id
       const index = cartItems.value.findIndex(item => item.id === id)
