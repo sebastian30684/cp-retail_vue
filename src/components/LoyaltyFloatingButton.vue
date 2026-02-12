@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isLoggedIn && loyaltyMetrics.lifetimePoints > 0" class="loyalty-floating-container">
+  <div v-if="isLoggedIn" class="loyalty-floating-container">
     <!-- Success Toast Notification -->
     <Transition name="toast">
       <div v-if="showSuccessToast" class="success-toast">
