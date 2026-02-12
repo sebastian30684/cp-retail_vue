@@ -608,10 +608,11 @@ export default {
 }
 
 .login-notice:empty {
-  display: none;
+  display: none !important;
 }
 
 .login-notice:not(:empty) {
+  display: block !important;
   min-height: 270px;
   border-radius: 12px;
   overflow: hidden;
